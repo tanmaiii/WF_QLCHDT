@@ -18,6 +18,7 @@ namespace WF_QLCHDT
         int donghh;
         string maHoaDon;
 
+
         public Frm_thanhToan()
         {
             InitializeComponent();
@@ -112,7 +113,12 @@ namespace WF_QLCHDT
             HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
             // Kết nối sự kiện SelectedIndexChanged của cbTenSP với phương thức cbTenSP_SelectedIndexChanged
             cbTenSP.SelectedIndexChanged += cbTenSP_SelectedIndexChanged;
-           
+
+            pnTTHoaDon.Enabled = true;
+            pnChonSP.Enabled = true;
+            pnDsSP.Enabled = true;
+            btnTaoDonHang.Enabled = true;
+
         }
         private void Frm_thanhToan_Load(object sender, EventArgs e)
         {
@@ -300,6 +306,7 @@ namespace WF_QLCHDT
         private void CapNhatTongTien()
         {
             int tongTien = 0;
+
             foreach (DataGridViewRow row in dgvSanPham.Rows)
             {
                 if (row.Cells["ThanhTien"].Value != null)
@@ -309,7 +316,7 @@ namespace WF_QLCHDT
             }
 
             // Hiển thị tổng tiền trong TextBox
-            tbTongTien.Text = tongTien.ToString("N0");
+            tbTongTien.Text = tongTien.ToString("");
         }
 
         //HOA DON//
@@ -321,7 +328,7 @@ namespace WF_QLCHDT
                 // Lấy thông tin từ các control
                 string maNhanVien = cbTenNV.SelectedValue.ToString();
                 DateTime ngayLapHD = dtNgayLap.Value;
-                string TongTien = tbTongTien.Text;
+                string TongTien = tbTongTien.Text; 
                 // Tạo mã hóa đơn
                 maHoaDon = TaoMaHoaDon();
 
@@ -407,11 +414,19 @@ namespace WF_QLCHDT
             }
             else
             {
-                ThemKhachHang();
-                if (!string.IsNullOrEmpty(maHoaDon))
+                DialogResult result =  MessageBox.Show("Bạn có chắc chắn muốn lưu đơn hàng không ? Khi lưu không thể chỉnh sửa hóa đơn !", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(result == DialogResult.Yes)
                 {
-                    tbMaHoaDon.Text = maHoaDon.ToString();
-                    btnInHoaDon.Visible = true;
+                    ThemKhachHang();
+                    if (!string.IsNullOrEmpty(maHoaDon))
+                    {
+                        tbMaHoaDon.Text = maHoaDon.ToString();
+                        btnInHoaDon.Visible = true;
+                        pnTTHoaDon.Enabled = false;
+                        pnChonSP.Enabled = false;
+                        pnDsSP.Enabled = false;
+                        btnTaoDonHang.Enabled = false;
+                    }
                 }
             }
 

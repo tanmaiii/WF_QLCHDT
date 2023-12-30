@@ -25,18 +25,12 @@ namespace WF_QLCHDT
 
         void HienThiDuLieu()
         {
-            string mysql = "select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, TenNCC, SoLuongTonKho from sanpham, loai, nhacungcap where sanpham.MaLoai = loai.MaLoai and sanpham.MaNCC = nhacungcap.MaNCC;";
+            string mysql = "select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho from sanpham, loai where sanpham.MaLoai = loai.MaLoai";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
             dataGridView1.DataSource = bangDuLieu;
+            dataGridView1.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
         }
 
-        void HienThiNhaCC()
-        {
-            string mysql = "select* from nhacungcap";
-            cbMaNCC.DataSource = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
-            cbMaNCC.DisplayMember = "TenNCC";//hien thi ten
-            cbMaNCC.ValueMember = "MaNCC";//gia tri
-        }
 
         void HienThiLoai()
         {
@@ -54,7 +48,6 @@ namespace WF_QLCHDT
             {
                 tbMaSP.Text = bangDuLieu.Rows[donghh]["MaSP"].ToString();
                 tbTenSP.Text = bangDuLieu.Rows[donghh]["TenSP"].ToString();
-                cbMaNCC.Text = bangDuLieu.Rows[donghh]["TenNCC"].ToString();
                 tbGiaSP.Text = bangDuLieu.Rows[donghh]["GiaSP"].ToString();
                 cbHangSP.Text = bangDuLieu.Rows[donghh]["HangSP"].ToString();
                 cbXuatXuSP.Text = bangDuLieu.Rows[donghh]["XuatXuSP"].ToString();
@@ -82,7 +75,6 @@ namespace WF_QLCHDT
         private bool KiemTraRong()
         {
             if (string.IsNullOrEmpty(tbMaSP.Text) || string.IsNullOrEmpty(tbTenSP.Text) ||
-                cbMaNCC.SelectedValue == null || string.IsNullOrEmpty(tbGiaSP.Text) ||
                 string.IsNullOrEmpty(cbHangSP.Text) || string.IsNullOrEmpty(cbXuatXuSP.Text) ||
                 cbMaLoai.SelectedValue == null || string.IsNullOrEmpty(tbSoLuongTonKho.Text))
             {
@@ -96,7 +88,6 @@ namespace WF_QLCHDT
         private void Frm_sanPham_Load(object sender, EventArgs e)
         {
             HienThiLoai();
-            HienThiNhaCC();
             cbHangSP.SelectedIndex = 0; // Chọn mặc 
             cbXuatXuSP.SelectedIndex = 0; // Chọn mặc định 
             HienThiDuLieu();
@@ -139,11 +130,25 @@ namespace WF_QLCHDT
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+
+            if (double.Parse(tbGiaSP?.Text) > 1000000000)
+            {
+                MessageBox.Show("Giá sản phẩm không vượt quá 100,000,000");
+                return;
+            }
+
+
+            if (Int32.Parse(tbSoLuongTonKho?.Text) > 999)
+            {
+                MessageBox.Show("Số lượng tồn kho không vượt quá  999");
+                return;
+            }
+
             // Kiểm tra nếu các trường thông tin không rỗng
             if (KiemTraRong())
             {
                 // Cập nhật vào CSDL
-                string lenhUpdate = $"UPDATE sanpham SET TenSP = '{tbTenSP.Text}', MaNCC = '{cbMaNCC.SelectedValue}', " +
+                string lenhUpdate = $"UPDATE sanpham SET TenSP = '{tbTenSP.Text}' ," +
                                     $"GiaSP = '{tbGiaSP.Text}', HangSP = '{cbHangSP.Text}', XuatXuSP = '{cbXuatXuSP.Text}', " +
                                     $"MaLoai = '{cbMaLoai.SelectedValue}', SoLuongTonKho = '{tbSoLuongTonKho.Text}' " +
                                     $"WHERE MaSP = '{tbMaSP.Text}'";
@@ -174,7 +179,7 @@ namespace WF_QLCHDT
             }
 
 
-            if (int.Parse(tbSoLuongTonKho.Text) > 999)
+            if (Int32.Parse(tbSoLuongTonKho.Text) > 999)
             {
                 MessageBox.Show("Số lượng tồn kho không vượt quá  999");
                 return;
@@ -189,8 +194,8 @@ namespace WF_QLCHDT
             }
             else
             {
-                string lenhInsert = $"INSERT INTO sanpham (MaSP, TenSP, MaNCC, GiaSP, HangSP, XuatXuSP, MaLoai, SoLuongTonKho) VALUES " +
-                                    $"('{tbMaSP.Text}', '{tbTenSP.Text}', '{cbMaNCC.SelectedValue}', '{tbGiaSP.Text}', " +
+                string lenhInsert = $"INSERT INTO sanpham (MaSP, TenSP, GiaSP, HangSP, XuatXuSP, MaLoai, SoLuongTonKho) VALUES " +
+                                    $"('{tbMaSP.Text}', '{tbTenSP.Text}', '{tbGiaSP.Text}', " +
                                     $"'{cbHangSP.Text}', '{cbXuatXuSP.Text}', '{cbMaLoai.SelectedValue}', '{tbSoLuongTonKho.Text}')";
 
                 ketNoi.ThucHienLenh(lenhInsert);

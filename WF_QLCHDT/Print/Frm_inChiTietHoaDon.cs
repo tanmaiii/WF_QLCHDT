@@ -18,8 +18,7 @@ namespace WF_QLCHDT.Print
 {
     public partial class Frm_inChiTietHoaDon : Form
     {
-        public string MaKH, TenKH, SoDienThoaiKh, DiaChiKH;
-        public string MaHD;
+        public string MaHD ;
 
         KetNoiMySql ketnoi = new KetNoiMySql(); 
         DataTable bangdulieu = new DataTable();
@@ -69,7 +68,8 @@ namespace WF_QLCHDT.Print
                     lbMaKH.Text = dataTable.Rows[0]["MaKH"].ToString();
                     lbSoDienThoaiKH.Text = dataTable.Rows[0]["SoDienThoaiKH"].ToString();
                     lbTenNV.Text = dataTable.Rows[0]["TenNV"].ToString();
-                    lbTongTien.Text = ChuoiTien(dataTable.Rows[0]["TongTien"].ToString());
+
+                    lbTongTien.Text = ChuoiTien(dataTable.Rows[0]["TongTien"].ToString()) + " VND ";
                     lbBangChu.Text = NumberToText(double.Parse(dataTable.Rows[0]["TongTien"].ToString()));
                 }
                 else
@@ -135,11 +135,18 @@ namespace WF_QLCHDT.Print
             e.Graphics.DrawImage(bmp, e.PageBounds);
         }
 
+
+        // chuyển tổng tiền thành chữ 
         public static string NumberToText(double inputNumber, bool suffix = false)
         {
             string[] unitNumbers = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
             string[] placeValues = new string[] { "", "nghìn", "triệu", "tỷ" };
             bool isNegative = false;
+
+            if (inputNumber == 0)
+            {
+                return "Không đồng";
+            }
 
             // -12345678.3445435 => "-12345678"
             string sNumber = inputNumber.ToString("#");

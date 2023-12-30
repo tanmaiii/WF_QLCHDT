@@ -38,11 +38,11 @@
             this.btn_nhacungcap = new System.Windows.Forms.Button();
             this.btn_hoadon = new System.Windows.Forms.Button();
             this.btn_thongke = new System.Windows.Forms.Button();
+            this.btn_khohang = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pn_body = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lb_tieuDe = new System.Windows.Forms.Label();
-            this.btn_khohang = new System.Windows.Forms.Button();
             this.fpn_menu.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -204,7 +204,7 @@
             this.btn_hoadon.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_hoadon.Size = new System.Drawing.Size(310, 80);
             this.btn_hoadon.TabIndex = 1;
-            this.btn_hoadon.Text = "       Hóa đơn";
+            this.btn_hoadon.Text = "       Hóa đơn KH";
             this.btn_hoadon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_hoadon.UseVisualStyleBackColor = false;
             this.btn_hoadon.Click += new System.EventHandler(this.btn_hoadon_Click);
@@ -229,6 +229,27 @@
             this.btn_thongke.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_thongke.UseVisualStyleBackColor = false;
             this.btn_thongke.Click += new System.EventHandler(this.btn_thongke_Click);
+            // 
+            // btn_khohang
+            // 
+            this.btn_khohang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_khohang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_khohang.FlatAppearance.BorderSize = 0;
+            this.btn_khohang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_khohang.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_khohang.ForeColor = System.Drawing.Color.White;
+            this.btn_khohang.Image = ((System.Drawing.Image)(resources.GetObject("btn_khohang.Image")));
+            this.btn_khohang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_khohang.Location = new System.Drawing.Point(3, 682);
+            this.btn_khohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_khohang.Name = "btn_khohang";
+            this.btn_khohang.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_khohang.Size = new System.Drawing.Size(310, 80);
+            this.btn_khohang.TabIndex = 4;
+            this.btn_khohang.Text = "       Kho hàng";
+            this.btn_khohang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_khohang.UseVisualStyleBackColor = false;
+            this.btn_khohang.Click += new System.EventHandler(this.btn_khohang_Click);
             // 
             // button1
             // 
@@ -285,27 +306,6 @@
             this.lb_tieuDe.Size = new System.Drawing.Size(141, 38);
             this.lb_tieuDe.TabIndex = 0;
             this.lb_tieuDe.Text = "Trang chủ";
-            // 
-            // btn_khohang
-            // 
-            this.btn_khohang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_khohang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_khohang.FlatAppearance.BorderSize = 0;
-            this.btn_khohang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_khohang.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_khohang.ForeColor = System.Drawing.Color.White;
-            this.btn_khohang.Image = ((System.Drawing.Image)(resources.GetObject("btn_khohang.Image")));
-            this.btn_khohang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_khohang.Location = new System.Drawing.Point(3, 682);
-            this.btn_khohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_khohang.Name = "btn_khohang";
-            this.btn_khohang.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_khohang.Size = new System.Drawing.Size(310, 80);
-            this.btn_khohang.TabIndex = 4;
-            this.btn_khohang.Text = "       Kho hàng";
-            this.btn_khohang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_khohang.UseVisualStyleBackColor = false;
-            this.btn_khohang.Click += new System.EventHandler(this.btn_khohang_Click);
             // 
             // Frm_Main
             // 

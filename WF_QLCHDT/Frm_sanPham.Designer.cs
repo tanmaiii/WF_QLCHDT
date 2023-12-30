@@ -35,13 +35,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cbXuatXuSP = new System.Windows.Forms.ComboBox();
             this.cbMaLoai = new System.Windows.Forms.ComboBox();
-            this.cbMaNCC = new System.Windows.Forms.ComboBox();
             this.tbSoLuongTonKho = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tbTenSP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbMaSP = new System.Windows.Forms.TextBox();
@@ -85,13 +83,11 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.cbXuatXuSP);
             this.panel1.Controls.Add(this.cbMaLoai);
-            this.panel1.Controls.Add(this.cbMaNCC);
             this.panel1.Controls.Add(this.tbSoLuongTonKho);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.tbTenSP);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbMaSP);
@@ -129,7 +125,7 @@
             // 
             this.tbGiaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbGiaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGiaSP.Location = new System.Drawing.Point(20, 365);
+            this.tbGiaSP.Location = new System.Drawing.Point(612, 275);
             this.tbGiaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbGiaSP.Name = "tbGiaSP";
             this.tbGiaSP.Size = new System.Drawing.Size(380, 45);
@@ -170,27 +166,17 @@
             // 
             this.cbMaLoai.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMaLoai.FormattingEnabled = true;
-            this.cbMaLoai.Location = new System.Drawing.Point(612, 274);
+            this.cbMaLoai.Location = new System.Drawing.Point(21, 274);
             this.cbMaLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMaLoai.Name = "cbMaLoai";
             this.cbMaLoai.Size = new System.Drawing.Size(380, 46);
             this.cbMaLoai.TabIndex = 20;
             // 
-            // cbMaNCC
-            // 
-            this.cbMaNCC.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaNCC.FormattingEnabled = true;
-            this.cbMaNCC.Location = new System.Drawing.Point(16, 274);
-            this.cbMaNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbMaNCC.Name = "cbMaNCC";
-            this.cbMaNCC.Size = new System.Drawing.Size(380, 46);
-            this.cbMaNCC.TabIndex = 19;
-            // 
             // tbSoLuongTonKho
             // 
             this.tbSoLuongTonKho.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSoLuongTonKho.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSoLuongTonKho.Location = new System.Drawing.Point(612, 365);
+            this.tbSoLuongTonKho.Location = new System.Drawing.Point(23, 365);
             this.tbSoLuongTonKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSoLuongTonKho.Name = "tbSoLuongTonKho";
             this.tbSoLuongTonKho.Size = new System.Drawing.Size(380, 45);
@@ -201,7 +187,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(612, 322);
+            this.label8.Location = new System.Drawing.Point(16, 322);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 38);
             this.label8.TabIndex = 13;
@@ -231,21 +217,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(606, 232);
+            this.label5.Location = new System.Drawing.Point(15, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 38);
             this.label5.TabIndex = 7;
             this.label5.Text = "Loại SP";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 231);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(188, 38);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Nhà cung cấp";
             // 
             // tbTenSP
             // 
@@ -291,7 +267,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 322);
+            this.label1.Location = new System.Drawing.Point(612, 232);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 38);
             this.label1.TabIndex = 26;
@@ -572,14 +548,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbTenSP;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbTimKiem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbXuatXuSP;
         private System.Windows.Forms.ComboBox cbMaLoai;
-        private System.Windows.Forms.ComboBox cbMaNCC;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbGiaSP;

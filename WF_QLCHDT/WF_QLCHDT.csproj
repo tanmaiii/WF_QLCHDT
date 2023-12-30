@@ -184,6 +184,12 @@
       <DependentUpon>Frm_trangChu.cs</DependentUpon>
     </Compile>
     <Compile Include="KetNoiMySql.cs" />
+    <Compile Include="Print\Frm_inChiTietDonDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\Frm_inChiTietDonDatHang.Designer.cs">
+      <DependentUpon>Frm_inChiTietDonDatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Print\Frm_inChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_trangChu.resx">
       <DependentUpon>Frm_trangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\Frm_inChiTietDonDatHang.resx">
+      <DependentUpon>Frm_inChiTietDonDatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print\Frm_inChiTietHoaDon.resx">
       <DependentUpon>Frm_inChiTietHoaDon.cs</DependentUpon>

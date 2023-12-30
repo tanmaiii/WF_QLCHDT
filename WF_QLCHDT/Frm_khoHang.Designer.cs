@@ -46,7 +46,7 @@
             this.HangSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongTonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoHang)).BeginInit();
             this.panel1.SuspendLayout();
@@ -100,7 +100,7 @@
             this.HangSP,
             this.SoLuongTonKho,
             this.ngayNhap,
-            this.TenNCC});
+            this.GiaSP});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,14 +109,14 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKhoHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvKhoHang.Location = new System.Drawing.Point(9, 47);
+            this.dgvKhoHang.Location = new System.Drawing.Point(9, 50);
             this.dgvKhoHang.Name = "dgvKhoHang";
             this.dgvKhoHang.ReadOnly = true;
             this.dgvKhoHang.RowHeadersVisible = false;
             this.dgvKhoHang.RowHeadersWidth = 62;
             this.dgvKhoHang.RowTemplate.Height = 28;
             this.dgvKhoHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhoHang.Size = new System.Drawing.Size(1337, 624);
+            this.dgvKhoHang.Size = new System.Drawing.Size(1349, 624);
             this.dgvKhoHang.TabIndex = 0;
             // 
             // btnTimKiem
@@ -254,13 +254,13 @@
             this.ngayNhap.Name = "ngayNhap";
             this.ngayNhap.ReadOnly = true;
             // 
-            // TenNCC
+            // GiaSP
             // 
-            this.TenNCC.DataPropertyName = "TenNCC";
-            this.TenNCC.HeaderText = "Nhà cung cấp";
-            this.TenNCC.MinimumWidth = 8;
-            this.TenNCC.Name = "TenNCC";
-            this.TenNCC.ReadOnly = true;
+            this.GiaSP.DataPropertyName = "GiaSP";
+            this.GiaSP.HeaderText = "Giá SP";
+            this.GiaSP.MinimumWidth = 8;
+            this.GiaSP.Name = "GiaSP";
+            this.GiaSP.ReadOnly = true;
             // 
             // Frm_khoHang
             // 
@@ -300,6 +300,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HangSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongTonKho;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayNhap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenNCC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaSP;
     }
 }

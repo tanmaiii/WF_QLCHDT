@@ -38,7 +38,7 @@
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.tbSoDienThoaiKH = new System.Windows.Forms.TextBox();
             this.tbDiaChiKH = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnTTHoaDon = new System.Windows.Forms.Panel();
             this.tbMaHoaDon = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cbTenNV = new System.Windows.Forms.ComboBox();
@@ -49,7 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnDsSP = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbTongTien = new System.Windows.Forms.TextBox();
@@ -62,7 +62,7 @@
             this.TenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soLuongMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnChonSP = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.tbGiaSP = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -77,10 +77,10 @@
             this.cbTenSP = new System.Windows.Forms.ComboBox();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnTTHoaDon.SuspendLayout();
+            this.pnDsSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnChonSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,30 +182,30 @@
             this.tbDiaChiKH.Size = new System.Drawing.Size(352, 45);
             this.tbDiaChiKH.TabIndex = 19;
             // 
-            // panel1
+            // pnTTHoaDon
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnTTHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tbMaHoaDon);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.cbTenNV);
-            this.panel1.Controls.Add(this.dtNgayLap);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.tbTenKH);
-            this.panel1.Controls.Add(this.tbSoDienThoaiKH);
-            this.panel1.Controls.Add(this.tbDiaChiKH);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1367, 246);
-            this.panel1.TabIndex = 4;
+            this.pnTTHoaDon.BackColor = System.Drawing.Color.White;
+            this.pnTTHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnTTHoaDon.Controls.Add(this.tbMaHoaDon);
+            this.pnTTHoaDon.Controls.Add(this.label17);
+            this.pnTTHoaDon.Controls.Add(this.cbTenNV);
+            this.pnTTHoaDon.Controls.Add(this.dtNgayLap);
+            this.pnTTHoaDon.Controls.Add(this.label14);
+            this.pnTTHoaDon.Controls.Add(this.label7);
+            this.pnTTHoaDon.Controls.Add(this.tbTenKH);
+            this.pnTTHoaDon.Controls.Add(this.tbSoDienThoaiKH);
+            this.pnTTHoaDon.Controls.Add(this.tbDiaChiKH);
+            this.pnTTHoaDon.Controls.Add(this.label8);
+            this.pnTTHoaDon.Controls.Add(this.label6);
+            this.pnTTHoaDon.Controls.Add(this.label3);
+            this.pnTTHoaDon.Controls.Add(this.label2);
+            this.pnTTHoaDon.Location = new System.Drawing.Point(12, 12);
+            this.pnTTHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnTTHoaDon.Name = "pnTTHoaDon";
+            this.pnTTHoaDon.Size = new System.Drawing.Size(1367, 246);
+            this.pnTTHoaDon.TabIndex = 4;
             // 
             // tbMaHoaDon
             // 
@@ -324,24 +324,24 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên khách hàng ";
             // 
-            // panel2
+            // pnDsSP
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnDsSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.tbTongTien);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.dgvSanPham);
-            this.panel2.Location = new System.Drawing.Point(12, 438);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1367, 352);
-            this.panel2.TabIndex = 5;
+            this.pnDsSP.BackColor = System.Drawing.Color.White;
+            this.pnDsSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnDsSP.Controls.Add(this.label15);
+            this.pnDsSP.Controls.Add(this.label13);
+            this.pnDsSP.Controls.Add(this.tbTongTien);
+            this.pnDsSP.Controls.Add(this.label11);
+            this.pnDsSP.Controls.Add(this.label4);
+            this.pnDsSP.Controls.Add(this.dgvSanPham);
+            this.pnDsSP.Location = new System.Drawing.Point(12, 438);
+            this.pnDsSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnDsSP.Name = "pnDsSP";
+            this.pnDsSP.Size = new System.Drawing.Size(1367, 352);
+            this.pnDsSP.TabIndex = 5;
             // 
             // label15
             // 
@@ -496,36 +496,36 @@
             this.thanhTien.Name = "thanhTien";
             this.thanhTien.ReadOnly = true;
             // 
-            // panel3
+            // pnChonSP
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnChonSP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.tbGiaSP);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.tbSoLuongTonKho);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.nuSoLuong);
-            this.panel3.Controls.Add(this.cbTenLoai);
-            this.panel3.Controls.Add(this.btnThemSP);
-            this.panel3.Controls.Add(this.cbTenSP);
-            this.panel3.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.panel3.Location = new System.Drawing.Point(12, 265);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1367, 168);
-            this.panel3.TabIndex = 6;
+            this.pnChonSP.BackColor = System.Drawing.Color.White;
+            this.pnChonSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnChonSP.Controls.Add(this.tbGiaSP);
+            this.pnChonSP.Controls.Add(this.label12);
+            this.pnChonSP.Controls.Add(this.tbSoLuongTonKho);
+            this.pnChonSP.Controls.Add(this.label10);
+            this.pnChonSP.Controls.Add(this.label9);
+            this.pnChonSP.Controls.Add(this.label5);
+            this.pnChonSP.Controls.Add(this.label1);
+            this.pnChonSP.Controls.Add(this.nuSoLuong);
+            this.pnChonSP.Controls.Add(this.cbTenLoai);
+            this.pnChonSP.Controls.Add(this.btnThemSP);
+            this.pnChonSP.Controls.Add(this.cbTenSP);
+            this.pnChonSP.Controls.Add(this.label16);
+            this.pnChonSP.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.pnChonSP.Location = new System.Drawing.Point(12, 265);
+            this.pnChonSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnChonSP.Name = "pnChonSP";
+            this.pnChonSP.Size = new System.Drawing.Size(1367, 168);
+            this.pnChonSP.TabIndex = 6;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(949, 48);
+            this.label16.Location = new System.Drawing.Point(950, 48);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(190, 38);
             this.label16.TabIndex = 30;
@@ -696,21 +696,21 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1409, 889);
             this.Controls.Add(flowLayoutPanel1);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnChonSP);
+            this.Controls.Add(this.pnTTHoaDon);
+            this.Controls.Add(this.pnDsSP);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_thanhToan";
             this.Text = "Thanh toán";
             this.Load += new System.EventHandler(this.Frm_thanhToan_Load);
             flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnTTHoaDon.ResumeLayout(false);
+            this.pnTTHoaDon.PerformLayout();
+            this.pnDsSP.ResumeLayout(false);
+            this.pnDsSP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnChonSP.ResumeLayout(false);
+            this.pnChonSP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoLuong)).EndInit();
             this.ResumeLayout(false);
 
@@ -721,13 +721,13 @@
         private System.Windows.Forms.TextBox tbTenKH;
         private System.Windows.Forms.TextBox tbSoDienThoaiKH;
         private System.Windows.Forms.TextBox tbDiaChiKH;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnTTHoaDon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnDsSP;
         private System.Windows.Forms.DataGridView dgvSanPham;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnChonSP;
         private System.Windows.Forms.ComboBox cbTenSP;
         private System.Windows.Forms.Button btnTaoDonHang;
         private System.Windows.Forms.Button btnThemSP;

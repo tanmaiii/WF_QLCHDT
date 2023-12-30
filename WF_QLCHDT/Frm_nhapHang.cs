@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Crypto.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,26 +9,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace WF_QLCHDT
 {
     public partial class Frm_nhapHang : Form
     {
         KetNoiMySql ketnoi = new KetNoiMySql();
-        private string previousSelectedValue;
+
 
         public Frm_nhapHang()
         {
             InitializeComponent();
         }
 
+        private void Frm_nhapHang_Load(object sender, EventArgs e)
+        {
+            HienThiNhanVien();
+            HienThiNhaCungCap();
+            HienThiSanPham();
+            cbTenSP_SelectedIndexChanged(sender, e);
+        }
+
+
         void HienThiNhanVien()
         {
             string mysql = "select * from nhanvien";
             DataTable nhanvien = ketnoi.ThucHienTruyVan(mysql);
-            cbNhanVien.DataSource = nhanvien;
-            cbNhanVien.DisplayMember = "TenNV";
-            cbNhanVien.ValueMember = "MaNV";
+            cbTenNV.DataSource = nhanvien;
+            cbTenNV.DisplayMember = "TenNV";
+            cbTenNV.ValueMember = "MaNV";
         }
 
         void HienThiNhaCungCap()
@@ -39,9 +50,9 @@ namespace WF_QLCHDT
             cbNhaCC.ValueMember = "MaNCC";
         }
 
-        void HienThiSanPhamTheoNhaCungCap(string maNCC)
+        void HienThiSanPham()
         {
-            string mysql = $"SELECT * FROM sanpham WHERE MaNCC = '{maNCC}'";
+            string mysql = $"SELECT * FROM sanpham";
             DataTable sanPhamDuLieu = ketnoi.ThucHienTruyVan(mysql);
             // Kiểm tra xem DataTable có hàng nào hay không
             if (sanPhamDuLieu.Rows.Count > 0)
@@ -59,32 +70,19 @@ namespace WF_QLCHDT
             }
         }
 
-        private void Frm_nhapHang_Load(object sender, EventArgs e)
+        public void Reset()
         {
-            HienThiNhanVien();
+            dgvSanPham.Rows.Clear();
+            tbTongTien.Clear();
+
+
+            pnTTSP.Enabled = true;
+            pnDSSP.Enabled = true;
+            btnTaoDonHang.Enabled = true;
+
+            HienThiSanPham();
             HienThiNhaCungCap();
-            HienThiSanPhamTheoNhaCungCap(cbNhaCC.SelectedValue.ToString());
-            cbTenSP_SelectedIndexChanged(sender, e);
-            previousSelectedValue = cbNhaCC.SelectedItem?.ToString();
-        }
-
-        private void cbNhaNCC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedValue = cbNhaCC.SelectedItem?.ToString();
-
-            // Kiểm tra xem giá trị mới có khác với giá trị trước đó không
-            if (selectedValue != previousSelectedValue)
-            {
-                // Thực hiện các hành động khi giá trị mới được chọn
-                // Ví dụ: MessageBox.Show("Giá trị mới: " + selectedValue);
-                dgvSanPham.Rows.Clear();
-                HienThiSanPhamTheoNhaCungCap(cbNhaCC.SelectedValue.ToString());
-
-                MessageBox.Show("Thay doi");
-
-                // Lưu giá trị mới để so sánh trong lần tiếp theo
-                previousSelectedValue = selectedValue;
-            }
+            HienThiNhanVien();
         }
 
         private void cbTenSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,7 +121,7 @@ namespace WF_QLCHDT
 
         private void UpdateThanhTien(DataGridViewRow row)
         {
-            int soLuongMua = Convert.ToInt32(row.Cells["soLuongMua"].Value);
+            int soLuongMua = Convert.ToInt32(row.Cells["SoLuong"].Value);
             int giaSanPham = Convert.ToInt32(row.Cells["GiaSP"].Value);
             int thanhTien = soLuongMua * giaSanPham;
             row.Cells["ThanhTien"].Value = thanhTien;
@@ -143,7 +141,31 @@ namespace WF_QLCHDT
             }
 
             // Hiển thị tổng tiền trong TextBox
-            tbTongTien.Text = tongTien.ToString("N0");
+            tbTongTien.Text = tongTien.ToString();
+        }
+
+        private void capNhatSoLuongSanPham(string maSanPham, int soLuongNhap)
+        {
+            try
+            {
+                // Lấy thông tin số lượng tồn kho hiện tại
+                string sqlSelect = $"SELECT SoLuongTonKho FROM sanpham WHERE MaSP = '{maSanPham}'";
+                DataTable dt = ketnoi.ThucHienTruyVan(sqlSelect);
+
+                if (dt.Rows.Count > 0)
+                {
+                    int soLuongHienTai = Convert.ToInt32(dt.Rows[0]["SoLuongTonKho"]);
+                    int soLuongMoi = soLuongHienTai + soLuongNhap;
+
+                    // Cập nhật số lượng tồn kho trong bảng sanpham
+                    string sqlUpdate = $"UPDATE sanpham SET SoLuongTonKho = {soLuongMoi} WHERE MaSP = '{maSanPham}'";
+                    ketnoi.ThucHienLenh(sqlUpdate);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi cập nhật số lượng tồn kho: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnThemSP_Click(object sender, EventArgs e)
@@ -159,7 +181,7 @@ namespace WF_QLCHDT
             string maSanPham = cbTenSP.SelectedValue.ToString();
             string tenSanPham = cbTenSP.Text;
             string giaSanPham = tbGiaSP.Text;
-            int soLuongMua = (int)nuSoLuong.Value;
+            int soLuong = (int)nuSoLuong.Value;
 
             // Kiểm tra xem sản phẩm đã tồn tại trong DataGridView chưa
             bool daTonTai = false;
@@ -169,9 +191,9 @@ namespace WF_QLCHDT
                 {
                     // Sản phẩm đã tồn tại, tăng số lượng
                     // int soLuongHienTai = Convert.ToInt32(row.Cells["SoLuongMua"].Value);
-                    int tongSoLuongMua = soLuongMua;
+                    int tongSoLuongMua = soLuong;
 
-                    row.Cells["soLuongMua"].Value = tongSoLuongMua;
+                    row.Cells["SoLuong"].Value = tongSoLuongMua;
                     UpdateThanhTien(row);
 
                     daTonTai = true;
@@ -182,8 +204,8 @@ namespace WF_QLCHDT
             // Nếu sản phẩm chưa tồn tại, thêm hàng mới
             if (!daTonTai)
             {
-                int thanhTien = soLuongMua * Convert.ToInt32(giaSanPham);
-                dgvSanPham.Rows.Add(maSanPham, tenSanPham, giaSanPham, soLuongMua, thanhTien);
+                int thanhTien = soLuong * Convert.ToInt32(giaSanPham);
+                dgvSanPham.Rows.Add(maSanPham, tenSanPham, giaSanPham, soLuong, thanhTien);
             }
             CapNhatTongTien();
         }
@@ -200,9 +222,113 @@ namespace WF_QLCHDT
             }
         }
 
-        private void cbNhaNCC_SelectedValueChanged(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn làm mới không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Reset();
+                dgvSanPham.Rows.Clear();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+
+        private void btnTaoDonHang_Click(object sender, EventArgs e)
+        {
+            if (dgvSanPham.Rows.Count == 0)
+            {
+                MessageBox.Show("Hãy chọn sản phẩm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn lưu đơn hàng không ? Khi lưu không thể chỉnh sửa hóa đơn !", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                        ThemDonNhapHang();
+                        pnTTSP.Enabled = false;
+                        pnDSSP.Enabled = false;
+                        btnTaoDonHang.Enabled = false;
+                }
+               
+            }
+        }
+
+        private string TaoMaDonDatHang()
+        {
+            long ticks = DateTime.Now.Ticks;
+            string uniqueCode = ticks.ToString("X");
+            return "DDH" + uniqueCode;
+        }
+
+        string MaDDH;
+        private void ThemDonNhapHang()
+        {
+            try
+            {
+                // Lấy thông tin từ các control
+                string MaNV = cbTenNV.SelectedValue.ToString();
+                DateTime ngayGioHienTai = DateTime.Now;
+                string MaNCC = cbNhaCC.SelectedValue.ToString();
+                string TongTien = tbTongTien.Text;
+
+
+                // Tạo mã hóa đơn
+                MaDDH = TaoMaDonDatHang();
+
+                // Thực hiện câu lệnh SQL INSERT
+                string mysql = $"INSERT INTO dondathang (MaDDH, MaNV, MaNCC, NgayLapDDH, TongTien) VALUES ('{MaDDH}', '{MaNV}', '{MaNCC}', '{ngayGioHienTai.ToString("yyyy-MM-dd HH:mm:ss")}', '{TongTien}')";
+
+                ketnoi.ThucHienLenh(mysql);
+
+                ThemChiTietHoadon(MaDDH);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ThemChiTietHoadon(string MaDDH)
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dgvSanPham.Rows)
+                {
+                    // Lấy thông tin từ các cột trong DataGridView
+                    string MaSP = row.Cells["maSP"].Value.ToString();
+                    int SoLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    string ThanhTien = row.Cells["ThanhTien"].Value.ToString();
+
+                    // Thực hiện câu lệnh SQL INSERT vào bảng hoadonchitiet
+                    string mysqlChiTiet = $"INSERT INTO chitietdondathang (MaSP, MaDDH, SoLuong, ThanhTien) VALUES ('{MaSP}', '{MaDDH}', '{SoLuong}', '{ThanhTien}')";
+
+                    ketnoi.ThucHienLenh(mysqlChiTiet);
+
+                    //Cap nhat so lượng tồn kho 
+                    capNhatSoLuongSanPham(MaSP, SoLuong);
+                }
+
+                btnInHoaDon.Visible = true;
+                MessageBox.Show("Thêm chi tiết hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            Print.Frm_inChiTietDonDatHang FrmChiTietDonHang = new Print.Frm_inChiTietDonDatHang();
+            FrmChiTietDonHang.MaDDH = MaDDH;
+            FrmChiTietDonHang.ShowDialog();
         }
     }
 }

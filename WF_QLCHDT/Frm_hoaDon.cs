@@ -111,7 +111,6 @@ namespace WF_QLCHDT
             if(donghh >= 0)
             {
                 Print.Frm_inChiTietHoaDon frmPrint = new Print.Frm_inChiTietHoaDon();
-                frmPrint.TenKH = bangdulieu.Rows[donghh]["TenKH"].ToString();
                 frmPrint.MaHD = bangdulieu.Rows[donghh]["MaHD"].ToString();
                 frmPrint.ShowDialog();
             }

@@ -23,9 +23,10 @@ namespace WF_QLCHDT
         
         void HienThiDuLieu()
         {
-            string mysql = "select MaSP, TenSP,HangSP, GiaSP, TenNCC, SoLuongTonKho from sanpham, loai, nhacungcap where sanpham.MaLoai = loai.MaLoai and sanpham.MaNCC = nhacungcap.MaNCC;";
+            string mysql = "select MaSP, TenSP,HangSP, GiaSP, SoLuongTonKho from sanpham, loai where sanpham.MaLoai = loai.MaLoai ";
             bangDuLieu = ketnoi.ThucHienTruyVan(mysql);//goi ham trong lớp
             dgvKhoHang.DataSource = bangDuLieu;
+            dgvKhoHang.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
         }
         
         private void Frm_khoHang_Load(object sender, EventArgs e)
@@ -44,8 +45,8 @@ namespace WF_QLCHDT
                 return;
             }
 
-            string lenhTimKiem = $"Select  MaSP, TenSP, HangSP,GiaSP, TenNCC, SoLuongTonKho  from sanpham, loai, nhacungcap where sanpham.MaLoai = loai.MaLoai and sanpham.MaNCC = nhacungcap.MaNCC " +
-                                 $" and (MaSP LIKE '%{tuKhoa}%' OR TenSP LIKE '%{tuKhoa}%' OR GiaSP LIKE '%{tuKhoa}%' OR HangSP LIKE '%{tuKhoa}%' OR TenNCC LIKE '%{tuKhoa}%'  OR SoLuongTonKho LIKE '%{tuKhoa}%')";
+            string lenhTimKiem = $"Select  MaSP, TenSP, HangSP,GiaSP, TenNCC, SoLuongTonKho  from sanpham, loai where sanpham.MaLoai = loai.MaLoai " +
+                                 $" and (MaSP LIKE '%{tuKhoa}%' OR TenSP LIKE '%{tuKhoa}%' OR GiaSP LIKE '%{tuKhoa}%' OR HangSP LIKE '%{tuKhoa}%' OR SoLuongTonKho LIKE '%{tuKhoa}%')";
 
 
             DataTable ketQuaTimKiem = ketnoi.ThucHienTruyVan(lenhTimKiem);
