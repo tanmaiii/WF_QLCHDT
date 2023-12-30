@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_nhanVien));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbMaNv = new System.Windows.Forms.TextBox();
             this.tbHoTen = new System.Windows.Forms.TextBox();
             this.TbSDT = new System.Windows.Forms.TextBox();
@@ -274,14 +274,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNhanvien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhanvien.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanvien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -290,17 +290,18 @@
             this.DiaChiNV,
             this.TaiKhoanNV,
             this.MatKhauNV});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanvien.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanvien.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanvien.GridColor = System.Drawing.Color.White;
             this.dgvNhanvien.Location = new System.Drawing.Point(8, 148);
             this.dgvNhanvien.Name = "dgvNhanvien";
+            this.dgvNhanvien.ReadOnly = true;
             this.dgvNhanvien.RowHeadersVisible = false;
             this.dgvNhanvien.RowHeadersWidth = 62;
             this.dgvNhanvien.RowTemplate.Height = 28;
@@ -315,6 +316,7 @@
             this.MaNV.HeaderText = "Mã NV";
             this.MaNV.MinimumWidth = 8;
             this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
             // 
             // TenNV
             // 
@@ -322,6 +324,7 @@
             this.TenNV.HeaderText = "Họ tên";
             this.TenNV.MinimumWidth = 8;
             this.TenNV.Name = "TenNV";
+            this.TenNV.ReadOnly = true;
             // 
             // SoDienThoaiNV
             // 
@@ -329,6 +332,7 @@
             this.SoDienThoaiNV.HeaderText = "Số điện thoại";
             this.SoDienThoaiNV.MinimumWidth = 8;
             this.SoDienThoaiNV.Name = "SoDienThoaiNV";
+            this.SoDienThoaiNV.ReadOnly = true;
             // 
             // DiaChiNV
             // 
@@ -336,6 +340,7 @@
             this.DiaChiNV.HeaderText = "Địa chỉ";
             this.DiaChiNV.MinimumWidth = 8;
             this.DiaChiNV.Name = "DiaChiNV";
+            this.DiaChiNV.ReadOnly = true;
             // 
             // TaiKhoanNV
             // 
@@ -343,6 +348,7 @@
             this.TaiKhoanNV.HeaderText = "Tài khoản";
             this.TaiKhoanNV.MinimumWidth = 8;
             this.TaiKhoanNV.Name = "TaiKhoanNV";
+            this.TaiKhoanNV.ReadOnly = true;
             // 
             // MatKhauNV
             // 
@@ -350,6 +356,7 @@
             this.MatKhauNV.HeaderText = "Mật Khẩu";
             this.MatKhauNV.MinimumWidth = 8;
             this.MatKhauNV.Name = "MatKhauNV";
+            this.MatKhauNV.ReadOnly = true;
             // 
             // tbTimKiem
             // 

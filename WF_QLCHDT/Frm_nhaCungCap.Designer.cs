@@ -155,6 +155,7 @@
             this.dtgNhaCungCap.Location = new System.Drawing.Point(11, 141);
             this.dtgNhaCungCap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgNhaCungCap.Name = "dtgNhaCungCap";
+            this.dtgNhaCungCap.ReadOnly = true;
             this.dtgNhaCungCap.RowHeadersVisible = false;
             this.dtgNhaCungCap.RowHeadersWidth = 62;
             this.dtgNhaCungCap.RowTemplate.Height = 28;
@@ -169,6 +170,7 @@
             this.MaNCC.HeaderText = "Mã NCC";
             this.MaNCC.MinimumWidth = 8;
             this.MaNCC.Name = "MaNCC";
+            this.MaNCC.ReadOnly = true;
             // 
             // TenNCC
             // 
@@ -176,6 +178,7 @@
             this.TenNCC.HeaderText = "Tên NCC";
             this.TenNCC.MinimumWidth = 8;
             this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
             // 
             // SoDienThoaiNCC
             // 
@@ -183,6 +186,7 @@
             this.SoDienThoaiNCC.HeaderText = "Số điện thoại";
             this.SoDienThoaiNCC.MinimumWidth = 8;
             this.SoDienThoaiNCC.Name = "SoDienThoaiNCC";
+            this.SoDienThoaiNCC.ReadOnly = true;
             // 
             // DiaChiNCC
             // 
@@ -190,6 +194,7 @@
             this.DiaChiNCC.HeaderText = "Địa Chỉ";
             this.DiaChiNCC.MinimumWidth = 8;
             this.DiaChiNCC.Name = "DiaChiNCC";
+            this.DiaChiNCC.ReadOnly = true;
             // 
             // panel2
             // 

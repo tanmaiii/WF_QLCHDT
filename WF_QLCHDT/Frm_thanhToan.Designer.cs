@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_thanhToan));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_thanhToan));
-            System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+            this.btnTaoDonHang = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnInHoaDon = new System.Windows.Forms.Button();
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.tbSoDienThoaiKH = new System.Windows.Forms.TextBox();
             this.tbDiaChiKH = new System.Windows.Forms.TextBox();
@@ -72,17 +75,81 @@
             this.cbTenLoai = new System.Windows.Forms.ComboBox();
             this.btnThemSP = new System.Windows.Forms.Button();
             this.cbTenSP = new System.Windows.Forms.ComboBox();
-            this.btnInHoaDon = new System.Windows.Forms.Button();
-            this.btnTaoDonHang = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoLuong)).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            flowLayoutPanel1.Controls.Add(this.btnTaoDonHang);
+            flowLayoutPanel1.Controls.Add(this.btnReset);
+            flowLayoutPanel1.Controls.Add(this.btnInHoaDon);
+            flowLayoutPanel1.Location = new System.Drawing.Point(12, 795);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new System.Drawing.Size(1366, 82);
+            flowLayoutPanel1.TabIndex = 32;
+            // 
+            // btnTaoDonHang
+            // 
+            this.btnTaoDonHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnTaoDonHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTaoDonHang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoDonHang.ForeColor = System.Drawing.Color.White;
+            this.btnTaoDonHang.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoDonHang.Image")));
+            this.btnTaoDonHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTaoDonHang.Location = new System.Drawing.Point(3, 2);
+            this.btnTaoDonHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTaoDonHang.Name = "btnTaoDonHang";
+            this.btnTaoDonHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTaoDonHang.Size = new System.Drawing.Size(244, 58);
+            this.btnTaoDonHang.TabIndex = 4;
+            this.btnTaoDonHang.Text = "      Lưu hóa đơn";
+            this.btnTaoDonHang.UseVisualStyleBackColor = false;
+            this.btnTaoDonHang.Click += new System.EventHandler(this.btnTaoDonHang_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.Location = new System.Drawing.Point(253, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReset.Size = new System.Drawing.Size(244, 60);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "      Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnInHoaDon
+            // 
+            this.btnInHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnInHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInHoaDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoaDon.ForeColor = System.Drawing.Color.White;
+            this.btnInHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnInHoaDon.Image")));
+            this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInHoaDon.Location = new System.Drawing.Point(503, 2);
+            this.btnInHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInHoaDon.Name = "btnInHoaDon";
+            this.btnInHoaDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnInHoaDon.Size = new System.Drawing.Size(244, 60);
+            this.btnInHoaDon.TabIndex = 6;
+            this.btnInHoaDon.Text = "    In hóa đơn";
+            this.btnInHoaDon.UseVisualStyleBackColor = false;
+            this.btnInHoaDon.Visible = false;
+            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
             // 
             // tbTenKH
             // 
@@ -543,9 +610,19 @@
             this.nuSoLuong.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nuSoLuong.Location = new System.Drawing.Point(1141, 45);
             this.nuSoLuong.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.nuSoLuong.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nuSoLuong.Name = "nuSoLuong";
             this.nuSoLuong.Size = new System.Drawing.Size(212, 45);
             this.nuSoLuong.TabIndex = 27;
+            this.nuSoLuong.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbTenLoai
             // 
@@ -612,73 +689,6 @@
             this.cbTenSP.TabIndex = 24;
             this.cbTenSP.SelectedIndexChanged += new System.EventHandler(this.cbTenSP_SelectedIndexChanged);
             // 
-            // btnInHoaDon
-            // 
-            this.btnInHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btnInHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInHoaDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btnInHoaDon.Image = ((System.Drawing.Image)(resources.GetObject("btnInHoaDon.Image")));
-            this.btnInHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInHoaDon.Location = new System.Drawing.Point(503, 2);
-            this.btnInHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnInHoaDon.Size = new System.Drawing.Size(244, 60);
-            this.btnInHoaDon.TabIndex = 6;
-            this.btnInHoaDon.Text = "    In hóa đơn";
-            this.btnInHoaDon.UseVisualStyleBackColor = false;
-            this.btnInHoaDon.Visible = false;
-            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
-            // 
-            // btnTaoDonHang
-            // 
-            this.btnTaoDonHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btnTaoDonHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTaoDonHang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaoDonHang.ForeColor = System.Drawing.Color.White;
-            this.btnTaoDonHang.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoDonHang.Image")));
-            this.btnTaoDonHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaoDonHang.Location = new System.Drawing.Point(3, 2);
-            this.btnTaoDonHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTaoDonHang.Name = "btnTaoDonHang";
-            this.btnTaoDonHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTaoDonHang.Size = new System.Drawing.Size(244, 58);
-            this.btnTaoDonHang.TabIndex = 4;
-            this.btnTaoDonHang.Text = "      Lưu hóa đơn";
-            this.btnTaoDonHang.UseVisualStyleBackColor = false;
-            this.btnTaoDonHang.Click += new System.EventHandler(this.btnTaoDonHang_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(253, 2);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReset.Size = new System.Drawing.Size(244, 60);
-            this.btnReset.TabIndex = 7;
-            this.btnReset.Text = "      Reset";
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            flowLayoutPanel1.Controls.Add(this.btnTaoDonHang);
-            flowLayoutPanel1.Controls.Add(this.btnReset);
-            flowLayoutPanel1.Controls.Add(this.btnInHoaDon);
-            flowLayoutPanel1.Location = new System.Drawing.Point(12, 795);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(1366, 82);
-            flowLayoutPanel1.TabIndex = 32;
-            // 
             // Frm_thanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -693,6 +703,7 @@
             this.Name = "Frm_thanhToan";
             this.Text = "Thanh toán";
             this.Load += new System.EventHandler(this.Frm_thanhToan_Load);
+            flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -701,7 +712,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoLuong)).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

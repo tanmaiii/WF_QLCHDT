@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_hoaDon));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_hoaDon));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayLapHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
@@ -56,31 +56,23 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.tbTimKiem);
             this.panel1.Controls.Add(this.btnReset);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1374, 147);
+            this.panel1.Size = new System.Drawing.Size(1374, 112);
             this.panel1.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(185, 38);
-            this.label9.TabIndex = 50;
-            this.label9.Text = "Nhập từ khóa";
             // 
             // tbTimKiem
             // 
+            this.tbTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimKiem.Location = new System.Drawing.Point(15, 91);
+            this.tbTimKiem.Location = new System.Drawing.Point(15, 53);
             this.tbTimKiem.Name = "tbTimKiem";
             this.tbTimKiem.Size = new System.Drawing.Size(536, 45);
             this.tbTimKiem.TabIndex = 49;
@@ -94,7 +86,7 @@
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(794, 84);
+            this.btnReset.Location = new System.Drawing.Point(794, 46);
             this.btnReset.Name = "btnReset";
             this.btnReset.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnReset.Size = new System.Drawing.Size(202, 52);
@@ -112,7 +104,7 @@
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(577, 84);
+            this.btnTimKiem.Location = new System.Drawing.Point(577, 46);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnTimKiem.Size = new System.Drawing.Size(194, 52);
@@ -137,13 +129,14 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dgvHoaDon);
-            this.panel2.Location = new System.Drawing.Point(2, 155);
+            this.panel2.Location = new System.Drawing.Point(2, 120);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1374, 741);
+            this.panel2.Size = new System.Drawing.Size(1374, 757);
             this.panel2.TabIndex = 1;
             // 
             // label4
@@ -175,6 +168,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHoaDon.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -208,7 +202,7 @@
             this.dgvHoaDon.RowHeadersWidth = 62;
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1347, 639);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1345, 653);
             this.dgvHoaDon.TabIndex = 0;
             this.dgvHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellDoubleClick);
             // 
@@ -260,6 +254,23 @@
             this.TongTien.Name = "TongTien";
             this.TongTien.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1013, 46);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(202, 52);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "  Xuất Exel";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Frm_hoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -294,7 +305,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayLapHD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbTimKiem;
+        private System.Windows.Forms.Button button1;
     }
 }

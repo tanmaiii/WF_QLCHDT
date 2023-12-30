@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_sanPham));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbHangSP = new System.Windows.Forms.ComboBox();
             this.tbGiaSP = new System.Windows.Forms.TextBox();
@@ -368,14 +366,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -384,17 +374,10 @@
             this.HangSP,
             this.XuatXuSP,
             this.SoLuongTonKho});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(16, 98);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
@@ -409,6 +392,7 @@
             this.Column1.HeaderText = "MaSP";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // TenSP
             // 
@@ -416,6 +400,7 @@
             this.TenSP.HeaderText = "Tên SP";
             this.TenSP.MinimumWidth = 6;
             this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
             // 
             // GiaSP
             // 
@@ -423,6 +408,7 @@
             this.GiaSP.HeaderText = "Giá";
             this.GiaSP.MinimumWidth = 6;
             this.GiaSP.Name = "GiaSP";
+            this.GiaSP.ReadOnly = true;
             // 
             // HangSP
             // 
@@ -430,6 +416,7 @@
             this.HangSP.HeaderText = "Hãng";
             this.HangSP.MinimumWidth = 6;
             this.HangSP.Name = "HangSP";
+            this.HangSP.ReadOnly = true;
             // 
             // XuatXuSP
             // 
@@ -437,6 +424,7 @@
             this.XuatXuSP.HeaderText = "Xuất xứ";
             this.XuatXuSP.MinimumWidth = 6;
             this.XuatXuSP.Name = "XuatXuSP";
+            this.XuatXuSP.ReadOnly = true;
             // 
             // SoLuongTonKho
             // 
@@ -444,6 +432,7 @@
             this.SoLuongTonKho.HeaderText = "Số lượng";
             this.SoLuongTonKho.MinimumWidth = 6;
             this.SoLuongTonKho.Name = "SoLuongTonKho";
+            this.SoLuongTonKho.ReadOnly = true;
             // 
             // label9
             // 

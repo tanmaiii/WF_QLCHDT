@@ -60,5 +60,12 @@ namespace WF_QLCHDT
                 HienThiDuLieu(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy kết quả
             }
         }
+
+
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            Frm_nhapHang frm_NhapHang = new Frm_nhapHang();
+            frm_NhapHang.ShowDialog();
+        }
     }
 }

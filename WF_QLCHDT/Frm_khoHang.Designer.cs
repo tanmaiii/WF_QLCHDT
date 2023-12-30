@@ -39,10 +39,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNhapHang = new System.Windows.Forms.Button();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HangSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,12 +73,13 @@
             this.panel2.Controls.Add(this.dgvKhoHang);
             this.panel2.Location = new System.Drawing.Point(3, 118);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1386, 674);
+            this.panel2.Size = new System.Drawing.Size(1374, 674);
             this.panel2.TabIndex = 20;
             // 
             // dgvKhoHang
             // 
             this.dgvKhoHang.AllowUserToAddRows = false;
+            this.dgvKhoHang.AllowUserToDeleteRows = false;
             this.dgvKhoHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -110,13 +109,14 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKhoHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvKhoHang.Location = new System.Drawing.Point(3, 47);
+            this.dgvKhoHang.Location = new System.Drawing.Point(9, 47);
             this.dgvKhoHang.Name = "dgvKhoHang";
+            this.dgvKhoHang.ReadOnly = true;
             this.dgvKhoHang.RowHeadersVisible = false;
             this.dgvKhoHang.RowHeadersWidth = 62;
             this.dgvKhoHang.RowTemplate.Height = 28;
             this.dgvKhoHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhoHang.Size = new System.Drawing.Size(1365, 624);
+            this.dgvKhoHang.Size = new System.Drawing.Size(1337, 624);
             this.dgvKhoHang.TabIndex = 0;
             // 
             // btnTimKiem
@@ -166,7 +166,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1386, 110);
+            this.panel1.Size = new System.Drawing.Size(1374, 110);
             this.panel1.TabIndex = 19;
             // 
             // flowLayoutPanel1
@@ -174,46 +174,12 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.btnNhapHang);
             this.flowLayoutPanel1.Controls.Add(this.button4);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 798);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1384, 66);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1374, 66);
             this.flowLayoutPanel1.TabIndex = 25;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(213, 58);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(222, 3);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(213, 60);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -223,29 +189,30 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(441, 3);
+            this.button4.Location = new System.Drawing.Point(249, 3);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button4.Size = new System.Drawing.Size(213, 60);
             this.button4.TabIndex = 2;
-            this.button4.Text = "Xóa";
+            this.button4.Text = "Xuất ";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnNhapHang
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(660, 3);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(240, 60);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "     Nhập hàng";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnNhapHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnNhapHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapHang.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHang.ForeColor = System.Drawing.Color.White;
+            this.btnNhapHang.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapHang.Image")));
+            this.btnNhapHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhapHang.Location = new System.Drawing.Point(3, 3);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNhapHang.Size = new System.Drawing.Size(240, 60);
+            this.btnNhapHang.TabIndex = 4;
+            this.btnNhapHang.Text = "     Nhập hàng";
+            this.btnNhapHang.UseVisualStyleBackColor = false;
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
             // MaSP
             // 
@@ -253,6 +220,7 @@
             this.MaSP.HeaderText = "Mã SP";
             this.MaSP.MinimumWidth = 8;
             this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
             // 
             // TenSP
             // 
@@ -260,12 +228,15 @@
             this.TenSP.HeaderText = "Tên SP";
             this.TenSP.MinimumWidth = 8;
             this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
             // 
             // HangSP
             // 
+            this.HangSP.DataPropertyName = "HangSP";
             this.HangSP.HeaderText = "Hãng SP";
             this.HangSP.MinimumWidth = 8;
             this.HangSP.Name = "HangSP";
+            this.HangSP.ReadOnly = true;
             // 
             // SoLuongTonKho
             // 
@@ -273,6 +244,7 @@
             this.SoLuongTonKho.HeaderText = "Số lượng ";
             this.SoLuongTonKho.MinimumWidth = 8;
             this.SoLuongTonKho.Name = "SoLuongTonKho";
+            this.SoLuongTonKho.ReadOnly = true;
             // 
             // ngayNhap
             // 
@@ -280,6 +252,7 @@
             this.ngayNhap.HeaderText = "Ngày nhập";
             this.ngayNhap.MinimumWidth = 8;
             this.ngayNhap.Name = "ngayNhap";
+            this.ngayNhap.ReadOnly = true;
             // 
             // TenNCC
             // 
@@ -287,6 +260,7 @@
             this.TenNCC.HeaderText = "Nhà cung cấp";
             this.TenNCC.MinimumWidth = 8;
             this.TenNCC.Name = "TenNCC";
+            this.TenNCC.ReadOnly = true;
             // 
             // Frm_khoHang
             // 
@@ -318,11 +292,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNhapHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn HangSP;

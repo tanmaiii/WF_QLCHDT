@@ -108,6 +108,7 @@ namespace WF_QLCHDT
             HienThiDuLieu();
         }
 
+
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbMaSP.Text)) // Đảm bảo rằng đã chọn một dòng để xóa
@@ -165,6 +166,20 @@ namespace WF_QLCHDT
             {
                 return;
             }
+
+            if(double.Parse(tbGiaSP.Text) > 1000000000)
+            {
+                MessageBox.Show("Giá sản phẩm không vượt quá 100,000,000");
+                return;
+            }
+
+
+            if (int.Parse(tbSoLuongTonKho.Text) > 999)
+            {
+                MessageBox.Show("Số lượng tồn kho không vượt quá  999");
+                return;
+            }
+
             // Kiểm tra xem Mã NCC đã tồn tại chưa
             string kiemTraTonTai = $"SELECT COUNT(*) FROM sanpham WHERE MaSP = '{tbMaSP.Text}'";
             int count = Convert.ToInt32(ketNoi.ThucHienTruyVan(kiemTraTonTai).Rows[0][0]);
