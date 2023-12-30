@@ -24,12 +24,12 @@ namespace WF_QLCHDT.Print
         KetNoiMySql ketnoi = new KetNoiMySql(); 
         DataTable bangdulieu = new DataTable();
 
-
         private Panel panelToPrint;
         public Frm_inChiTietHoaDon()
         {
             InitializeComponent();
             panelToPrint = panelPrint;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private string ChuoiTien(string chuoiSo)
@@ -39,8 +39,6 @@ namespace WF_QLCHDT.Print
                 // Chuyển đổi số thành chuỗi tiền tệ với dấu phẩy phân tách hàng nghìn
                 string tienChuoi = soTien.ToString("N0"); // "N0" là định dạng cho số nguyên, dấu phẩy phân tách hàng nghìn
                 return tienChuoi;
-
-
             }
             else
             {
@@ -89,7 +87,7 @@ namespace WF_QLCHDT.Print
         private void HienChiTietSanPham()
         {
             // Thực hiện truy vấn SELECT để lấy dữ liệu từ cơ sở dữ liệu
-            string truyVan = $"SELECT ROW_NUMBER() OVER (ORDER BY MaSP) AS STT, sanpham.MaSP, sanpham.TenSP, sanpham.GiaSP,chitiethoadon.SoLuongMua, chitiethoadon.ThanhTien FROM hoadon, chitiethoadon, sanpham,nhanvien where hoadon.MaHD = chitiethoadon.MaHD and chitiethoadon.MaSP = sanpham.MaSP and hoadon.MaHD = '{MaHD}'";
+            string truyVan = $"SELECT ROW_NUMBER() OVER (ORDER BY MaSP) AS STT, sanpham.MaSP, sanpham.TenSP, sanpham.GiaSP,chitiethoadon.SoLuongMua, chitiethoadon.ThanhTien FROM hoadon, chitiethoadon, sanpham,nhanvien where hoadon.MaHD = chitiethoadon.MaHD and chitiethoadon.MaSP = sanpham.MaSP and hoadon.MaHD = '{MaHD}' and hoadon.MaNV = nhanvien.MaNV";
 
             // Gọi hàm ThucHienTruyVan để lấy dữ liệu từ cơ sở dữ liệu và hiển thị trong DataGridView
             DataTable dataTable = ketnoi.ThucHienTruyVan(truyVan);
@@ -99,10 +97,11 @@ namespace WF_QLCHDT.Print
         private void Frm_inChiTietHoaDon_Load(object sender, EventArgs e)
         {
             dgvChiTietDonHang.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvChiTietDonHang.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvChiTietDonHang.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChiTietDonHang.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChiTietDonHang.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvChiTietDonHang.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvChiTietDonHang.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChiTietDonHang.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             HienChiTietSanPham();
             HienThongTin();
         }

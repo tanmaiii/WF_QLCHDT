@@ -16,6 +16,7 @@ namespace WF_QLCHDT
         KetNoiMySql ketNoi = new KetNoiMySql();
         DataTable bangDuLieu = new DataTable();
         int donghh;
+        string maHoaDon;
 
         public Frm_thanhToan()
         {
@@ -59,9 +60,39 @@ namespace WF_QLCHDT
             }
         }
 
+        //XỬ LÝ MUA
 
-        private void ClearInputs()
+        //Tạo mã KH nếu chưa tồn tại
+        private string TaoMaKhachHang()
         {
+            // Nếu khách hàng chưa tồn tại, tạo mới mã khách hàng
+            //Random random = new Random();
+            //return "KH" + random.Next(1000, 9999).ToString();
+
+            long ticks = DateTime.Now.Ticks;
+            // Chuyển ticks thành chuỗi hex để tạo mã
+            string uniqueCode = ticks.ToString("X");
+            return "KH" + uniqueCode;
+        }
+
+
+        // Tạo mã hóa đơn
+        private string TaoMaHoaDon()
+        {
+            /*  // Tạo mới mã hóa đơn
+              Random random = new Random();
+              return "HD" + random.Next(1000, 9999).ToString();*/
+
+            long ticks = DateTime.Now.Ticks;
+            // Chuyển ticks thành chuỗi hex để tạo mã
+            string uniqueCode = ticks.ToString("X");
+            return "HD" + uniqueCode;
+        }
+
+
+        private void refresh ()
+        {
+            tbMaHoaDon.Clear();
             tbTenKH.Clear();
             tbDiaChiKH.Clear();
             tbSoDienThoaiKH.Clear();
@@ -74,10 +105,7 @@ namespace WF_QLCHDT
             tbGiaSP.Clear();
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
             dgvSanPham.ClearSelection();
-        }
 
-        private void refresh ()
-        {
             nuSoLuong.Value = 1;
             HienThiNhanVien();
             HienThiLoaiSanPham();
@@ -146,7 +174,6 @@ namespace WF_QLCHDT
             }
         }
 
-        //XỬ LÝ MUA
         //XỬ LÍ KHÁCH HÀNG//
         private void ThemKhachHang()
         {
@@ -164,13 +191,26 @@ namespace WF_QLCHDT
             }
 
             //Kiểm tra mã KH có chưa
-            string mysqlCheck = $"SELECT MaKH FROM khachhang WHERE TenKH = '{tenKH}' AND DiaChiKH = '{diaChiKH}' AND SoDienThoaiKH = '{soDienThoaiKH}'";
+            string mysqlCheck = $"SELECT MaKH, TenKH, DiaChiKH, SoDienThoaiKH FROM khachhang WHERE SoDienThoaiKH = '{soDienThoaiKH}'";
             DataTable khachHangCheck = ketNoi.ThucHienTruyVan(mysqlCheck);
 
             if (khachHangCheck.Rows.Count > 0)
             {
                 // Nếu khách hàng đã tồn tại, trả về mã khách hàng hiện tại
                 maKhachHang = khachHangCheck.Rows[0]["MaKH"].ToString();
+
+                string thongbao = $"Số điện thoại đã tồn tại. Sử dụng thông tin bên dưới ?" +
+                                  $"\n-Mã KH: {khachHangCheck.Rows[0]["MaKH"].ToString()} " +
+                                  $"\n-Tên: {khachHangCheck.Rows[0]["TenKH"].ToString()} " +
+                                  $"\n-Địa chỉ: {khachHangCheck.Rows[0]["DiaChiKH"].ToString()} " +
+                                  $"\n-Số điện thoại: {khachHangCheck.Rows[0]["SoDienThoaiKH"].ToString()} ";
+
+                DialogResult result = MessageBox.Show(thongbao, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if(result == DialogResult.Yes)
+                {
+                    ThemHoaDon(maKhachHang);
+                }
             }
             else
             {   // Nếu khách hàng chưa tồn tại, tạo mã và insert
@@ -189,6 +229,7 @@ namespace WF_QLCHDT
                     //{
                     //    MessageBox.Show("Thêm khách hàng thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //}
+                    ThemHoaDon(maKhachHang);
                 }
                 catch (Exception ex)
                 {
@@ -196,17 +237,9 @@ namespace WF_QLCHDT
                 }
             }
 
-            ThemHoaDon(maKhachHang);
         }
 
-        //Tạo mã KH nếu chưa tồn tại
-        private string TaoMaKhachHang()
-        {
-            // Nếu khách hàng chưa tồn tại, tạo mới mã khách hàng
-            Random random = new Random();
-            return "KH" + random.Next(1000, 9999).ToString();
-        }
-
+       
         //THÊM SẢN PHẨM VÀO BẢNG DATAGRIDVIEW ở trang thanh toán//
         private void btnThemSP_Click(object sender, EventArgs e)
         {
@@ -234,7 +267,6 @@ namespace WF_QLCHDT
                    // int soLuongHienTai = Convert.ToInt32(row.Cells["SoLuongMua"].Value);
                     int tongSoLuongMua = soLuongMua;
 
-
                     // Kiểm tra xem số lượng mua có vượt quá số lượng tồn không
                     if (tongSoLuongMua > Convert.ToInt32(soLuongTonKho))
                     {
@@ -258,16 +290,18 @@ namespace WF_QLCHDT
             }
             CapNhatTongTien();
         }
+
         // Hàm cập nhật giá trị cột mới thành tiền
         private void UpdateThanhTien(DataGridViewRow row)
         {
             int soLuongMua = Convert.ToInt32(row.Cells["soLuongMua"].Value);
-            int giaSanPham = Convert.ToInt32(row.Cells["giaSanPham"].Value);
+            int giaSanPham = Convert.ToInt32(row.Cells["GiaSP"].Value);
             int thanhTien = soLuongMua * giaSanPham;
             row.Cells["ThanhTien"].Value = thanhTien;
 
             CapNhatTongTien();
         }
+
         // Hàm cập nhật tổng tiền
         private void CapNhatTongTien()
         {
@@ -287,7 +321,6 @@ namespace WF_QLCHDT
         //HOA DON//
         private void ThemHoaDon(string maKhachHang)
         {
-            string maHoaDon;
 
             try
             {
@@ -311,19 +344,7 @@ namespace WF_QLCHDT
             }  
         }
 
-        private string TaoMaHoaDon()
-        {
-            /*  // Tạo mới mã hóa đơn
-              Random random = new Random();
-              return "HD" + random.Next(1000, 9999).ToString();*/
 
-            long ticks = DateTime.Now.Ticks;
-
-            // Chuyển ticks thành chuỗi hex để tạo mã
-            string uniqueCode = ticks.ToString("X");
-
-            return "HD" + uniqueCode;
-        }
 
         //CHI TIẾT HOÁ ĐƠN
         private void ThemChiTietHoadon(string maHoaDon)
@@ -333,7 +354,7 @@ namespace WF_QLCHDT
                 foreach (DataGridViewRow row in dgvSanPham.Rows)
                 {
                     // Lấy thông tin từ các cột trong DataGridView
-                    string maSanPham = row.Cells["maSanPham"].Value.ToString();
+                    string maSanPham = row.Cells["maSP"].Value.ToString();
                     string thanhTien = row.Cells["thanhTien"].Value.ToString();
                     int soLuongMua = Convert.ToInt32(row.Cells["soLuongMua"].Value);
 
@@ -347,9 +368,9 @@ namespace WF_QLCHDT
                 }
 
                 MessageBox.Show("Thêm chi tiết hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tbTongTien.Clear();
-                dgvSanPham.Rows.Clear();
-                refresh();
+                //tbTongTien.Clear();
+                //dgvSanPham.Rows.Clear();
+                //refresh();
             }
             catch (Exception ex)
             {
@@ -393,24 +414,13 @@ namespace WF_QLCHDT
             else
             {
                 ThemKhachHang();
+                if (!string.IsNullOrEmpty(maHoaDon))
+                {
+                    tbMaHoaDon.Text = maHoaDon.ToString();
+                    btnInHoaDon.Visible = true;
+                }
             }
 
-        }
-
-        //HUỶ ĐƠN
-        private void btnHuyDonHang_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có huỷ đơn hàng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                ClearInputs();
-                dgvSanPham.Rows.Clear();
-            }
-            else
-            {
-                return;
-            }
         }
 
         //Xóa sản phẩm khỏi đơn hàng
@@ -430,6 +440,30 @@ namespace WF_QLCHDT
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        // In hóa đơn
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            Print.Frm_inChiTietHoaDon frmPrint = new Print.Frm_inChiTietHoaDon();
+            frmPrint.MaHD = maHoaDon.ToString();
+            frmPrint.ShowDialog();
+        }
+
+        // Làm mới
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn làm mới đơn hàng không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                refresh();
+                dgvSanPham.Rows.Clear();
+            }
+            else
+            {
+                return;
             }
         }
     }

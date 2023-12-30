@@ -40,6 +40,12 @@
             this.lbBangChu = new System.Windows.Forms.Label();
             this.lbTongTien = new System.Windows.Forms.Label();
             this.dgvChiTietDonHang = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbDiaChiKH = new System.Windows.Forms.Label();
             this.lbSoDienThoaiKH = new System.Windows.Forms.Label();
@@ -70,12 +76,6 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelPrint.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietDonHang)).BeginInit();
@@ -221,6 +221,59 @@
             this.dgvChiTietDonHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvChiTietDonHang.Size = new System.Drawing.Size(1096, 422);
             this.dgvChiTietDonHang.TabIndex = 6;
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 8;
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.FillWeight = 113.6364F;
+            this.MaSP.HeaderText = "Mã sản phẩm";
+            this.MaSP.MinimumWidth = 8;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.FillWeight = 96.59091F;
+            this.TenSP.HeaderText = "Tên sản phảm";
+            this.TenSP.MinimumWidth = 8;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // GiaSP
+            // 
+            this.GiaSP.DataPropertyName = "GiaSP";
+            this.GiaSP.FillWeight = 96.59091F;
+            this.GiaSP.HeaderText = "Đơn giá";
+            this.GiaSP.MinimumWidth = 8;
+            this.GiaSP.Name = "GiaSP";
+            this.GiaSP.ReadOnly = true;
+            // 
+            // SoLuongMua
+            // 
+            this.SoLuongMua.DataPropertyName = "SoLuongMua";
+            this.SoLuongMua.FillWeight = 96.59091F;
+            this.SoLuongMua.HeaderText = "Số lượng";
+            this.SoLuongMua.MinimumWidth = 8;
+            this.SoLuongMua.Name = "SoLuongMua";
+            this.SoLuongMua.ReadOnly = true;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.DataPropertyName = "ThanhTien";
+            this.ThanhTien.FillWeight = 96.59091F;
+            this.ThanhTien.HeaderText = "Thành Tiền";
+            this.ThanhTien.MinimumWidth = 8;
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
             // 
             // panel4
             // 
@@ -498,58 +551,6 @@
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 8;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.FillWeight = 113.6364F;
-            this.MaSP.HeaderText = "Mã sản phẩm";
-            this.MaSP.MinimumWidth = 8;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.FillWeight = 96.59091F;
-            this.TenSP.HeaderText = "Tên sản phảm";
-            this.TenSP.MinimumWidth = 8;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // GiaSP
-            // 
-            this.GiaSP.DataPropertyName = "GiaSP";
-            this.GiaSP.FillWeight = 96.59091F;
-            this.GiaSP.HeaderText = "Đơn giá";
-            this.GiaSP.MinimumWidth = 8;
-            this.GiaSP.Name = "GiaSP";
-            this.GiaSP.ReadOnly = true;
-            // 
-            // SoLuongMua
-            // 
-            this.SoLuongMua.DataPropertyName = "SoLuongMua";
-            this.SoLuongMua.FillWeight = 96.59091F;
-            this.SoLuongMua.HeaderText = "Số lượng";
-            this.SoLuongMua.MinimumWidth = 8;
-            this.SoLuongMua.Name = "SoLuongMua";
-            this.SoLuongMua.ReadOnly = true;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.DataPropertyName = "ThanhTien";
-            this.ThanhTien.FillWeight = 96.59091F;
-            this.ThanhTien.HeaderText = "Thành Tiền";
-            this.ThanhTien.MinimumWidth = 8;
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
             // 
             // Frm_inChiTietHoaDon
             // 
