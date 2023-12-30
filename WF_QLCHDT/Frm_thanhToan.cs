@@ -327,13 +327,13 @@ namespace WF_QLCHDT
             {
                 // Lấy thông tin từ các control
                 string maNhanVien = cbTenNV.SelectedValue.ToString();
-                DateTime ngayLapHD = dtNgayLap.Value;
+                DateTime ngayLapHD = DateTime.Now;
                 string TongTien = tbTongTien.Text; 
                 // Tạo mã hóa đơn
                 maHoaDon = TaoMaHoaDon();
 
                 // Thực hiện câu lệnh SQL INSERT
-                string mysql = $"INSERT INTO hoadon (MaHD, MaKH, MaNV, NgayLapHD, TongTien) VALUES ('{maHoaDon}', '{maKhachHang}', '{maNhanVien}', '{ngayLapHD.ToString("yyyy-MM-dd")}', '{TongTien}')";
+                string mysql = $"INSERT INTO hoadon (MaHD, MaKH, MaNV, NgayLapHD, TongTien) VALUES ('{maHoaDon}', '{maKhachHang}', '{maNhanVien}', '{ngayLapHD.ToString("yyyy-MM-dd HH:mm:ss")}', '{TongTien}')";
 
                 ketNoi.ThucHienLenh(mysql);
 

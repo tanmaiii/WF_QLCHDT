@@ -156,7 +156,6 @@ namespace WF_QLCHDT
                 {
                     int soLuongHienTai = Convert.ToInt32(dt.Rows[0]["SoLuongTonKho"]);
                     int soLuongMoi = soLuongHienTai + soLuongNhap;
-
                     // Cập nhật số lượng tồn kho trong bảng sanpham
                     string sqlUpdate = $"UPDATE sanpham SET SoLuongTonKho = {soLuongMoi} WHERE MaSP = '{maSanPham}'";
                     ketnoi.ThucHienLenh(sqlUpdate);
