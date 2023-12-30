@@ -26,7 +26,7 @@ namespace WF_QLCHDT
         {
             string mysql = "select* from nhacungcap";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
-            dataGridView1.DataSource = bangDuLieu;
+            dtgNhaCungCap.DataSource = bangDuLieu;
         }
 
         private void Frm_nhaCungCap_Load(object sender, EventArgs e)
@@ -39,10 +39,10 @@ namespace WF_QLCHDT
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangDuLieu.Rows.Count)
             {
-                tbMaNCC.Text = bangDuLieu.Rows[donghh][0].ToString();
-                tbTenNCC.Text = bangDuLieu.Rows[donghh][1].ToString();
-                tbSoDienThoaiNCC.Text = bangDuLieu.Rows[donghh][2].ToString();
-                tbDiaChiNCC.Text = bangDuLieu.Rows[donghh][3].ToString();
+                tbMaNCC.Text = bangDuLieu.Rows[donghh]["MaNCC"].ToString();
+                tbTenNCC.Text = bangDuLieu.Rows[donghh]["TenNCC"].ToString();
+                tbSoDienThoaiNCC.Text = bangDuLieu.Rows[donghh]["SoDienThoaiNCC"].ToString();
+                tbDiaChiNCC.Text = bangDuLieu.Rows[donghh]["DiaChiNCC"].ToString();
                 tbMaNCC.Enabled = false;
             }
         }
@@ -88,7 +88,7 @@ namespace WF_QLCHDT
             // Cho phép nhập liệu cho tbMaNCC sau khi reset
             tbMaNCC.Enabled = true;
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
-            dataGridView1.ClearSelection();
+            dtgNhaCungCap.ClearSelection();
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -149,7 +149,7 @@ namespace WF_QLCHDT
 
             if (ketQuaTimKiem.Rows.Count > 0)
             {
-                dataGridView1.DataSource = ketQuaTimKiem;
+                dtgNhaCungCap.DataSource = ketQuaTimKiem;
             }
             else
             {

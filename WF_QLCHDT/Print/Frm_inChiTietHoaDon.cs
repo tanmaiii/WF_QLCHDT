@@ -92,10 +92,12 @@ namespace WF_QLCHDT.Print
             // Gọi hàm ThucHienTruyVan để lấy dữ liệu từ cơ sở dữ liệu và hiển thị trong DataGridView
             DataTable dataTable = ketnoi.ThucHienTruyVan(truyVan);
             dgvChiTietDonHang.DataSource = dataTable;
+            dgvChiTietDonHang.ClearSelection();
         }
 
         private void Frm_inChiTietHoaDon_Load(object sender, EventArgs e)
         {
+            dgvChiTietDonHang.ClearSelection(); 
             dgvChiTietDonHang.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvChiTietDonHang.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvChiTietDonHang.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

@@ -23,13 +23,13 @@ namespace WF_QLCHDT
             InitializeComponent();
         }
 
-
         void HienThiDuLieu()
         {
             string mysql = "select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, TenNCC, SoLuongTonKho from sanpham, loai, nhacungcap where sanpham.MaLoai = loai.MaLoai and sanpham.MaNCC = nhacungcap.MaNCC;";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
             dataGridView1.DataSource = bangDuLieu;
         }
+
         void HienThiNhaCC()
         {
             string mysql = "select* from nhacungcap";

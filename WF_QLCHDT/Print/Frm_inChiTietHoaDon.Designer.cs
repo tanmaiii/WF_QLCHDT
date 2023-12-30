@@ -185,6 +185,7 @@
             this.dgvChiTietDonHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiTietDonHang.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvChiTietDonHang.CausesValidation = false;
+            this.dgvChiTietDonHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,6 +210,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvChiTietDonHang.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvChiTietDonHang.Enabled = false;
             this.dgvChiTietDonHang.GridColor = System.Drawing.SystemColors.ControlText;
             this.dgvChiTietDonHang.Location = new System.Drawing.Point(21, 460);
             this.dgvChiTietDonHang.MultiSelect = false;

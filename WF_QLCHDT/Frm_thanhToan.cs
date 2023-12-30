@@ -220,15 +220,9 @@ namespace WF_QLCHDT
                     // Thực hiện câu lệnh SQL INSERT
                     string mysql = $"INSERT INTO khachhang (MaKH, TenKH, DiaChiKH, SoDienThoaiKH) VALUES ('{maKhachHang}', '{tenKH}', '{diaChiKH}', '{soDienThoaiKH}')";
                     ketNoi.ThucHienLenh(mysql);
-                    // Kiểm tra xem câu lệnh INSERT có thành công hay không
-                    //if (ketQua > 0)
-                    //{
-                    //    MessageBox.Show("Thêm khách hàng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Thêm khách hàng thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //}
+
+                    MessageBox.Show("Thông tin khách hàng đã được lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     ThemHoaDon(maKhachHang);
                 }
                 catch (Exception ex)
@@ -315,7 +309,7 @@ namespace WF_QLCHDT
             }
 
             // Hiển thị tổng tiền trong TextBox
-            tbTongTien.Text = tongTien.ToString();
+            tbTongTien.Text = tongTien.ToString("N0");
         }
 
         //HOA DON//

@@ -37,7 +37,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgNhaCungCap = new System.Windows.Forms.DataGridView();
             this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienThoaiNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhaCungCap)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -74,8 +74,9 @@
             // 
             // tbTimKiem
             // 
+            this.tbTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimKiem.Location = new System.Drawing.Point(8, 46);
+            this.tbTimKiem.Location = new System.Drawing.Point(8, 45);
             this.tbTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTimKiem.Name = "tbTimKiem";
             this.tbTimKiem.Size = new System.Drawing.Size(480, 45);
@@ -121,13 +122,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã NCC";
             // 
-            // dataGridView1
+            // dtgNhaCungCap
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtgNhaCungCap.AllowUserToAddRows = false;
+            this.dtgNhaCungCap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgNhaCungCap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgNhaCungCap.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,9 +137,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgNhaCungCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgNhaCungCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgNhaCungCap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNCC,
             this.TenNCC,
             this.SoDienThoaiNCC,
@@ -149,15 +151,17 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 135);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1366, 428);
-            this.dataGridView1.TabIndex = 100;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dtgNhaCungCap.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgNhaCungCap.Location = new System.Drawing.Point(11, 141);
+            this.dtgNhaCungCap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtgNhaCungCap.Name = "dtgNhaCungCap";
+            this.dtgNhaCungCap.RowHeadersVisible = false;
+            this.dtgNhaCungCap.RowHeadersWidth = 62;
+            this.dtgNhaCungCap.RowTemplate.Height = 28;
+            this.dtgNhaCungCap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgNhaCungCap.Size = new System.Drawing.Size(1366, 404);
+            this.dtgNhaCungCap.TabIndex = 100;
+            this.dtgNhaCungCap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // MaNCC
             // 
@@ -192,10 +196,10 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btnTimKiem);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dtgNhaCungCap);
             this.panel2.Controls.Add(this.tbTimKiem);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(4, 251);
@@ -213,7 +217,7 @@
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(495, 46);
+            this.btnTimKiem.Location = new System.Drawing.Point(494, 41);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -227,7 +231,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 94);
+            this.label1.Location = new System.Drawing.Point(8, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(334, 38);
             this.label1.TabIndex = 24;
@@ -237,7 +241,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tbMaNCC);
             this.panel1.Controls.Add(this.tbTenNCC);
@@ -265,6 +269,7 @@
             // 
             // tbMaNCC
             // 
+            this.tbMaNCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbMaNCC.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMaNCC.Location = new System.Drawing.Point(18, 86);
             this.tbMaNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -274,6 +279,7 @@
             // 
             // tbTenNCC
             // 
+            this.tbTenNCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbTenNCC.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTenNCC.Location = new System.Drawing.Point(476, 86);
             this.tbTenNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -283,6 +289,7 @@
             // 
             // tbDiaChiNCC
             // 
+            this.tbDiaChiNCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbDiaChiNCC.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDiaChiNCC.Location = new System.Drawing.Point(476, 174);
             this.tbDiaChiNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -292,6 +299,7 @@
             // 
             // tbSoDienThoaiNCC
             // 
+            this.tbSoDienThoaiNCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSoDienThoaiNCC.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSoDienThoaiNCC.Location = new System.Drawing.Point(18, 174);
             this.tbSoDienThoaiNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -399,7 +407,7 @@
             this.Name = "Frm_nhaCungCap";
             this.Text = "Nhà cung cấp ";
             this.Load += new System.EventHandler(this.Frm_nhaCungCap_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgNhaCungCap)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -416,7 +424,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgNhaCungCap;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbMaNCC;
