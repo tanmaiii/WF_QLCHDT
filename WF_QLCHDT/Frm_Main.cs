@@ -12,12 +12,11 @@ namespace WF_QLCHDT
 {
     public partial class Frm_Main : Form
     {
+        public EventHandler Logout;
         public Frm_Main()
         {
             InitializeComponent();
         }
-
-
 
         private Form currentFormChill;
 
@@ -37,10 +36,24 @@ namespace WF_QLCHDT
             childForm.Show();
         }
 
+        private void PhanQuyen()
+        {
+            // false là không phải admin
+            if (Const.TaiKhoan.LoaiNV == false)
+            {
+                btn_nhanvien.Visible = false;
+                btn_thongke.Visible = false;
+            }
+
+            lbTenNV.Text = Const.TaiKhoan.TenNV.ToString();
+            lbChucVu.Text = Const.TaiKhoan.LoaiNV == false ? "Nhân viên" : "Quản lý";
+        }
+
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             OpenChildForm(new Frm_trangChu());
             lb_tieuDe.Text = "Trang chủ";
+            PhanQuyen();
         }
 
         private void btn_trangchu_Click(object sender, EventArgs e)
@@ -85,15 +98,16 @@ namespace WF_QLCHDT
             lb_tieuDe.Text = "Hóa đơn";
         }
 
-        private void pn_body_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_khohang_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Frm_khoHang());
-            lb_tieuDe.Text = "Kho hàng";
+            OpenChildForm(new Frm_dsNhapHang());
+            lb_tieuDe.Text = "Danh sách đơn nhập hàng";
+        }
+
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Logout(this, new EventArgs());
         }
     }
 }

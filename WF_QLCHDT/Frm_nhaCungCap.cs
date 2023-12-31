@@ -39,10 +39,10 @@ namespace WF_QLCHDT
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangDuLieu.Rows.Count)
             {
-                tbMaNCC.Text = bangDuLieu.Rows[donghh]["MaNCC"].ToString();
-                tbTenNCC.Text = bangDuLieu.Rows[donghh]["TenNCC"].ToString();
-                tbSoDienThoaiNCC.Text = bangDuLieu.Rows[donghh]["SoDienThoaiNCC"].ToString();
-                tbDiaChiNCC.Text = bangDuLieu.Rows[donghh]["DiaChiNCC"].ToString();
+                tbMaNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["MaNCC"].Value.ToString();
+                tbTenNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["TenNCC"].Value.ToString();
+                tbSoDienThoaiNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["SoDienThoaiNCC"].Value.ToString();
+                tbDiaChiNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["DiaChiNCC"].Value.ToString();
                 tbMaNCC.Enabled = false;
             }
         }

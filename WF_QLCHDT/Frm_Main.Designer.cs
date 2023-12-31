@@ -39,10 +39,14 @@
             this.btn_hoadon = new System.Windows.Forms.Button();
             this.btn_thongke = new System.Windows.Forms.Button();
             this.btn_khohang = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.pn_body = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lb_tieuDe = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbTenNV = new System.Windows.Forms.Label();
+            this.lbChucVu = new System.Windows.Forms.Label();
             this.fpn_menu.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +64,7 @@
             this.fpn_menu.Controls.Add(this.btn_hoadon);
             this.fpn_menu.Controls.Add(this.btn_thongke);
             this.fpn_menu.Controls.Add(this.btn_khohang);
-            this.fpn_menu.Controls.Add(this.button1);
+            this.fpn_menu.Controls.Add(this.btnDangXuat);
             this.fpn_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.fpn_menu.ForeColor = System.Drawing.Color.White;
             this.fpn_menu.Location = new System.Drawing.Point(0, 0);
@@ -246,31 +250,32 @@
             this.btn_khohang.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_khohang.Size = new System.Drawing.Size(310, 80);
             this.btn_khohang.TabIndex = 4;
-            this.btn_khohang.Text = "       Kho hàng";
+            this.btn_khohang.Text = "       Nhập hàng";
             this.btn_khohang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_khohang.UseVisualStyleBackColor = false;
             this.btn_khohang.Click += new System.EventHandler(this.btn_khohang_Click);
             // 
-            // button1
+            // btnDangXuat
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 766);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(310, 80);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "       Đăng xuất";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDangXuat.AutoSize = true;
+            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnDangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDangXuat.FlatAppearance.BorderSize = 0;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
+            this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangXuat.Location = new System.Drawing.Point(3, 766);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnDangXuat.Size = new System.Drawing.Size(310, 80);
+            this.btnDangXuat.TabIndex = 3;
+            this.btnDangXuat.Text = "       Đăng xuất";
+            this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // pn_body
             // 
@@ -280,15 +285,18 @@
             this.pn_body.Location = new System.Drawing.Point(325, 66);
             this.pn_body.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_body.Name = "pn_body";
-            this.pn_body.Size = new System.Drawing.Size(1404, 892);
+            this.pn_body.Size = new System.Drawing.Size(1404, 900);
             this.pn_body.TabIndex = 1;
-            this.pn_body.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_body_Paint);
             // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.panel9.Controls.Add(this.lbChucVu);
+            this.panel9.Controls.Add(this.lbTenNV);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.label1);
             this.panel9.Controls.Add(this.lb_tieuDe);
             this.panel9.Location = new System.Drawing.Point(325, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -301,11 +309,55 @@
             this.lb_tieuDe.AutoSize = true;
             this.lb_tieuDe.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_tieuDe.ForeColor = System.Drawing.Color.White;
-            this.lb_tieuDe.Location = new System.Drawing.Point(20, 9);
+            this.lb_tieuDe.Location = new System.Drawing.Point(20, 11);
             this.lb_tieuDe.Name = "lb_tieuDe";
             this.lb_tieuDe.Size = new System.Drawing.Size(141, 38);
             this.lb_tieuDe.TabIndex = 0;
             this.lb_tieuDe.Text = "Trang chủ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(851, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 32);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tên : ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(1128, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 32);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Chức vụ :";
+            // 
+            // lbTenNV
+            // 
+            this.lbTenNV.AutoSize = true;
+            this.lbTenNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenNV.ForeColor = System.Drawing.Color.White;
+            this.lbTenNV.Location = new System.Drawing.Point(932, 14);
+            this.lbTenNV.Name = "lbTenNV";
+            this.lbTenNV.Size = new System.Drawing.Size(25, 32);
+            this.lbTenNV.TabIndex = 3;
+            this.lbTenNV.Text = "?";
+            // 
+            // lbChucVu
+            // 
+            this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChucVu.ForeColor = System.Drawing.Color.White;
+            this.lbChucVu.Location = new System.Drawing.Point(1254, 14);
+            this.lbChucVu.Name = "lbChucVu";
+            this.lbChucVu.Size = new System.Drawing.Size(25, 32);
+            this.lbChucVu.TabIndex = 4;
+            this.lbChucVu.Text = "?";
             // 
             // Frm_Main
             // 
@@ -318,6 +370,7 @@
             this.Controls.Add(this.panel9);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý cửa hàng điện thoại";
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             this.fpn_menu.ResumeLayout(false);
@@ -342,7 +395,11 @@
         private System.Windows.Forms.Panel pn_body;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lb_tieuDe;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.Button btn_khohang;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbChucVu;
+        private System.Windows.Forms.Label lbTenNV;
     }
 }

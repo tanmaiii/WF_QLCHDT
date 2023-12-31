@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 
 namespace WF_QLCHDT
@@ -27,8 +28,14 @@ namespace WF_QLCHDT
         {
             string mysql = "select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho from sanpham, loai where sanpham.MaLoai = loai.MaLoai";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
-            dataGridView1.DataSource = bangDuLieu;
-            dataGridView1.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
+            dtgvSanPham.DataSource = bangDuLieu;
+            dtgvSanPham.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
+            dtgvSanPham.Columns[0].Width = 100;
+            dtgvSanPham.Columns[1].Width = 100;
+            dtgvSanPham.Columns[2].Width = 100;
+            dtgvSanPham.Columns[3].Width = 100;
+            dtgvSanPham.Columns[4].Width = 100;
+
         }
 
 
@@ -46,13 +53,13 @@ namespace WF_QLCHDT
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangDuLieu.Rows.Count)
             {
-                tbMaSP.Text = bangDuLieu.Rows[donghh]["MaSP"].ToString();
-                tbTenSP.Text = bangDuLieu.Rows[donghh]["TenSP"].ToString();
-                tbGiaSP.Text = bangDuLieu.Rows[donghh]["GiaSP"].ToString();
-                cbHangSP.Text = bangDuLieu.Rows[donghh]["HangSP"].ToString();
-                cbXuatXuSP.Text = bangDuLieu.Rows[donghh]["XuatXuSP"].ToString();
-                cbMaLoai.Text = bangDuLieu.Rows[donghh]["TenLoai"].ToString();
-                tbSoLuongTonKho.Text = bangDuLieu.Rows[donghh]["SoLuongTonKho"].ToString();
+                tbMaSP.Text = dtgvSanPham.Rows[donghh].Cells["MaSP"].Value.ToString();
+                tbTenSP.Text = dtgvSanPham.Rows[donghh].Cells["TenSP"].Value.ToString();
+                tbGiaSP.Text = dtgvSanPham.Rows[donghh].Cells["GiaSP"].Value.ToString();
+                cbHangSP.Text = dtgvSanPham.Rows[donghh].Cells["HangSP"].Value.ToString();
+                cbXuatXuSP.Text = dtgvSanPham.Rows[donghh].Cells["XuatXuSP"].Value.ToString();
+                cbMaLoai.Text = dtgvSanPham.Rows[donghh].Cells["TenLoai"].Value.ToString();
+                tbSoLuongTonKho.Text = dtgvSanPham.Rows[donghh].Cells["SoLuongTonKho"].Value.ToString();
                 tbMaSP.Enabled = false;
             }
         }
@@ -69,7 +76,7 @@ namespace WF_QLCHDT
             // Cho phép nhập liệu cho tbMaSP sau khi reset
             tbMaSP.Enabled = true;
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
-            dataGridView1.ClearSelection();
+            dtgvSanPham.ClearSelection();
         }
 
         private bool KiemTraRong()
@@ -221,7 +228,7 @@ namespace WF_QLCHDT
 
             if (ketQuaTimKiem.Rows.Count > 0)
             {
-                dataGridView1.DataSource = ketQuaTimKiem;
+                dtgvSanPham.DataSource = ketQuaTimKiem;
             }
             else
             {

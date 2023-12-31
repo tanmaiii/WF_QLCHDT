@@ -147,7 +147,6 @@ namespace WF_QLCHDT.Print
                 if (dataTable != null)
                 {
 
-                    string tongTien =
                     // Đặt giá trị lên Label
                     lbMaDDH.Text = dataTable.Rows[0]["MaDDH"].ToString();
                     lbNgayLap.Text = dataTable.Rows[0]["NgayLapDDH"].ToString();

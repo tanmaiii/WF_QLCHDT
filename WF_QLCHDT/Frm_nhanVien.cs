@@ -173,12 +173,12 @@ namespace WF_QLCHDT
             if (e.RowIndex >= 0 && e.RowIndex < bangdulieu.Rows.Count)
             {
                 tbMaNv.Enabled = false;
-                tbMaNv.Text = bangdulieu.Rows[donghh]["MaNV"].ToString();
-                tbHoTen.Text = bangdulieu.Rows[donghh]["TenNV"].ToString();
-                TbSDT.Text = bangdulieu.Rows[donghh]["SoDienThoaiNV"].ToString();
-                TBDiaChi.Text = bangdulieu.Rows[donghh]["DiaChiNV"].ToString();
-                tbTaiKhoan.Text = bangdulieu.Rows[donghh]["TaiKhoanNV"].ToString();
-                tbMatKhau.Text = bangdulieu.Rows[donghh]["MatKhauNV"].ToString();
+                tbMaNv.Text = dgvNhanvien.Rows[donghh].Cells["MaNV"].Value.ToString();
+                tbHoTen.Text = dgvNhanvien.Rows[donghh].Cells["TenNV"].Value.ToString();
+                TbSDT.Text = dgvNhanvien.Rows[donghh].Cells["SoDienThoaiNV"].Value.ToString();
+                TBDiaChi.Text = dgvNhanvien.Rows[donghh].Cells["DiaChiNV"].Value.ToString();
+                tbTaiKhoan.Text = dgvNhanvien.Rows[donghh].Cells["TaiKhoanNV"].Value.ToString();
+                tbMatKhau.Text = dgvNhanvien.Rows[donghh].Cells["MatKhauNV"].Value.ToString();
             }
         }
     }

@@ -1,41 +1,63 @@
-﻿using System;
+﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WF_QLCHDT
 {
-    public partial class Frm_hoaDon : Form
+    public partial class Frm_dsNhapHang : Form
     {
         KetNoiMySql ketnoi = new KetNoiMySql();
-        DataTable bangdulieu = new DataTable();
+        DataTable bangDuLieu = new DataTable();
         int donghh;
 
-        public Frm_hoaDon()
+
+        public Frm_dsNhapHang()
         {
             InitializeComponent();
         }
 
         void HienThiDuLieu()
         {
-            string mysql = "SELECT MaHD, TenKH, SoDienThoaiKH,TenNV, NgayLapHD, TongTien FROM hoadon, khachhang, nhanvien where hoadon.MaKH = khachhang.MaKH and hoadon.MaNV = nhanvien.MaNV ";
-            bangdulieu = ketnoi.ThucHienTruyVan(mysql);//goi ham trong lớp
-            dgvHoaDon.DataSource = bangdulieu;
-            dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+            string mysql = "SELECT count(chitietdondathang.MaSP) as SoLuongSP , dondathang.MaDDH ,TenNV, TenNCC , NgayLapDDH, TongTien FROM dondathang, nhanvien, nhacungcap, chitietdondathang " +
+                           " where dondathang.MaNCC = nhacungcap.MaNCC and dondathang.MaNV = nhanvien.MaNV and dondathang.MaDDH = chitietdondathang.MaDDH GROUP BY dondathang.MaDDH ";
+         
+            bangDuLieu = ketnoi.ThucHienTruyVan(mysql);
+            dgvDDH.DataSource = bangDuLieu;
+           
         }
 
-        private void Frm_hoaDon_Load(object sender, EventArgs e)
+
+        private void Frm_dsNhapHang_Load(object sender, EventArgs e)
         {
             HienThiDuLieu();
+
+            dgvDDH.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+            dgvDDH.Columns["NgayLapDDH"].DefaultCellStyle.Format = "dd/MM/yyyy hh:mm:ss";
+            dgvDDH.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvDDH.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDDH.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvDDH.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvDDH.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvDDH.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
-        //Chuyển chuỗi thành chữ số
+
+        private void LamMoi()
+        {
+            HienThiDuLieu();
+            tbTimKiem.Clear();
+            checkboxLoc.Checked = false;
+        }
+
         static int CovertNumberFromString(string input)
         {
             // Lọc ra chỉ các ký tự số từ chuỗi
@@ -48,27 +70,20 @@ namespace WF_QLCHDT
             }
             else
             {
-                return 0; 
+                return 0;
             }
-        }
-
-        private void LamMoi()
-        {
-            tbTimKiem.Clear();
-            HienThiDuLieu();
-            checkboxLoc.Checked = false;
         }
 
         private void LocDuLieu()
         {
             string tuKhoa = tbTimKiem.Text.Trim();
 
-/*            if (string.IsNullOrEmpty(tuKhoa))
-            {
-                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.");
-                HienThiDuLieu();
-                return;
-            }*/
+            /*            if (string.IsNullOrEmpty(tuKhoa))
+                        {
+                            MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.");
+                            HienThiDuLieu();
+                            return;
+                        }*/
 
             int so = CovertNumberFromString(tuKhoa);
 
@@ -81,19 +96,20 @@ namespace WF_QLCHDT
             }
 
 
-            string lenhTimKiem = $" SELECT MaHD, TenKH, SoDienThoaiKH, TenNV, NgayLapHD, TongTien FROM hoadon, khachhang, nhanvien where hoadon.MaKH = khachhang.MaKH and hoadon.MaNV = nhanvien.MaNV" +
-                                 $" AND NgayLapHD LIKE '%{formattedNgayLap}%' AND (TenKH LIKE '%{tuKhoa}%' OR MaHD LIKE '%{tuKhoa}%' OR SoDienThoaiKH LIKE '%{tuKhoa}%' OR TenNV LIKE '%{tuKhoa}%' OR TongTien = {so})";
+            string lenhTimKiem = $"SELECT count(ctdh.MaSP) as SoLuongSP , ddh.MaDDH , TenNV, TenNCC , NgayLapDDH, TongTien FROM dondathang as ddh, nhanvien as nv, nhacungcap as ncc, chitietdondathang as ctdh " +
+                                   $" where ddh.MaNCC = ncc.MaNCC and ddh.MaNV = nv.MaNV and ddh.MaDDH = ctdh.MaDDH " +
+                                   $" AND NgayLapDDH LIKE '%{formattedNgayLap}%' AND (ddh.MaDDH Like '%{tuKhoa}%' or TenNV Like '%{tuKhoa}%' or TenNCC Like '%{tuKhoa}%' or TongTien = '{so}') " +
+                                   $" GROUP BY ddh.MaDDH ";
+            bangDuLieu = ketnoi.ThucHienTruyVan(lenhTimKiem);
 
-            bangdulieu = ketnoi.ThucHienTruyVan(lenhTimKiem);
-
-            if (bangdulieu.Rows.Count > 0)
+            if (bangDuLieu.Rows.Count > 0)
             {
-                dgvHoaDon.DataSource = bangdulieu;
+                dgvDDH.DataSource = bangDuLieu;
             }
             else
             {
                 MessageBox.Show("Không tìm thấy kết quả nào.");
-                HienThiDuLieu(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy kết quả
+                LamMoi();
             }
         }
 
@@ -102,38 +118,26 @@ namespace WF_QLCHDT
             LocDuLieu();
         }
 
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            Frm_nhapHang frm_NhapHang = new Frm_nhapHang();
+            frm_NhapHang.ShowDialog();  
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            ExportFile(bangDuLieu, "Danh sách", "Danh sách nhập hàng");
+        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             LamMoi();
         }
 
-        //Xem chi tiết đơn hàng
-        private void dgvHoaDon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int donghh = e.RowIndex;
-            if(donghh >= 0)
-            {
-                Print.Frm_inChiTietHoaDon frmPrint = new Print.Frm_inChiTietHoaDon();
-                frmPrint.MaHD = bangdulieu.Rows[donghh]["MaHD"].ToString();
-                frmPrint.ShowDialog();
-            }
-        }
-
-        private void btnXuat_Click(object sender, EventArgs e)
-        {
-           ExportFile(bangdulieu, "Danh sách hóa đơn", "Danh sách hóa đơn");
-        }
-
-        private void dtNgayLap_ValueChanged(object sender, EventArgs e)
-        {
-            LocDuLieu();
-        }
-
-
-        //Khi thay đổi trạng thái checkbox
         private void checkboxLoc_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkboxLoc.Checked) {
+            if (checkboxLoc.Checked)
+            {
                 dtNgayLap.Enabled = true;
             }
             else
@@ -143,7 +147,22 @@ namespace WF_QLCHDT
             }
         }
 
-        // XUẤT FILE EXCEL
+        private void dtNgayLap_ValueChanged(object sender, EventArgs e)
+        {
+            LocDuLieu();
+        }
+
+        private void dgvDDH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            donghh = e.RowIndex;
+            if (donghh >= 0)
+            {
+                Print.Frm_inChiTietDonDatHang FrmDDH = new Print.Frm_inChiTietDonDatHang();
+                FrmDDH.MaDDH = dgvDDH.Rows[donghh].Cells["MaDDH"].Value.ToString();
+                FrmDDH.ShowDialog();
+            }
+        }
+
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
             //Tạo các đối tượng Excel
@@ -195,27 +214,28 @@ namespace WF_QLCHDT
 
             Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
 
-            cl1.Value2 = "Mã hóa đơn";
+            cl1.Value2 = "Mã đơn nhập hàng";
 
             cl1.ColumnWidth = 12;
 
             Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
 
-            cl2.Value2 = "Họ tên khách hàng";
+            cl2.Value2 = "Số sản phẩm";
 
             cl2.ColumnWidth = 25.0;
 
             Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
 
-            cl3.Value2 = "Số điện thoại";
+            cl3.Value2 = "Nhà cung cấp";
             cl3.ColumnWidth = 12.0;
 
             Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
 
-            cl4.Value2 = "Nhân viên lập";
+            cl4.Value2 = "Nhân viên";
 
             cl4.ColumnWidth = 25.5;
 
+            // Ngày lập
             Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
 
             cl5.Value2 = "Thời gian lập";
@@ -256,6 +276,8 @@ namespace WF_QLCHDT
                     arr[row, col] = dataRow[col];
                 }
             }
+
+           
 
             //Thiết lập vùng điền dữ liệu
 

@@ -43,6 +43,11 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,11 +62,6 @@
             this.cbTenNV = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanel1.SuspendLayout();
             this.pnDSSP.SuspendLayout();
@@ -284,6 +284,46 @@
             this.dgvSanPham.TabIndex = 0;
             this.dgvSanPham.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellDoubleClick);
             // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.HeaderText = "MaSP";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên SP";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // GiaSP
+            // 
+            this.GiaSP.DataPropertyName = "GiaSP";
+            this.GiaSP.HeaderText = "Giá";
+            this.GiaSP.MinimumWidth = 6;
+            this.GiaSP.Name = "GiaSP";
+            this.GiaSP.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "SL nhập";
+            this.SoLuong.MinimumWidth = 8;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.DataPropertyName = "ThanhTien";
+            this.ThanhTien.HeaderText = "Thành tiền";
+            this.ThanhTien.MinimumWidth = 8;
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -337,7 +377,6 @@
             this.pnTTSP.Controls.Add(this.nuSoLuong);
             this.pnTTSP.Controls.Add(this.label7);
             this.pnTTSP.Controls.Add(this.tbSoLuongTon);
-            this.pnTTSP.Controls.Add(this.label5);
             this.pnTTSP.Controls.Add(this.cbTenSP);
             this.pnTTSP.Controls.Add(this.cbTenNV);
             this.pnTTSP.Controls.Add(this.label4);
@@ -349,6 +388,7 @@
             this.pnTTSP.Controls.Add(this.label2);
             this.pnTTSP.Controls.Add(this.label1);
             this.pnTTSP.Controls.Add(this.label8);
+            this.pnTTSP.Controls.Add(this.label5);
             this.pnTTSP.Location = new System.Drawing.Point(6, 11);
             this.pnTTSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnTTSP.Name = "pnTTSP";
@@ -457,46 +497,6 @@
             this.label8.Size = new System.Drawing.Size(106, 38);
             this.label8.TabIndex = 44;
             this.label8.Text = "Loại SP";
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "MaSP";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên SP";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // GiaSP
-            // 
-            this.GiaSP.DataPropertyName = "GiaSP";
-            this.GiaSP.HeaderText = "Giá";
-            this.GiaSP.MinimumWidth = 6;
-            this.GiaSP.Name = "GiaSP";
-            this.GiaSP.ReadOnly = true;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.HeaderText = "SL nhập";
-            this.SoLuong.MinimumWidth = 8;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.DataPropertyName = "ThanhTien";
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.MinimumWidth = 8;
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
             // 
             // Frm_nhapHang
             // 
