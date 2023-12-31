@@ -24,14 +24,6 @@ namespace WF_QLCHDT
             InitializeComponent();
         }
 
-        void HienThiNhanVien()
-        {
-            string mysql = "select * from nhanvien";
-            DataTable nhanvien = ketNoi.ThucHienTruyVan(mysql);
-            cbTenNV.DataSource = nhanvien;
-            cbTenNV.DisplayMember = "TenNV";
-            cbTenNV.ValueMember = "MaNV";
-        }
         void HienThiLoaiSanPham()
         {
             string mysql = "SELECT * FROM loai";
@@ -98,7 +90,6 @@ namespace WF_QLCHDT
             tbDiaChiKH.Clear();
             tbSoDienThoaiKH.Clear();
             //dateTimePicker1.Clear();
-            cbTenNV.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
 
             cbTenLoai.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
             cbTenSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
@@ -108,7 +99,6 @@ namespace WF_QLCHDT
             dgvSanPham.ClearSelection();
 
             nuSoLuong.Value = 1;
-            HienThiNhanVien();
             HienThiLoaiSanPham();
             HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
             // Kết nối sự kiện SelectedIndexChanged của cbTenSP với phương thức cbTenSP_SelectedIndexChanged
@@ -123,7 +113,6 @@ namespace WF_QLCHDT
         private void Frm_thanhToan_Load(object sender, EventArgs e)
         {
             nuSoLuong.Value = 1;
-            HienThiNhanVien();
             HienThiLoaiSanPham();
             HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
             // Kết nối sự kiện SelectedIndexChanged của cbTenSP với phương thức cbTenSP_SelectedIndexChanged
@@ -215,6 +204,10 @@ namespace WF_QLCHDT
 
                 if(result == DialogResult.Yes)
                 {
+                    tbTenKH.Text = khachHangCheck.Rows[0]["TenKH"].ToString();  
+                    tbDiaChiKH.Text = khachHangCheck.Rows[0]["DiaChiKH"].ToString();  
+                    tbSoDienThoaiKH.Text = khachHangCheck.Rows[0]["SoDienThoaiKH"].ToString();
+
                     ThemHoaDon(maKhachHang);
                 }
             }
@@ -326,14 +319,14 @@ namespace WF_QLCHDT
             try
             {
                 // Lấy thông tin từ các control
-                string maNhanVien = cbTenNV.SelectedValue.ToString();
+                string MaNV = Const.TaiKhoan.MaNV; ;
                 DateTime ngayLapHD = DateTime.Now;
                 string TongTien = tbTongTien.Text; 
                 // Tạo mã hóa đơn
                 maHoaDon = TaoMaHoaDon();
 
                 // Thực hiện câu lệnh SQL INSERT
-                string mysql = $"INSERT INTO hoadon (MaHD, MaKH, MaNV, NgayLapHD, TongTien) VALUES ('{maHoaDon}', '{maKhachHang}', '{maNhanVien}', '{ngayLapHD.ToString("yyyy-MM-dd HH:mm:ss")}', '{TongTien}')";
+                string mysql = $"INSERT INTO hoadon (MaHD, MaKH, MaNV, NgayLapHD, TongTien) VALUES ('{maHoaDon}', '{maKhachHang}', '{MaNV}', '{ngayLapHD.ToString("yyyy-MM-dd HH:mm:ss")}', '{TongTien}')";
 
                 ketNoi.ThucHienLenh(mysql);
 

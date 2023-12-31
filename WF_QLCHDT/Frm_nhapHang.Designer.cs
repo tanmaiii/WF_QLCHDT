@@ -57,11 +57,9 @@
             this.nuSoLuong = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.tbSoLuongTon = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbTenSP = new System.Windows.Forms.ComboBox();
-            this.cbTenNV = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanel1.SuspendLayout();
             this.pnDSSP.SuspendLayout();
@@ -378,8 +376,6 @@
             this.pnTTSP.Controls.Add(this.label7);
             this.pnTTSP.Controls.Add(this.tbSoLuongTon);
             this.pnTTSP.Controls.Add(this.cbTenSP);
-            this.pnTTSP.Controls.Add(this.cbTenNV);
-            this.pnTTSP.Controls.Add(this.label4);
             this.pnTTSP.Controls.Add(this.tbGiaSP);
             this.pnTTSP.Controls.Add(this.label11);
             this.pnTTSP.Controls.Add(this.btnThemSP);
@@ -446,16 +442,6 @@
             this.tbSoLuongTon.Size = new System.Drawing.Size(380, 45);
             this.tbSoLuongTon.TabIndex = 41;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 134);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 38);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Số lượng tồn kho";
-            // 
             // cbTenSP
             // 
             this.cbTenSP.Enabled = false;
@@ -468,26 +454,6 @@
             this.cbTenSP.TabIndex = 39;
             this.cbTenSP.SelectedIndexChanged += new System.EventHandler(this.cbTenSP_SelectedIndexChanged);
             // 
-            // cbTenNV
-            // 
-            this.cbTenNV.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTenNV.FormattingEnabled = true;
-            this.cbTenNV.Location = new System.Drawing.Point(890, 174);
-            this.cbTenNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbTenNV.Name = "cbTenNV";
-            this.cbTenNV.Size = new System.Drawing.Size(380, 46);
-            this.cbTenNV.TabIndex = 38;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(888, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 38);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Nhân viên";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -497,6 +463,16 @@
             this.label8.Size = new System.Drawing.Size(106, 38);
             this.label8.TabIndex = 44;
             this.label8.Text = "Loại SP";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(231, 38);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Số lượng tồn kho";
             // 
             // Frm_nhapHang
             // 
@@ -535,8 +511,6 @@
         private System.Windows.Forms.Button btnTaoDonHang;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnInHoaDon;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbTenNV;
         private System.Windows.Forms.ComboBox cbTenSP;
         private System.Windows.Forms.TextBox tbSoLuongTon;
         private System.Windows.Forms.Label label5;

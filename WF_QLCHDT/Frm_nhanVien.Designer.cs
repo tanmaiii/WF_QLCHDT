@@ -35,6 +35,8 @@
             this.tbHoTen = new System.Windows.Forms.TextBox();
             this.TbSDT = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbLoaiNV = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbTaiKhoan = new System.Windows.Forms.TextBox();
             this.tbMatKhau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +64,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnXuat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanvien)).BeginInit();
@@ -104,6 +107,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.cbLoaiNV);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.tbTaiKhoan);
             this.panel1.Controls.Add(this.tbMatKhau);
             this.panel1.Controls.Add(this.label1);
@@ -121,6 +126,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1380, 322);
             this.panel1.TabIndex = 4;
+            // 
+            // cbLoaiNV
+            // 
+            this.cbLoaiNV.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLoaiNV.FormattingEnabled = true;
+            this.cbLoaiNV.Items.AddRange(new object[] {
+            "Nhân viên",
+            "Quản lý"});
+            this.cbLoaiNV.Location = new System.Drawing.Point(910, 81);
+            this.cbLoaiNV.Name = "cbLoaiNV";
+            this.cbLoaiNV.Size = new System.Drawing.Size(379, 46);
+            this.cbLoaiNV.TabIndex = 31;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(903, 42);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(113, 38);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Loại NV";
             // 
             // tbTaiKhoan
             // 
@@ -387,6 +414,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSua);
             this.flowLayoutPanel1.Controls.Add(this.btnXoa);
             this.flowLayoutPanel1.Controls.Add(this.btnReset);
+            this.flowLayoutPanel1.Controls.Add(this.btnXuat);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 798);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -465,6 +493,23 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // btnXuat
+            // 
+            this.btnXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuat.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuat.ForeColor = System.Drawing.Color.White;
+            this.btnXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnXuat.Image")));
+            this.btnXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXuat.Location = new System.Drawing.Point(879, 3);
+            this.btnXuat.Name = "btnXuat";
+            this.btnXuat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnXuat.Size = new System.Drawing.Size(213, 60);
+            this.btnXuat.TabIndex = 32;
+            this.btnXuat.Text = "Xuất Exel";
+            this.btnXuat.UseVisualStyleBackColor = false;
+            this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
+            // 
             // Frm_nhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -519,5 +564,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChiNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaiKhoanNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatKhauNV;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbLoaiNV;
+        private System.Windows.Forms.Button btnXuat;
     }
 }

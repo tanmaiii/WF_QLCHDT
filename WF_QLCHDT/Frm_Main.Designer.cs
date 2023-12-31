@@ -42,11 +42,11 @@
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.pn_body = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.lb_tieuDe = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbTenNV = new System.Windows.Forms.Label();
             this.lbChucVu = new System.Windows.Forms.Label();
+            this.lbTenNV = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_tieuDe = new System.Windows.Forms.Label();
             this.fpn_menu.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -304,6 +304,54 @@
             this.panel9.Size = new System.Drawing.Size(1404, 60);
             this.panel9.TabIndex = 0;
             // 
+            // lbChucVu
+            // 
+            this.lbChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbChucVu.AutoSize = true;
+            this.lbChucVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChucVu.ForeColor = System.Drawing.Color.White;
+            this.lbChucVu.Location = new System.Drawing.Point(1254, 14);
+            this.lbChucVu.Name = "lbChucVu";
+            this.lbChucVu.Size = new System.Drawing.Size(25, 32);
+            this.lbChucVu.TabIndex = 4;
+            this.lbChucVu.Text = "?";
+            // 
+            // lbTenNV
+            // 
+            this.lbTenNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTenNV.AutoSize = true;
+            this.lbTenNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenNV.ForeColor = System.Drawing.Color.White;
+            this.lbTenNV.Location = new System.Drawing.Point(932, 14);
+            this.lbTenNV.Name = "lbTenNV";
+            this.lbTenNV.Size = new System.Drawing.Size(25, 32);
+            this.lbTenNV.TabIndex = 3;
+            this.lbTenNV.Text = "?";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(1128, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 32);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Chức vụ :";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(851, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 32);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tên : ";
+            // 
             // lb_tieuDe
             // 
             this.lb_tieuDe.AutoSize = true;
@@ -314,50 +362,6 @@
             this.lb_tieuDe.Size = new System.Drawing.Size(141, 38);
             this.lb_tieuDe.TabIndex = 0;
             this.lb_tieuDe.Text = "Trang chủ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(851, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1128, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Chức vụ :";
-            // 
-            // lbTenNV
-            // 
-            this.lbTenNV.AutoSize = true;
-            this.lbTenNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenNV.ForeColor = System.Drawing.Color.White;
-            this.lbTenNV.Location = new System.Drawing.Point(932, 14);
-            this.lbTenNV.Name = "lbTenNV";
-            this.lbTenNV.Size = new System.Drawing.Size(25, 32);
-            this.lbTenNV.TabIndex = 3;
-            this.lbTenNV.Text = "?";
-            // 
-            // lbChucVu
-            // 
-            this.lbChucVu.AutoSize = true;
-            this.lbChucVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChucVu.ForeColor = System.Drawing.Color.White;
-            this.lbChucVu.Location = new System.Drawing.Point(1254, 14);
-            this.lbChucVu.Name = "lbChucVu";
-            this.lbChucVu.Size = new System.Drawing.Size(25, 32);
-            this.lbChucVu.TabIndex = 4;
-            this.lbChucVu.Text = "?";
             // 
             // Frm_Main
             // 
@@ -372,6 +376,8 @@
             this.Name = "Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý cửa hàng điện thoại";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Main_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Main_FormClosed);
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             this.fpn_menu.ResumeLayout(false);
             this.fpn_menu.PerformLayout();

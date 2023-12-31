@@ -26,7 +26,7 @@ namespace WF_QLCHDT
         {
             string mysql = "select* from nhacungcap";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
-            dtgNhaCungCap.DataSource = bangDuLieu;
+            dgvNhaCungCap.DataSource = bangDuLieu;
         }
 
         private void Frm_nhaCungCap_Load(object sender, EventArgs e)
@@ -39,10 +39,10 @@ namespace WF_QLCHDT
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangDuLieu.Rows.Count)
             {
-                tbMaNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["MaNCC"].Value.ToString();
-                tbTenNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["TenNCC"].Value.ToString();
-                tbSoDienThoaiNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["SoDienThoaiNCC"].Value.ToString();
-                tbDiaChiNCC.Text = dtgNhaCungCap.Rows[donghh].Cells["DiaChiNCC"].Value.ToString();
+                tbMaNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["MaNCC"].Value.ToString();
+                tbTenNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["TenNCC"].Value.ToString();
+                tbSoDienThoaiNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["SoDienThoaiNCC"].Value.ToString();
+                tbDiaChiNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["DiaChiNCC"].Value.ToString();
                 tbMaNCC.Enabled = false;
             }
         }
@@ -88,7 +88,7 @@ namespace WF_QLCHDT
             // Cho phép nhập liệu cho tbMaNCC sau khi reset
             tbMaNCC.Enabled = true;
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
-            dtgNhaCungCap.ClearSelection();
+            dgvNhaCungCap.ClearSelection();
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -149,7 +149,7 @@ namespace WF_QLCHDT
 
             if (ketQuaTimKiem.Rows.Count > 0)
             {
-                dtgNhaCungCap.DataSource = ketQuaTimKiem;
+                dgvNhaCungCap.DataSource = ketQuaTimKiem;
             }
             else
             {
@@ -165,6 +165,144 @@ namespace WF_QLCHDT
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            ExportFile(dgvNhaCungCap, "bang", "Danh sách nhà cung cấp");
+        }
+
+        // XUẤT FILE EXCEL
+        public void ExportFile(DataGridView dataGridView, string sheetName, string title)
+        {
+            // Tạo DataTable từ dữ liệu DataGridView
+            DataTable dataTable = new DataTable();
+
+            // Thêm cột vào DataTable dựa trên tên cột của DataGridView
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                dataTable.Columns.Add(column.HeaderText, column.ValueType);
+            }
+
+            // Thêm dữ liệu từ DataGridView vào DataTable
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                DataRow dataRow = dataTable.NewRow();
+
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dataRow[cell.ColumnIndex] = cell.Value;
+                }
+
+                dataTable.Rows.Add(dataRow);
+            }
+
+            // Gọi hàm ExportFile với DataTable đã được tạo
+            ExportFile(dataTable, sheetName, title);
+        }
+
+        public void ExportFile(DataTable dataTable, string sheetName, string title)
+        {
+            // Tạo các đối tượng Excel
+            Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbooks oBooks;
+            Microsoft.Office.Interop.Excel.Sheets oSheets;
+            Microsoft.Office.Interop.Excel.Workbook oBook;
+            Microsoft.Office.Interop.Excel.Worksheet oSheet;
+
+            // Tạo mới một Excel WorkBook 
+            oExcel.Visible = true;
+            oExcel.DisplayAlerts = false;
+            oExcel.Application.SheetsInNewWorkbook = 1;
+            oBooks = oExcel.Workbooks;
+            oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
+            oSheets = oBook.Worksheets;
+            oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
+            oSheet.Name = sheetName;
+
+            // Tạo phần Tiêu đề
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "E1");
+            head.MergeCells = true;
+            head.Value2 = title;
+            head.Font.Bold = true;
+            head.Font.Name = "Times New Roman";
+            head.Font.Size = "20";
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Tạo tiêu đề cột 
+            int columnCount = dataTable.Columns.Count;
+            for (int col = 0; col < columnCount; col++)
+            {
+                string columnName = dataTable.Columns[col].ColumnName;
+                Microsoft.Office.Interop.Excel.Range cl = oSheet.get_Range(GetExcelColumnName(col + 1) + "3", GetExcelColumnName(col + 1) + "3");
+                cl.Value2 = columnName;
+                cl.ColumnWidth = 12;
+            }
+
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", GetExcelColumnName(columnCount) + "3");
+
+            // Kẻ viền
+            rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+            // Thiết lập màu nền
+            rowHead.Interior.ColorIndex = 6;
+            rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Tạo mảng theo DataTable
+            object[,] arr = new object[dataTable.Rows.Count, columnCount];
+
+            // Chuyển dữ liệu từ DataTable vào mảng đối tượng
+            for (int row = 0; row < dataTable.Rows.Count; row++)
+            {
+                DataRow dataRow = dataTable.Rows[row];
+
+                for (int col = 0; col < columnCount; col++)
+                {
+                    arr[row, col] = dataRow[col];
+                }
+            }
+
+            // Thiết lập vùng điền dữ liệu
+            int rowStart = 4;
+            int columnStart = 1;
+            int rowEnd = rowStart + dataTable.Rows.Count - 1;
+            int columnEnd = columnCount;
+
+            // Ô bắt đầu điền dữ liệu
+            Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
+
+            // Ô kết thúc điền dữ liệu
+            Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];
+
+            // Lấy về vùng điền dữ liệu
+            Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c1, c2);
+
+            // Điền dữ liệu vào vùng đã thiết lập
+            range.Value2 = arr;
+
+            // Kẻ viền
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+            // Căn giữa cả bảng 
+            oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        }
+
+
+        // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel
+        private string GetExcelColumnName(int columnNumber)
+        {
+            int dividend = columnNumber;
+            string columnName = String.Empty;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+
+            return columnName;
         }
     }
 }

@@ -50,6 +50,7 @@ namespace WF_QLCHDT
                         tk.TaiKhoanNV = kiemTraMatKhau.Rows[0]["TaiKhoanNV"].ToString();
                         tk.MatKhauNV = kiemTraMatKhau.Rows[0]["MatKhauNV"].ToString();
                         tk.TenNV = kiemTraMatKhau.Rows[0]["TenNV"].ToString();
+                        tk.MaNV = kiemTraMatKhau.Rows[0]["MaNV"].ToString();
 
                         // Nếu loại tk = 1 thì là admin 
                         tk.LoaiNV = kiemTraMatKhau.Rows[0]["LoaiNV"].ToString() == "1" ? true : false;
@@ -86,7 +87,7 @@ namespace WF_QLCHDT
 
         private void Frm_dangXuat(object sender, EventArgs e)
         {
-        //    (sender as Frm_Main).isExit = false;
+            (sender as Frm_Main).isExit = false;
             (sender as Frm_Main).Close();
             tbMatKhauNV.Clear();
             tbTaiKhoanNV.Clear();

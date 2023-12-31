@@ -26,7 +26,7 @@ namespace WF_QLCHDT
             string mysql = "SELECT MaHD, TenKH, SoDienThoaiKH,TenNV, NgayLapHD, TongTien FROM hoadon, khachhang, nhanvien where hoadon.MaKH = khachhang.MaKH and hoadon.MaNV = nhanvien.MaNV ";
             bangdulieu = ketnoi.ThucHienTruyVan(mysql);//goi ham trong lớp
             dgvHoaDon.DataSource = bangdulieu;
-            dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "dd/MM/yyyy hh:mm:ss";
             dgvHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "N0";
         }
 
@@ -114,7 +114,7 @@ namespace WF_QLCHDT
             if(donghh >= 0)
             {
                 Print.Frm_inChiTietHoaDon frmPrint = new Print.Frm_inChiTietHoaDon();
-                frmPrint.MaHD = bangdulieu.Rows[donghh]["MaHD"].ToString();
+                frmPrint.MaHD = dgvHoaDon.Rows[donghh].Cells["MaHD"].Value.ToString();
                 frmPrint.ShowDialog();
             }
         }

@@ -8,8 +8,9 @@ namespace WF_QLCHDT
 {
     internal class TaiKhoan
     {
-        public string TaiKhoanNV { get; set; }
         public string TenNV { get; set; }
+        public string MaNV { get; set; }
+        public string TaiKhoanNV { get; set; }
         public string MatKhauNV { get; set; }
         public bool LoaiNV { get; set; }
 

@@ -25,20 +25,9 @@ namespace WF_QLCHDT
 
         private void Frm_nhapHang_Load(object sender, EventArgs e)
         {
-            HienThiNhanVien();
             HienThiNhaCungCap();
             HienThiSanPham();
             cbTenSP_SelectedIndexChanged(sender, e);
-        }
-
-
-        void HienThiNhanVien()
-        {
-            string mysql = "select * from nhanvien";
-            DataTable nhanvien = ketnoi.ThucHienTruyVan(mysql);
-            cbTenNV.DataSource = nhanvien;
-            cbTenNV.DisplayMember = "TenNV";
-            cbTenNV.ValueMember = "MaNV";
         }
 
         void HienThiNhaCungCap()
@@ -82,7 +71,6 @@ namespace WF_QLCHDT
 
             HienThiSanPham();
             HienThiNhaCungCap();
-            HienThiNhanVien();
         }
 
         private void cbTenSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -272,7 +260,7 @@ namespace WF_QLCHDT
             try
             {
                 // Lấy thông tin từ các control
-                string MaNV = cbTenNV.SelectedValue.ToString();
+                string MaNV = Const.TaiKhoan.MaNV;
                 DateTime ngayGioHienTai = DateTime.Now;
                 string MaNCC = cbNhaCC.SelectedValue.ToString();
                 string TongTien = tbTongTien.Text;

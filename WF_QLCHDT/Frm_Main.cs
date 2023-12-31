@@ -13,6 +13,7 @@ namespace WF_QLCHDT
     public partial class Frm_Main : Form
     {
         public EventHandler Logout;
+        public bool isExit = true;
         public Frm_Main()
         {
             InitializeComponent();
@@ -107,7 +108,29 @@ namespace WF_QLCHDT
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            Logout(this, new EventArgs());
+            if (MessageBox.Show("Bạn có chắn chắc muốn đăng xuất không ?", "Cảnh báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                 Logout(this, new EventArgs());
+            }
+        }
+
+        private void Frm_Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (isExit)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isExit)
+            {
+                if (MessageBox.Show("Bạn có chắn chắc muốn thoát phần mềm không ?", "Cảnh báo ", MessageBoxButtons.YesNo ,MessageBoxIcon.Warning) != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

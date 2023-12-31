@@ -49,23 +49,24 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.dtgvSanPham = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HangSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.XuatXuSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongTonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnXuat = new System.Windows.Forms.Button();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1426, 425);
+            this.panel1.Size = new System.Drawing.Size(1426, 345);
             this.panel1.TabIndex = 0;
             this.panel1.Tag = "";
             // 
@@ -114,7 +115,7 @@
             "Oppo",
             "Vivo",
             "Intel"});
-            this.cbHangSP.Location = new System.Drawing.Point(612, 89);
+            this.cbHangSP.Location = new System.Drawing.Point(491, 89);
             this.cbHangSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbHangSP.Name = "cbHangSP";
             this.cbHangSP.Size = new System.Drawing.Size(380, 46);
@@ -125,7 +126,7 @@
             // 
             this.tbGiaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbGiaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGiaSP.Location = new System.Drawing.Point(612, 275);
+            this.tbGiaSP.Location = new System.Drawing.Point(947, 180);
             this.tbGiaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbGiaSP.Name = "tbGiaSP";
             this.tbGiaSP.Size = new System.Drawing.Size(380, 45);
@@ -155,7 +156,7 @@
             "Ấn Độ",
             "Đức ",
             "Việt Nam"});
-            this.cbXuatXuSP.Location = new System.Drawing.Point(613, 180);
+            this.cbXuatXuSP.Location = new System.Drawing.Point(492, 180);
             this.cbXuatXuSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbXuatXuSP.Name = "cbXuatXuSP";
             this.cbXuatXuSP.Size = new System.Drawing.Size(380, 46);
@@ -166,7 +167,7 @@
             // 
             this.cbMaLoai.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMaLoai.FormattingEnabled = true;
-            this.cbMaLoai.Location = new System.Drawing.Point(21, 274);
+            this.cbMaLoai.Location = new System.Drawing.Point(946, 88);
             this.cbMaLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMaLoai.Name = "cbMaLoai";
             this.cbMaLoai.Size = new System.Drawing.Size(380, 46);
@@ -176,7 +177,7 @@
             // 
             this.tbSoLuongTonKho.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSoLuongTonKho.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSoLuongTonKho.Location = new System.Drawing.Point(23, 365);
+            this.tbSoLuongTonKho.Location = new System.Drawing.Point(21, 282);
             this.tbSoLuongTonKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSoLuongTonKho.Name = "tbSoLuongTonKho";
             this.tbSoLuongTonKho.Size = new System.Drawing.Size(380, 45);
@@ -187,7 +188,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(16, 322);
+            this.label8.Location = new System.Drawing.Point(14, 239);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 38);
             this.label8.TabIndex = 13;
@@ -197,7 +198,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(606, 46);
+            this.label7.Location = new System.Drawing.Point(485, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 38);
             this.label7.TabIndex = 11;
@@ -207,7 +208,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(612, 135);
+            this.label6.Location = new System.Drawing.Point(491, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 38);
             this.label6.TabIndex = 9;
@@ -217,7 +218,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 232);
+            this.label5.Location = new System.Drawing.Point(940, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 38);
             this.label5.TabIndex = 7;
@@ -267,7 +268,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(612, 232);
+            this.label1.Location = new System.Drawing.Point(947, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 38);
             this.label1.TabIndex = 26;
@@ -294,14 +295,14 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.dtgvSanPham);
+            this.panel2.Controls.Add(this.dgvSanPham);
             this.panel2.Controls.Add(this.tbTimKiem);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(2, 432);
+            this.panel2.Location = new System.Drawing.Point(2, 351);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1426, 351);
+            this.panel2.Size = new System.Drawing.Size(1426, 432);
             this.panel2.TabIndex = 1;
             this.panel2.Tag = "";
             // 
@@ -334,33 +335,81 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Danh sách sản phẩm";
             // 
-            // dtgvSanPham
+            // dgvSanPham
             // 
-            this.dtgvSanPham.AllowUserToAddRows = false;
-            this.dtgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvSanPham.AllowUserToAddRows = false;
+            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvSanPham.BackgroundColor = System.Drawing.Color.White;
-            this.dtgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSP,
             this.TenSP,
             this.GiaSP,
             this.HangSP,
             this.XuatXuSP,
             this.SoLuongTonKho});
-            this.dtgvSanPham.Location = new System.Drawing.Point(16, 98);
-            this.dtgvSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtgvSanPham.Name = "dtgvSanPham";
-            this.dtgvSanPham.ReadOnly = true;
-            this.dtgvSanPham.RowHeadersVisible = false;
-            this.dtgvSanPham.RowHeadersWidth = 62;
-            this.dtgvSanPham.RowTemplate.Height = 28;
-            this.dtgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvSanPham.Size = new System.Drawing.Size(1400, 240);
-            this.dtgvSanPham.TabIndex = 0;
-            this.dtgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvSanPham.Location = new System.Drawing.Point(16, 98);
+            this.dgvSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.ReadOnly = true;
+            this.dgvSanPham.RowHeadersVisible = false;
+            this.dgvSanPham.RowHeadersWidth = 62;
+            this.dgvSanPham.RowTemplate.Height = 28;
+            this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSanPham.Size = new System.Drawing.Size(1400, 321);
+            this.dgvSanPham.TabIndex = 0;
+            this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.HeaderText = "MaSP";
+            this.MaSP.MinimumWidth = 6;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên SP";
+            this.TenSP.MinimumWidth = 6;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // GiaSP
+            // 
+            this.GiaSP.DataPropertyName = "GiaSP";
+            this.GiaSP.HeaderText = "Giá";
+            this.GiaSP.MinimumWidth = 6;
+            this.GiaSP.Name = "GiaSP";
+            this.GiaSP.ReadOnly = true;
+            // 
+            // HangSP
+            // 
+            this.HangSP.DataPropertyName = "HangSP";
+            this.HangSP.HeaderText = "Hãng";
+            this.HangSP.MinimumWidth = 6;
+            this.HangSP.Name = "HangSP";
+            this.HangSP.ReadOnly = true;
+            // 
+            // XuatXuSP
+            // 
+            this.XuatXuSP.DataPropertyName = "XuatXuSP";
+            this.XuatXuSP.HeaderText = "Xuất xứ";
+            this.XuatXuSP.MinimumWidth = 6;
+            this.XuatXuSP.Name = "XuatXuSP";
+            this.XuatXuSP.ReadOnly = true;
+            // 
+            // SoLuongTonKho
+            // 
+            this.SoLuongTonKho.DataPropertyName = "SoLuongTonKho";
+            this.SoLuongTonKho.HeaderText = "Số lượng";
+            this.SoLuongTonKho.MinimumWidth = 6;
+            this.SoLuongTonKho.Name = "SoLuongTonKho";
+            this.SoLuongTonKho.ReadOnly = true;
             // 
             // label9
             // 
@@ -381,6 +430,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSua);
             this.flowLayoutPanel1.Controls.Add(this.btnXoa);
             this.flowLayoutPanel1.Controls.Add(this.btnReset);
+            this.flowLayoutPanel1.Controls.Add(this.btnXuat);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 786);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -459,60 +509,29 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // btnXuat
+            // 
+            this.btnXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuat.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuat.ForeColor = System.Drawing.Color.White;
+            this.btnXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnXuat.Image")));
+            this.btnXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXuat.Location = new System.Drawing.Point(879, 3);
+            this.btnXuat.Name = "btnXuat";
+            this.btnXuat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnXuat.Size = new System.Drawing.Size(213, 60);
+            this.btnXuat.TabIndex = 29;
+            this.btnXuat.Text = "Xuất Exel";
+            this.btnXuat.UseVisualStyleBackColor = false;
+            this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
+            // 
             // mySqlCommand1
             // 
             this.mySqlCommand1.CacheAge = 0;
             this.mySqlCommand1.Connection = null;
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "MaSP";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên SP";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // GiaSP
-            // 
-            this.GiaSP.DataPropertyName = "GiaSP";
-            this.GiaSP.HeaderText = "Giá";
-            this.GiaSP.MinimumWidth = 6;
-            this.GiaSP.Name = "GiaSP";
-            this.GiaSP.ReadOnly = true;
-            // 
-            // HangSP
-            // 
-            this.HangSP.DataPropertyName = "HangSP";
-            this.HangSP.HeaderText = "Hãng";
-            this.HangSP.MinimumWidth = 6;
-            this.HangSP.Name = "HangSP";
-            this.HangSP.ReadOnly = true;
-            // 
-            // XuatXuSP
-            // 
-            this.XuatXuSP.DataPropertyName = "XuatXuSP";
-            this.XuatXuSP.HeaderText = "Xuất xứ";
-            this.XuatXuSP.MinimumWidth = 6;
-            this.XuatXuSP.Name = "XuatXuSP";
-            this.XuatXuSP.ReadOnly = true;
-            // 
-            // SoLuongTonKho
-            // 
-            this.SoLuongTonKho.DataPropertyName = "SoLuongTonKho";
-            this.SoLuongTonKho.HeaderText = "Số lượng";
-            this.SoLuongTonKho.MinimumWidth = 6;
-            this.SoLuongTonKho.Name = "SoLuongTonKho";
-            this.SoLuongTonKho.ReadOnly = true;
             // 
             // Frm_sanPham
             // 
@@ -530,7 +549,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -542,7 +561,7 @@
         private System.Windows.Forms.TextBox tbMaSP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dtgvSanPham;
+        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.TextBox tbSoLuongTonKho;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -572,5 +591,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HangSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn XuatXuSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongTonKho;
+        private System.Windows.Forms.Button btnXuat;
     }
 }

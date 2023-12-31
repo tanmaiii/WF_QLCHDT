@@ -9,6 +9,6 @@ namespace WF_QLCHDT
     internal class Const
     {
         public static TaiKhoan TaiKhoan;
-        public static bool LoaiNV;
+        //public static bool LoaiNV;
     }
 }
