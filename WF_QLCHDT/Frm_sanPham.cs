@@ -34,16 +34,25 @@ namespace WF_QLCHDT
             dgvSanPham.Columns[2].Width = 100;
             dgvSanPham.Columns[3].Width = 100;
             dgvSanPham.Columns[4].Width = 100;
-
         }
 
 
         void HienThiLoai()
         {
             string mysql = "select* from loai";
-            cbMaLoai.DataSource = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
-            cbMaLoai.DisplayMember = "TenLoai";//hien thi ten
-            cbMaLoai.ValueMember = "MaLoai";//gia tri
+            DataTable tableLoai = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
+            if(tableLoai.Rows.Count > 0)
+            {
+                cbMaLoai.DataSource = tableLoai;
+                cbMaLoai.DisplayMember = "TenLoai";//hien thi ten
+                cbMaLoai.ValueMember = "MaLoai";//gia tri
+                cbMaLoai.Enabled = true;
+            }
+            else
+            {
+                cbMaLoai.DataSource = null;
+                cbMaLoai.Enabled = false;
+            }
         }
 
 
@@ -52,30 +61,43 @@ namespace WF_QLCHDT
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangDuLieu.Rows.Count)
             {
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
                 tbMaSP.Text = dgvSanPham.Rows[donghh].Cells["MaSP"].Value.ToString();
                 tbTenSP.Text = dgvSanPham.Rows[donghh].Cells["TenSP"].Value.ToString();
-                tbGiaSP.Text = dgvSanPham.Rows[donghh].Cells["GiaSP"].Value.ToString();
                 cbHangSP.Text = dgvSanPham.Rows[donghh].Cells["HangSP"].Value.ToString();
                 cbXuatXuSP.Text = dgvSanPham.Rows[donghh].Cells["XuatXuSP"].Value.ToString();
                 cbMaLoai.Text = dgvSanPham.Rows[donghh].Cells["TenLoai"].Value.ToString();
                 tbSoLuongTonKho.Text = dgvSanPham.Rows[donghh].Cells["SoLuongTonKho"].Value.ToString();
+                
+                tbGiaSP.Text = Convert.ToInt32(dgvSanPham.Rows[donghh].Cells["GiaSP"].Value).ToString();
+               
                 tbMaSP.Enabled = false;
             }
         }
 
-        private void ClearInputs()
+        private void Reset()
         {
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+
             tbMaSP.Clear();
             tbTenSP.Clear();
             tbGiaSP.Clear();
             cbHangSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
             cbXuatXuSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
-            cbMaLoai.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
+            if(cbMaLoai.Items.Count > 0)
+            {
+               cbMaLoai.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
+            }
             tbSoLuongTonKho.Clear();
             // Cho phép nhập liệu cho tbMaSP sau khi reset
             tbMaSP.Enabled = true;
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
             dgvSanPham.ClearSelection();
+
+            HienThiLoai();
+            HienThiDuLieu();
         }
 
         private bool KiemTraRong()
@@ -101,8 +123,7 @@ namespace WF_QLCHDT
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ClearInputs();
-            HienThiDuLieu();
+            Reset();
         }
 
 
@@ -122,9 +143,8 @@ namespace WF_QLCHDT
                 {
                     string lenhDelete = $"DELETE FROM sanpham WHERE MaSP = '{tbMaSP.Text}'";
                     ketNoi.ThucHienLenh(lenhDelete);
-                    HienThiDuLieu();
                     MessageBox.Show("Xoá sản phẩm thành công!");
-                    ClearInputs();
+                    Reset();
                 }
             }
             else
@@ -136,8 +156,9 @@ namespace WF_QLCHDT
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (!KiemTraRong()) return;
 
-            if (double.Parse(tbGiaSP?.Text) > 1000000000)
+            if (double.Parse(tbGiaSP?.Text) > 100000000)
             {
                 MessageBox.Show("Giá sản phẩm không vượt quá 100,000,000");
                 return;
@@ -161,8 +182,7 @@ namespace WF_QLCHDT
 
                 ketNoi.ThucHienLenh(lenhUpdate);
                 MessageBox.Show("Cập nhật thông tin thành công!");
-                HienThiDuLieu();
-                ClearInputs();
+                Reset();
             }
             else
             {
@@ -205,9 +225,8 @@ namespace WF_QLCHDT
                                     $"'{cbHangSP.Text}', '{cbXuatXuSP.Text}', '{cbMaLoai.SelectedValue}', '{tbSoLuongTonKho.Text}')";
 
                 ketNoi.ThucHienLenh(lenhInsert);
-                HienThiDuLieu();
                 MessageBox.Show("Thêm sản phẩm thành công!");
-                ClearInputs();
+                Reset();
             }
         }
 
@@ -221,8 +240,8 @@ namespace WF_QLCHDT
                 return;
             }
 
-            string lenhTimKiem = $"Select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, TenNCC, SoLuongTonKho  from sanpham, loai, nhacungcap where sanpham.MaLoai = loai.MaLoai and sanpham.MaNCC = nhacungcap.MaNCC " +
-                                 $" and (MaSP LIKE '%{tuKhoa}%' OR TenSP LIKE '%{tuKhoa}%' OR GiaSP LIKE '%{tuKhoa}%' OR HangSP LIKE '%{tuKhoa}%' OR TenNCC LIKE '%{tuKhoa}%' OR  XuatXuSP LIKE '%{tuKhoa}%' OR TenLoai LIKE '%{tuKhoa}%' OR SoLuongTonKho LIKE '%{tuKhoa}%')";
+            string lenhTimKiem = $"Select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho  from sanpham, loai where sanpham.MaLoai = loai.MaLoai " +
+                                 $" and (MaSP LIKE '%{tuKhoa}%' OR TenSP LIKE '%{tuKhoa}%' OR GiaSP LIKE '%{tuKhoa}%' OR HangSP LIKE '%{tuKhoa}%' OR  XuatXuSP LIKE '%{tuKhoa}%' OR TenLoai LIKE '%{tuKhoa}%' OR SoLuongTonKho LIKE '%{tuKhoa}%')";
             DataTable ketQuaTimKiem = ketNoi.ThucHienTruyVan(lenhTimKiem);
 
             if (ketQuaTimKiem.Rows.Count > 0)
@@ -248,6 +267,12 @@ namespace WF_QLCHDT
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)){
                 e.Handled = true;
             }
+        }
+
+        private void btnThemLoaiSP_Click(object sender, EventArgs e)
+        {
+            Frm_loaiSP FrmLoaiSP = new Frm_loaiSP();
+            FrmLoaiSP.ShowDialog();
         }
 
         private void btnXuat_Click(object sender, EventArgs e)
@@ -384,6 +409,7 @@ namespace WF_QLCHDT
 
             return columnName;
         }
+
 
     }
 }

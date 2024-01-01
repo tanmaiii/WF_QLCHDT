@@ -32,14 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnXuat = new System.Windows.Forms.Button();
-            this.tbTimKiem = new System.Windows.Forms.TextBox();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.checkboxLoc = new System.Windows.Forms.CheckBox();
             this.dtNgayLap = new System.Windows.Forms.DateTimePicker();
+            this.tbTimKiem = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnXuat = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
@@ -69,8 +69,71 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1364, 112);
+            this.panel1.Size = new System.Drawing.Size(1364, 102);
             this.panel1.TabIndex = 0;
+            // 
+            // checkboxLoc
+            // 
+            this.checkboxLoc.AutoSize = true;
+            this.checkboxLoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkboxLoc.Location = new System.Drawing.Point(478, 4);
+            this.checkboxLoc.Name = "checkboxLoc";
+            this.checkboxLoc.Size = new System.Drawing.Size(191, 36);
+            this.checkboxLoc.TabIndex = 44;
+            this.checkboxLoc.Text = "Lọc theo ngày";
+            this.checkboxLoc.UseVisualStyleBackColor = true;
+            this.checkboxLoc.CheckedChanged += new System.EventHandler(this.checkboxLoc_CheckedChanged);
+            // 
+            // dtNgayLap
+            // 
+            this.dtNgayLap.CalendarFont = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayLap.CustomFormat = "dd/MM/yyyy";
+            this.dtNgayLap.Enabled = false;
+            this.dtNgayLap.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgayLap.Location = new System.Drawing.Point(478, 46);
+            this.dtNgayLap.Name = "dtNgayLap";
+            this.dtNgayLap.Size = new System.Drawing.Size(209, 45);
+            this.dtNgayLap.TabIndex = 43;
+            this.dtNgayLap.ValueChanged += new System.EventHandler(this.dtNgayLap_ValueChanged);
+            // 
+            // tbTimKiem
+            // 
+            this.tbTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTimKiem.Location = new System.Drawing.Point(15, 46);
+            this.tbTimKiem.Name = "tbTimKiem";
+            this.tbTimKiem.Size = new System.Drawing.Size(445, 45);
+            this.tbTimKiem.TabIndex = 49;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(712, 41);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnTimKiem.Size = new System.Drawing.Size(194, 50);
+            this.btnTimKiem.TabIndex = 41;
+            this.btnTimKiem.Text = "  Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 38);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Từ khóa";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnXuat
             // 
@@ -90,15 +153,6 @@
             this.btnXuat.UseVisualStyleBackColor = false;
             this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
             // 
-            // tbTimKiem
-            // 
-            this.tbTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimKiem.Location = new System.Drawing.Point(15, 50);
-            this.tbTimKiem.Name = "tbTimKiem";
-            this.tbTimKiem.Size = new System.Drawing.Size(536, 45);
-            this.tbTimKiem.TabIndex = 49;
-            // 
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
@@ -117,35 +171,6 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btnTimKiem.FlatAppearance.BorderSize = 0;
-            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
-            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(577, 46);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.btnTimKiem.Size = new System.Drawing.Size(194, 52);
-            this.btnTimKiem.TabIndex = 41;
-            this.btnTimKiem.Text = "  Tìm kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(258, 38);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "Tìm kiếm hóa đơn";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -156,35 +181,10 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dgvHoaDon);
-            this.panel2.Location = new System.Drawing.Point(2, 120);
+            this.panel2.Location = new System.Drawing.Point(2, 110);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1364, 674);
+            this.panel2.Size = new System.Drawing.Size(1364, 684);
             this.panel2.TabIndex = 1;
-            // 
-            // checkboxLoc
-            // 
-            this.checkboxLoc.AutoSize = true;
-            this.checkboxLoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxLoc.Location = new System.Drawing.Point(787, 54);
-            this.checkboxLoc.Name = "checkboxLoc";
-            this.checkboxLoc.Size = new System.Drawing.Size(191, 36);
-            this.checkboxLoc.TabIndex = 44;
-            this.checkboxLoc.Text = "Lọc theo ngày";
-            this.checkboxLoc.UseVisualStyleBackColor = true;
-            this.checkboxLoc.CheckedChanged += new System.EventHandler(this.checkboxLoc_CheckedChanged);
-            // 
-            // dtNgayLap
-            // 
-            this.dtNgayLap.CalendarFont = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayLap.CustomFormat = "dd/MM/yyyy";
-            this.dtNgayLap.Enabled = false;
-            this.dtNgayLap.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgayLap.Location = new System.Drawing.Point(984, 50);
-            this.dtNgayLap.Name = "dtNgayLap";
-            this.dtNgayLap.Size = new System.Drawing.Size(200, 45);
-            this.dtNgayLap.TabIndex = 43;
-            this.dtNgayLap.ValueChanged += new System.EventHandler(this.dtNgayLap_ValueChanged);
             // 
             // label4
             // 
@@ -249,7 +249,7 @@
             this.dgvHoaDon.RowHeadersWidth = 62;
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1335, 617);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1335, 627);
             this.dgvHoaDon.TabIndex = 0;
             this.dgvHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellDoubleClick);
             // 

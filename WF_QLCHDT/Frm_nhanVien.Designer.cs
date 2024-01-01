@@ -325,7 +325,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvNhanvien.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvNhanvien.GridColor = System.Drawing.Color.White;
+            this.dgvNhanvien.GridColor = System.Drawing.Color.Black;
             this.dgvNhanvien.Location = new System.Drawing.Point(8, 148);
             this.dgvNhanvien.Name = "dgvNhanvien";
             this.dgvNhanvien.ReadOnly = true;
@@ -333,7 +333,7 @@
             this.dgvNhanvien.RowHeadersWidth = 62;
             this.dgvNhanvien.RowTemplate.Height = 28;
             this.dgvNhanvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanvien.Size = new System.Drawing.Size(1366, 310);
+            this.dgvNhanvien.Size = new System.Drawing.Size(1351, 310);
             this.dgvNhanvien.TabIndex = 0;
             this.dgvNhanvien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanvien_CellClick);
             // 
@@ -442,6 +442,7 @@
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnSua.Enabled = false;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
@@ -460,6 +461,7 @@
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnXoa.Enabled = false;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;

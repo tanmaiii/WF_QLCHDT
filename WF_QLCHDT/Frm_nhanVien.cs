@@ -58,8 +58,10 @@ namespace WF_QLCHDT
             return true;
         }
 
-        private void ClearInputs()
+        private void Reset()
         {
+            btnXoa.Enabled = false;
+            btnSua.Enabled = false;
             tbMaNv.Enabled = true;
             tbMaNv.Clear();
             tbHoTen.Clear();
@@ -69,6 +71,7 @@ namespace WF_QLCHDT
             tbMatKhau.Clear();
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
             dgvNhanvien.ClearSelection();
+            HienThiDuLieu();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -101,9 +104,8 @@ namespace WF_QLCHDT
                 {
                     string lenhInsert = $"INSERT INTO nhanvien (MaNV, TenNV, DiaChiNV, SoDienThoaiNV, TaiKhoanNV, MatKhauNV , LoaiNV) VALUES ('{tbMaNv.Text}','{tbHoTen.Text}', '{TBDiaChi.Text}','{TbSDT.Text}', '{tbTaiKhoan.Text}', '{tbMatKhau.Text}', '{cbLoaiNV.SelectedIndex}')";
                     ketnoi.ThucHienLenh(lenhInsert);
-                    HienThiDuLieu();
                     MessageBox.Show("Thêm nhân viên thành công !");
-                    ClearInputs();
+                    Reset();
                 }
             }
         }
@@ -119,8 +121,7 @@ namespace WF_QLCHDT
 
             ketnoi.ThucHienLenh(lenhUpdate);
             MessageBox.Show("Cập nhật thông tin thành công!");
-            HienThiDuLieu();
-            ClearInputs();
+            Reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -139,9 +140,8 @@ namespace WF_QLCHDT
                 {
                     string lenhDelete = $"DELETE FROM nhanvien WHERE MaNV = '{tbMaNv.Text}'";
                     ketnoi.ThucHienLenh(lenhDelete);
-                    HienThiDuLieu();
                     MessageBox.Show("Xoá nhân viên thành công!");
-                    ClearInputs();
+                    Reset();
                 }
             }
             else
@@ -152,8 +152,7 @@ namespace WF_QLCHDT
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ClearInputs();
-            HienThiDuLieu();
+            Reset();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -176,7 +175,7 @@ namespace WF_QLCHDT
             else
             {
                 MessageBox.Show("Không tìm thấy kết quả nào.");
-                HienThiDuLieu(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy kết quả
+                Reset(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy kết quả
             }
         }
 
@@ -185,6 +184,8 @@ namespace WF_QLCHDT
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangdulieu.Rows.Count)
             {
+                btnXoa.Enabled = true;
+                btnSua.Enabled = true;
                 tbMaNv.Enabled = false;
                 tbMaNv.Text = dgvNhanvien.Rows[donghh].Cells["MaNV"].Value.ToString();
                 tbHoTen.Text = dgvNhanvien.Rows[donghh].Cells["TenNV"].Value.ToString();

@@ -96,7 +96,9 @@ namespace WF_QLCHDT.Print
 
         private void Frm_inChiTietHoaDon_Load(object sender, EventArgs e)
         {
-            dgvChiTietDonHang.ClearSelection(); 
+            dgvChiTietDonHang.ClearSelection();
+            dgvChiTietDonHang.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
+            dgvChiTietDonHang.Columns["ThanhTien"].DefaultCellStyle.Format = "N0";
             dgvChiTietDonHang.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvChiTietDonHang.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvChiTietDonHang.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

@@ -28,28 +28,40 @@ namespace WF_QLCHDT
         {
             string mysql = "SELECT * FROM loai";
             DataTable loaiDuLieu = ketNoi.ThucHienTruyVan(mysql);
-            cbTenLoai.DataSource = loaiDuLieu;
-            cbTenLoai.DisplayMember = "TenLoai";
-            cbTenLoai.ValueMember = "MaLoai";
-        }
-
-        void HienThiSanPhamTheoLoai(string maLoai)
-        {
-            string mysql = $"SELECT * FROM sanpham WHERE MaLoai = '{maLoai}'";
-            DataTable sanPhamDuLieu = ketNoi.ThucHienTruyVan(mysql);
-            // Kiểm tra xem DataTable có hàng nào hay không
-            if (sanPhamDuLieu.Rows.Count > 0)
+            if(loaiDuLieu.Rows.Count > 0)
             {
-                cbTenSP.DataSource = sanPhamDuLieu;
-                cbTenSP.DisplayMember = "TenSP";
-                cbTenSP.ValueMember = "MaSP";
-                cbTenSP.Enabled = true;  // Bật tình trạng sẵn sàng để chọn
+                cbTenLoai.Enabled = true;
+                cbTenLoai.DataSource = loaiDuLieu;
+                cbTenLoai.DisplayMember = "TenLoai";
+                cbTenLoai.ValueMember = "MaLoai";
             }
             else
             {
-                // Nếu không có sản phẩm nào thuộc loại đã chọn, làm rỗng ComboBox "Sản phẩm"
-                cbTenSP.DataSource = null;
-                cbTenSP.Enabled = false;  // Tắt tình trạng sẵn sàng để chọn
+                MessageBox.Show("Chưa có loại sản phẩm nào ! Vui lòng tạo loại sản phẩm !");
+                cbTenLoai.DataSource = null;
+                cbTenLoai.Enabled = false;
+            }
+        }
+
+        void HienThiBangChonSanPham(string maLoai)
+        {
+            string mysql = $"SELECT MaSP as ChonMaSP, TenSP as ChonTenSP, GiaSP as ChonGiaSP, SoLuongTonKho as ChonSoLuongTonKho  FROM sanpham WHERE MaLoai = '{maLoai}'";
+
+            DataTable loaiDuLieu = ketNoi.ThucHienTruyVan(mysql);
+            if (loaiDuLieu.Rows.Count > 0)
+            {
+                dgvChonSP.DataSource = loaiDuLieu;
+                dgvChonSP.Columns["ChonGiaSP"].DefaultCellStyle.Format = "N0";
+                dgvChonSP.Columns[0].Width = 100;
+                dgvChonSP.Columns[3].Width = 100;
+                dgvChonSP.Enabled = true;
+                dgvChonSP.ClearSelection();
+            }
+            else
+            {
+                // dgvChonSP.DataSource = null;
+                 dgvChonSP.DataSource = loaiDuLieu;
+                dgvChonSP.Enabled = false;
             }
         }
 
@@ -62,6 +74,7 @@ namespace WF_QLCHDT
             //Random random = new Random();
             //return "KH" + random.Next(1000, 9999).ToString();
 
+            //Tạo mã theo datetime để tránh trùng mã 
             long ticks = DateTime.Now.Ticks;
             // Chuyển ticks thành chuỗi hex để tạo mã
             string uniqueCode = ticks.ToString("X");
@@ -76,6 +89,7 @@ namespace WF_QLCHDT
               Random random = new Random();
               return "HD" + random.Next(1000, 9999).ToString();*/
 
+            //Tạo mã theo datetime để tránh trùng mã 
             long ticks = DateTime.Now.Ticks;
             // Chuyển ticks thành chuỗi hex để tạo mã
             string uniqueCode = ticks.ToString("X");
@@ -89,36 +103,45 @@ namespace WF_QLCHDT
             tbTenKH.Clear();
             tbDiaChiKH.Clear();
             tbSoDienThoaiKH.Clear();
-            //dateTimePicker1.Clear();
+            tbTimKiem.Clear();
+            tbMaSP.Clear();
+            tbTenSP.Clear();
 
-            cbTenLoai.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
-            cbTenSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
+            if (cbTenLoai.Items.Count > 0)
+            { 
+                cbTenLoai.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
+  
+                HienThiBangChonSanPham(cbTenLoai.SelectedValue.ToString());
+            }
+
             tbSoLuongTonKho.Clear();
             tbGiaSP.Clear();
+
             // Làm cho DataGridView mất focus để không còn dòng nào được chọn
             dgvSanPham.ClearSelection();
+            dgvChonSP.ClearSelection();
 
             nuSoLuong.Value = 1;
             HienThiLoaiSanPham();
-            HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
-            // Kết nối sự kiện SelectedIndexChanged của cbTenSP với phương thức cbTenSP_SelectedIndexChanged
-            cbTenSP.SelectedIndexChanged += cbTenSP_SelectedIndexChanged;
 
-            pnTTHoaDon.Enabled = true;
-            pnChonSP.Enabled = true;
-            pnDsSP.Enabled = true;
+            gbChonSP.Enabled = true;
+            gbThongTin.Enabled = true;
+            gbDSSP.Enabled = true;
             btnTaoDonHang.Enabled = true;
 
         }
         private void Frm_thanhToan_Load(object sender, EventArgs e)
         {
+
             nuSoLuong.Value = 1;
             HienThiLoaiSanPham();
-            HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
-            // Kết nối sự kiện SelectedIndexChanged của cbTenSP với phương thức cbTenSP_SelectedIndexChanged
-            cbTenSP.SelectedIndexChanged += cbTenSP_SelectedIndexChanged;
-            // Gọi hàm cbTenSP_SelectedIndexChanged để hiển thị thông tin cho sản phẩm đầu tiên
-            cbTenSP_SelectedIndexChanged(sender, e);
+
+            if (cbTenLoai.Items.Count > 0) 
+            {
+                //HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
+                //MOI
+                HienThiBangChonSanPham(cbTenLoai.SelectedValue.ToString());
+            } 
         }
 
         //Chọn loại sản phẩm
@@ -128,46 +151,9 @@ namespace WF_QLCHDT
             string selectedMaLoai = cbTenLoai.SelectedValue.ToString();
 
             // Điền ComboBox "Sản phẩm" dựa trên loại đã chọn
-            HienThiSanPhamTheoLoai(selectedMaLoai);
+            HienThiBangChonSanPham(selectedMaLoai);
         }
 
-        //Hien thị tên và giá sản phẩm
-        private void cbTenSP_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Kiểm tra xem có một giá trị đã chọn trong ComboBox hay không
-            if (cbTenSP.SelectedValue != null)
-            {
-                // Lấy mã sản phẩm đã chọn (MaSP)
-                string selectedMaSP = cbTenSP.SelectedValue.ToString();
-
-                // Truy vấn để lấy sản phẩm dựa trên mã sản phẩm
-                string mysql = $"SELECT * FROM sanpham WHERE MaSP = '{selectedMaSP}'";
-                DataTable sanPhamChon = ketNoi.ThucHienTruyVan(mysql);
-
-                // Kiểm tra xem DataTable có hàng nào hay không
-                if (sanPhamChon.Rows.Count > 0)
-                {
-                    // Lấy giá từ DataTable và gán vào ô textbox
-                    string giaSP = sanPhamChon.Rows[0]["GiaSP"].ToString();
-                    string SoLuongTonKho = sanPhamChon.Rows[0]["SoLuongTonKho"].ToString();
-
-                    tbGiaSP.Text = giaSP;
-                    tbSoLuongTonKho.Text = SoLuongTonKho;
-                }
-                else
-                {
-                    // Nếu không có giá sản phẩm, làm rỗng ô textbox
-                    tbGiaSP.Text = string.Empty;
-                    tbSoLuongTonKho.Text = string.Empty;
-                }
-            }
-            else
-            {
-                // Nếu không có giá trị được chọn trong ComboBox, làm rỗng ô textbox
-                tbGiaSP.Text = string.Empty;
-                tbSoLuongTonKho.Text = string.Empty;
-            }
-        }
 
         //XỬ LÍ KHÁCH HÀNG//
         private void ThemKhachHang()
@@ -236,7 +222,7 @@ namespace WF_QLCHDT
         //THÊM SẢN PHẨM VÀO BẢNG DATAGRIDVIEW ở trang thanh toán//
         private void btnThemSP_Click(object sender, EventArgs e)
         {
-            if (cbTenSP.SelectedIndex == -1)
+            if (tbTenSP.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm khác. Hoặc làm mới!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Thoát khỏi hàm nếu không có sản phẩm được chọn
@@ -244,30 +230,27 @@ namespace WF_QLCHDT
 
             // Lấy thông tin từ ComboBox và NumericUpDown
             string tenLoai = cbTenLoai.Text;
-            string maSanPham = cbTenSP.SelectedValue.ToString();
-            string tenSanPham = cbTenSP.Text;
-            string giaSanPham = tbGiaSP.Text;
+            string maSanPham = tbMaSP.Text.ToString();
+            string tenSanPham = tbTenSP.Text.ToString();
+            string giaSanPham = tbGiaSP.Text.ToString();
             string soLuongTonKho = tbSoLuongTonKho.Text;
             int soLuongMua = (int)nuSoLuong.Value;
 
             // Kiểm tra xem sản phẩm đã tồn tại trong DataGridView chưa
             bool daTonTai = false;
+
+            // Kiểm tra xem số lượng mua có vượt quá số lượng tồn không
+            if (soLuongMua > Convert.ToInt32(soLuongTonKho))
+            {
+                MessageBox.Show("Số lượng mua vượt quá số lượng tồn kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             foreach (DataGridViewRow row in dgvSanPham.Rows)
             {
                 if (row.Cells["MaSP"].Value != null && row.Cells["MaSP"].Value.ToString() == maSanPham)
                 {
-                    // Sản phẩm đã tồn tại, tăng số lượng
-                   // int soLuongHienTai = Convert.ToInt32(row.Cells["SoLuongMua"].Value);
-                    int tongSoLuongMua = soLuongMua;
-
-                    // Kiểm tra xem số lượng mua có vượt quá số lượng tồn không
-                    if (tongSoLuongMua > Convert.ToInt32(soLuongTonKho))
-                    {
-                        MessageBox.Show("Số lượng mua vượt quá số lượng tồn kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    row.Cells["soLuongMua"].Value = tongSoLuongMua;
+                    row.Cells["soLuongMua"].Value = soLuongMua;
                     UpdateThanhTien(row);
 
                     daTonTai = true;
@@ -279,7 +262,8 @@ namespace WF_QLCHDT
             if (!daTonTai)
             {
                 int thanhTien = soLuongMua * Convert.ToInt32(giaSanPham);
-                dgvSanPham.Rows.Add(maSanPham, tenSanPham, giaSanPham, tenLoai,  soLuongMua, thanhTien);
+                string stringThanhTien = thanhTien.ToString("N0");
+                dgvSanPham.Rows.Add(maSanPham, tenSanPham, giaSanPham, tenLoai,  soLuongMua, stringThanhTien);
             }
             CapNhatTongTien();
         }
@@ -290,7 +274,7 @@ namespace WF_QLCHDT
             int soLuongMua = Convert.ToInt32(row.Cells["soLuongMua"].Value);
             int giaSanPham = Convert.ToInt32(row.Cells["GiaSP"].Value);
             int thanhTien = soLuongMua * giaSanPham;
-            row.Cells["ThanhTien"].Value = thanhTien;
+            row.Cells["ThanhTien"].Value = thanhTien.ToString("N0");
 
             CapNhatTongTien();
         }
@@ -304,24 +288,23 @@ namespace WF_QLCHDT
             {
                 if (row.Cells["ThanhTien"].Value != null)
                 {
-                    tongTien += Convert.ToInt32(row.Cells["ThanhTien"].Value);
+                    tongTien += int.Parse(row.Cells["ThanhTien"].Value.ToString().Replace(",", ""));
                 }
             }
 
             // Hiển thị tổng tiền trong TextBox
-            tbTongTien.Text = tongTien.ToString("");
+            tbTongTien.Text = tongTien.ToString("N0");
         }
 
         //HOA DON//
         private void ThemHoaDon(string maKhachHang)
         {
-
             try
             {
                 // Lấy thông tin từ các control
                 string MaNV = Const.TaiKhoan.MaNV; ;
                 DateTime ngayLapHD = DateTime.Now;
-                string TongTien = tbTongTien.Text; 
+                int TongTien = int.Parse(tbTongTien.Text.ToString().Replace(",", "")); 
                 // Tạo mã hóa đơn
                 maHoaDon = TaoMaHoaDon();
 
@@ -349,7 +332,7 @@ namespace WF_QLCHDT
                 {
                     // Lấy thông tin từ các cột trong DataGridView
                     string maSanPham = row.Cells["maSP"].Value.ToString();
-                    string thanhTien = row.Cells["thanhTien"].Value.ToString();
+                    string thanhTien = row.Cells["thanhTien"].Value.ToString().Replace(",", "");
                     int soLuongMua = Convert.ToInt32(row.Cells["soLuongMua"].Value);
 
                     // Thực hiện câu lệnh SQL INSERT vào bảng hoadonchitiet
@@ -362,9 +345,6 @@ namespace WF_QLCHDT
                 }
 
                 MessageBox.Show("Thêm chi tiết hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //tbTongTien.Clear();
-                //dgvSanPham.Rows.Clear();
-                //refresh();
             }
             catch (Exception ex)
             {
@@ -415,9 +395,9 @@ namespace WF_QLCHDT
                     {
                         tbMaHoaDon.Text = maHoaDon.ToString();
                         btnInHoaDon.Visible = true;
-                        pnTTHoaDon.Enabled = false;
-                        pnChonSP.Enabled = false;
-                        pnDsSP.Enabled = false;
+                        gbChonSP.Enabled = false;
+                        gbThongTin.Enabled = false;
+                        gbDSSP.Enabled = false;
                         btnTaoDonHang.Enabled = false;
                     }
                 }
@@ -466,6 +446,35 @@ namespace WF_QLCHDT
             else
             {
                 return;
+            }
+        }
+
+        private void dgvChonSP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                nuSoLuong.Value = 1;
+                tbMaSP.Text = dgvChonSP.Rows[e.RowIndex].Cells["ChonMaSP"].Value.ToString();
+                tbTenSP.Text = dgvChonSP.Rows[e.RowIndex].Cells["ChonTenSP"].Value.ToString();
+                tbSoLuongTonKho.Text = dgvChonSP.Rows[e.RowIndex].Cells["ChonSoLuongTonKho"].Value.ToString();
+                tbGiaSP.Text = Convert.ToInt32(dgvChonSP.Rows[e.RowIndex].Cells["ChonGiaSP"].Value).ToString();
+            }
+        }
+
+        private void btTimKiem_Click(object sender, EventArgs e)
+        {
+            string mysql = $"SELECT MaSP as ChonMaSP, TenSP as ChonTenSP, GiaSP as ChonGiaSP, SoLuongTonKho as ChonSoLuongTonKho  FROM sanpham WHERE MaLoai = '{cbTenLoai.SelectedValue.ToString()}' " +
+                           $" AND TenSP LIKE '%{tbTimKiem.Text.ToString()}%' ";
+
+            DataTable loaiDuLieu = ketNoi.ThucHienTruyVan(mysql);
+            if (loaiDuLieu.Rows.Count > 0)
+            {
+                dgvChonSP.DataSource = loaiDuLieu;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm ");
+                HienThiBangChonSanPham(cbTenLoai.SelectedValue.ToString());
             }
         }
     }

@@ -34,11 +34,28 @@ namespace WF_QLCHDT
             HienThiDuLieu();
         }
 
+        private void Reset()
+        {
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            tbMaNCC.Clear();
+            tbTenNCC.Clear();
+            tbSoDienThoaiNCC.Clear();
+            tbDiaChiNCC.Clear();
+            // Cho phép nhập liệu cho tbMaNCC sau khi reset
+            tbMaNCC.Enabled = true;
+            // Làm cho DataGridView mất focus để không còn dòng nào được chọn
+            dgvNhaCungCap.ClearSelection();
+            HienThiDuLieu();
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             donghh = e.RowIndex;
             if (e.RowIndex >= 0 && e.RowIndex < bangDuLieu.Rows.Count)
             {
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
                 tbMaNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["MaNCC"].Value.ToString();
                 tbTenNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["TenNCC"].Value.ToString();
                 tbSoDienThoaiNCC.Text = dgvNhaCungCap.Rows[donghh].Cells["SoDienThoaiNCC"].Value.ToString();
@@ -73,27 +90,15 @@ namespace WF_QLCHDT
             {
                 string lenhInsert = $"INSERT INTO nhacungcap (MaNCC, TenNCC, DiaChiNCC, SoDienThoaiNCC) VALUES ('{tbMaNCC.Text}', '{tbTenNCC.Text}', '{tbDiaChiNCC.Text}', '{tbSoDienThoaiNCC.Text}')";
                 ketNoi.ThucHienLenh(lenhInsert);
-                HienThiDuLieu();
                 MessageBox.Show("Thêm sản phẩm thành công!");
-                ClearInputs();
+                Reset();
             }
         }
 
-        private void ClearInputs()
-        {
-            tbMaNCC.Clear();
-            tbTenNCC.Clear();
-            tbSoDienThoaiNCC.Clear();
-            tbDiaChiNCC.Clear();
-            // Cho phép nhập liệu cho tbMaNCC sau khi reset
-            tbMaNCC.Enabled = true;
-            // Làm cho DataGridView mất focus để không còn dòng nào được chọn
-            dgvNhaCungCap.ClearSelection();
-        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ClearInputs();
-            HienThiDuLieu();
+           Reset();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -112,9 +117,8 @@ namespace WF_QLCHDT
             {
                 string lenhDelete = $"DELETE FROM nhacungcap WHERE MaNCC = '{tbMaNCC.Text}'";
                 ketNoi.ThucHienLenh(lenhDelete);
-                HienThiDuLieu();
                 MessageBox.Show("Xoá sản phẩm thành công!");
-                ClearInputs();
+                Reset();
             }
             else
             {
@@ -131,7 +135,7 @@ namespace WF_QLCHDT
 
                 // Hiển thị thông báo
                 MessageBox.Show("Cập nhật thông tin thành công!");
-                HienThiDuLieu();
+                Reset();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -154,7 +158,7 @@ namespace WF_QLCHDT
             else
             {
                 MessageBox.Show("Không tìm thấy kết quả nào.");
-                HienThiDuLieu(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy kết quả
+                Reset(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy kết quả
             }
         }
 

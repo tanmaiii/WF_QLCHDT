@@ -28,6 +28,7 @@ namespace WF_QLCHDT
             bangdulieu = ketnoi.ThucHienTruyVan(query);//goi ham trong lớp
             dgvDoanhThu.DataSource = bangdulieu;
             dgvDoanhThu.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+            dgvDoanhThu.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
         }
 
         public void HienThiTong()

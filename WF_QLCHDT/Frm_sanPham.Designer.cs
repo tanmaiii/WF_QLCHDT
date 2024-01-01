@@ -64,6 +64,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnXuat = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.btnThemLoaiSP = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -79,6 +80,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnThemLoaiSP);
             this.panel1.Controls.Add(this.cbHangSP);
             this.panel1.Controls.Add(this.tbGiaSP);
             this.panel1.Controls.Add(this.label11);
@@ -115,7 +117,7 @@
             "Oppo",
             "Vivo",
             "Intel"});
-            this.cbHangSP.Location = new System.Drawing.Point(491, 89);
+            this.cbHangSP.Location = new System.Drawing.Point(456, 88);
             this.cbHangSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbHangSP.Name = "cbHangSP";
             this.cbHangSP.Size = new System.Drawing.Size(380, 46);
@@ -126,7 +128,7 @@
             // 
             this.tbGiaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbGiaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGiaSP.Location = new System.Drawing.Point(947, 180);
+            this.tbGiaSP.Location = new System.Drawing.Point(895, 179);
             this.tbGiaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbGiaSP.Name = "tbGiaSP";
             this.tbGiaSP.Size = new System.Drawing.Size(380, 45);
@@ -156,7 +158,7 @@
             "Ấn Độ",
             "Đức ",
             "Việt Nam"});
-            this.cbXuatXuSP.Location = new System.Drawing.Point(492, 180);
+            this.cbXuatXuSP.Location = new System.Drawing.Point(457, 179);
             this.cbXuatXuSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbXuatXuSP.Name = "cbXuatXuSP";
             this.cbXuatXuSP.Size = new System.Drawing.Size(380, 46);
@@ -167,7 +169,7 @@
             // 
             this.cbMaLoai.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMaLoai.FormattingEnabled = true;
-            this.cbMaLoai.Location = new System.Drawing.Point(946, 88);
+            this.cbMaLoai.Location = new System.Drawing.Point(894, 87);
             this.cbMaLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMaLoai.Name = "cbMaLoai";
             this.cbMaLoai.Size = new System.Drawing.Size(380, 46);
@@ -198,7 +200,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(485, 46);
+            this.label7.Location = new System.Drawing.Point(450, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 38);
             this.label7.TabIndex = 11;
@@ -208,7 +210,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(491, 135);
+            this.label6.Location = new System.Drawing.Point(456, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 38);
             this.label6.TabIndex = 9;
@@ -218,7 +220,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(940, 46);
+            this.label5.Location = new System.Drawing.Point(888, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 38);
             this.label5.TabIndex = 7;
@@ -268,7 +270,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(947, 137);
+            this.label1.Location = new System.Drawing.Point(895, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 38);
             this.label1.TabIndex = 26;
@@ -458,6 +460,7 @@
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnSua.Enabled = false;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
@@ -476,6 +479,7 @@
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btnXoa.Enabled = false;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
@@ -532,6 +536,18 @@
             this.mySqlCommand1.Connection = null;
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
+            // 
+            // btnThemLoaiSP
+            // 
+            this.btnThemLoaiSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemLoaiSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemLoaiSP.Location = new System.Drawing.Point(1280, 89);
+            this.btnThemLoaiSP.Name = "btnThemLoaiSP";
+            this.btnThemLoaiSP.Size = new System.Drawing.Size(54, 46);
+            this.btnThemLoaiSP.TabIndex = 36;
+            this.btnThemLoaiSP.Text = "...";
+            this.btnThemLoaiSP.UseVisualStyleBackColor = true;
+            this.btnThemLoaiSP.Click += new System.EventHandler(this.btnThemLoaiSP_Click);
             // 
             // Frm_sanPham
             // 
@@ -592,5 +608,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn XuatXuSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongTonKho;
         private System.Windows.Forms.Button btnXuat;
+        private System.Windows.Forms.Button btnThemLoaiSP;
     }
 }

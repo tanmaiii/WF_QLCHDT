@@ -124,10 +124,6 @@ namespace WF_QLCHDT
             frm_NhapHang.ShowDialog();  
         }
 
-        private void btnXuat_Click(object sender, EventArgs e)
-        {
-            ExportFile(bangDuLieu, "Danh sách", "Danh sách nhập hàng");
-        }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -149,9 +145,10 @@ namespace WF_QLCHDT
 
         private void dtNgayLap_ValueChanged(object sender, EventArgs e)
         {
-            LocDuLieu();
+            //LocDuLieu();
         }
 
+        //Xem chi tiết đơn đặt hàng
         private void dgvDDH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             donghh = e.RowIndex;
@@ -163,165 +160,151 @@ namespace WF_QLCHDT
             }
         }
 
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            ExportFile(dgvDDH, "Danh sách", "Danh sách nhập hàng");
+        }
+
+        // Xuất excel
+        public void ExportFile(DataGridView dataGridView, string sheetName, string title)
+        {
+            // Tạo DataTable từ dữ liệu DataGridView
+            DataTable dataTable = new DataTable();
+
+            // Thêm cột vào DataTable dựa trên tên cột của DataGridView
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                dataTable.Columns.Add(column.HeaderText, column.ValueType);
+            }
+
+            // Thêm cột NgayLapFormatted để chứa giá trị NgayLap đã được định dạng
+            dataTable.Columns.Add("NgayLap", typeof(string));
+
+            // Thêm dữ liệu từ DataGridView vào DataTable
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                DataRow dataRow = dataTable.NewRow();
+
+                // Định dạng giá trị NgayLap và gán vào cột mới
+                dataRow["NgayLap"] = (row.Cells["NgayLapDDH"].Value is DateTime ngayLap)
+                    ? ngayLap.ToString("dd/MM/yyyy HH:mm:ss")
+                    : row.Cells["NgayLapDDH"].Value.ToString();
+
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dataRow[cell.ColumnIndex] = cell.Value;
+                }
+
+                dataTable.Rows.Add(dataRow);
+            }
+
+            dataTable.Columns.Remove("Thời gian lập");
+            // Gọi hàm ExportFile với DataTable đã được tạo
+            ExportFile(dataTable, sheetName, title);
+        }
+
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
-            //Tạo các đối tượng Excel
-
+            // Tạo các đối tượng Excel
             Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
-
             Microsoft.Office.Interop.Excel.Workbooks oBooks;
-
             Microsoft.Office.Interop.Excel.Sheets oSheets;
-
             Microsoft.Office.Interop.Excel.Workbook oBook;
-
             Microsoft.Office.Interop.Excel.Worksheet oSheet;
 
-            //Tạo mới một Excel WorkBook 
-
+            // Tạo mới một Excel WorkBook 
             oExcel.Visible = true;
-
             oExcel.DisplayAlerts = false;
-
             oExcel.Application.SheetsInNewWorkbook = 1;
-
             oBooks = oExcel.Workbooks;
-
             oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
-
             oSheets = oBook.Worksheets;
-
             oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
-
             oSheet.Name = sheetName;
 
             // Tạo phần Tiêu đề
-            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "F1");
-
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", GetExcelColumnName(dataTable.Columns.Count) + "1");
             head.MergeCells = true;
-
             head.Value2 = title;
-
             head.Font.Bold = true;
-
             head.Font.Name = "Times New Roman";
-
             head.Font.Size = "20";
-
             head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
             // Tạo tiêu đề cột 
+            int columnCount = dataTable.Columns.Count;
+            for (int col = 0; col < columnCount; col++)
+            {
+                string columnName = col == columnCount - 1 ? "Ngày Lập" : dataTable.Columns[col].ColumnName;
+                Microsoft.Office.Interop.Excel.Range cl = oSheet.get_Range(GetExcelColumnName(col + 1) + "3", GetExcelColumnName(col + 1) + "3");
+                cl.Value2 = columnName;
+                cl.ColumnWidth = 20;
+            }
 
-            Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
-
-            cl1.Value2 = "Mã đơn nhập hàng";
-
-            cl1.ColumnWidth = 12;
-
-            Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
-
-            cl2.Value2 = "Số sản phẩm";
-
-            cl2.ColumnWidth = 25.0;
-
-            Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
-
-            cl3.Value2 = "Nhà cung cấp";
-            cl3.ColumnWidth = 12.0;
-
-            Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
-
-            cl4.Value2 = "Nhân viên";
-
-            cl4.ColumnWidth = 25.5;
-
-            // Ngày lập
-            Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
-
-            cl5.Value2 = "Thời gian lập";
-
-            cl5.ColumnWidth = 18.5;
-
-            Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
-
-            cl6.Value2 = "Tổng Tiền";
-
-            cl6.ColumnWidth = 18.5;
-
-            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "F3");
-
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", GetExcelColumnName(columnCount) + "3");
 
             // Kẻ viền
-
             rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
 
             // Thiết lập màu nền
-
             rowHead.Interior.ColorIndex = 6;
-
             rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-            // Tạo mảng theo datatable
+            // Tạo mảng theo DataTable
+            object[,] arr = new object[dataTable.Rows.Count, columnCount];
 
-            object[,] arr = new object[dataTable.Rows.Count, dataTable.Columns.Count];
-
-            //Chuyển dữ liệu từ DataTable vào mảng đối tượng
-
+            // Chuyển dữ liệu từ DataTable vào mảng đối tượng
             for (int row = 0; row < dataTable.Rows.Count; row++)
             {
                 DataRow dataRow = dataTable.Rows[row];
 
-                for (int col = 0; col < dataTable.Columns.Count; col++)
+                for (int col = 0; col < columnCount; col++)
                 {
                     arr[row, col] = dataRow[col];
                 }
             }
 
-           
-
-            //Thiết lập vùng điền dữ liệu
-
+            // Thiết lập vùng điền dữ liệu
             int rowStart = 4;
-
             int columnStart = 1;
-
-            int rowEnd = rowStart + dataTable.Rows.Count - 2;
-
-            int columnEnd = dataTable.Columns.Count;
-
-            //định dạng cột ngày lập
-            Microsoft.Office.Interop.Excel.Range dateColumn = oSheet.get_Range("E4", $"E{rowEnd}");
-            dateColumn.NumberFormat = "dd/MM/yyyy hh:mm:ss";
+            int rowEnd = rowStart + dataTable.Rows.Count - 1;
+            int columnEnd = columnCount;
 
             // Ô bắt đầu điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
 
             // Ô kết thúc điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];
 
             // Lấy về vùng điền dữ liệu
-
             Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c1, c2);
 
-            //Điền dữ liệu vào vùng đã thiết lập
-
+            // Điền dữ liệu vào vùng đã thiết lập
             range.Value2 = arr;
 
             // Kẻ viền
-
             range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
 
-            // Căn giữa cột mã nhân viên
-
-            //Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnStart];
-
-            //Microsoft.Office.Interop.Excel.Range c4 = oSheet.get_Range(c1, c3);
-
-            //Căn giữa cả bảng 
+            // Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         }
 
+        // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel
+        private string GetExcelColumnName(int columnNumber)
+        {
+            int dividend = columnNumber;
+            string columnName = String.Empty;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+
+            return columnName;
+        }
     }
 }

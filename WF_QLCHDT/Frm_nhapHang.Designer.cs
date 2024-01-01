@@ -407,6 +407,11 @@
             // 
             this.nuSoLuong.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nuSoLuong.Location = new System.Drawing.Point(21, 270);
+            this.nuSoLuong.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nuSoLuong.Minimum = new decimal(new int[] {
             1,
             0,
@@ -483,7 +488,8 @@
             this.Controls.Add(this.pnDSSP);
             this.Controls.Add(this.pnTTSP);
             this.Name = "Frm_nhapHang";
-            this.Text = "Frm_nhapHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nhập hàng";
             this.Load += new System.EventHandler(this.Frm_nhapHang_Load);
             flowLayoutPanel1.ResumeLayout(false);
             this.pnDSSP.ResumeLayout(false);
