@@ -181,6 +181,7 @@ namespace WF_QLCHDT
             if (string.IsNullOrEmpty(tuKhoa))
             {
                 MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.");
+                Reset();
                 return;
             }
 
@@ -222,6 +223,7 @@ namespace WF_QLCHDT
         }
 
         // XUẤT FILE EXCEL
+        // Chuyển dữ liệu từ dataGridView -> Datatable
         public void ExportFile(DataGridView dataGridView, string sheetName, string title)
         {
             // Tạo DataTable từ dữ liệu DataGridView
@@ -250,6 +252,7 @@ namespace WF_QLCHDT
             ExportFile(dataTable, sheetName, title);
         }
 
+        // Chuyển dữ liệu từ dataGridView -> Excel
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
             // Tạo các đối tượng Excel
@@ -342,7 +345,6 @@ namespace WF_QLCHDT
             Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
             dataRange.WrapText = true;
         }
-
 
         // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel
         private string GetExcelColumnName(int columnNumber)

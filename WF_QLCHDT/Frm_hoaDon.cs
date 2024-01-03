@@ -151,7 +151,7 @@ namespace WF_QLCHDT
         }
 
 
-        // Xuất exel
+        // Chuyển dữ liệu từ dataGridView -> Datatable
         public void ExportFile(DataGridView dataGridView, string sheetName, string title)
         {
             // Tạo DataTable từ dữ liệu DataGridView
@@ -189,6 +189,7 @@ namespace WF_QLCHDT
             ExportFile(dataTable, sheetName, title);
         }
 
+        // Chuyển dữ liệu từ Datatable -> Excel
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
             // Tạo các đối tượng Excel

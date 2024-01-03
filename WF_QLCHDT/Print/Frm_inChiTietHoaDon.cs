@@ -21,7 +21,6 @@ namespace WF_QLCHDT.Print
         public string MaHD ;
 
         KetNoiMySql ketnoi = new KetNoiMySql(); 
-        DataTable bangdulieu = new DataTable();
 
         private Panel panelToPrint;
         public Frm_inChiTietHoaDon()
@@ -29,20 +28,6 @@ namespace WF_QLCHDT.Print
             InitializeComponent();
             panelToPrint = panelPrint;
             this.WindowState = FormWindowState.Maximized;
-        }
-
-        private string ChuoiTien(string chuoiSo)
-        {
-            if (double.TryParse(chuoiSo, out double soTien))
-            {
-                // Chuyển đổi số thành chuỗi tiền tệ với dấu phẩy phân tách hàng nghìn
-                string tienChuoi = soTien.ToString("N0"); // "N0" là định dạng cho số nguyên, dấu phẩy phân tách hàng nghìn
-                return tienChuoi;
-            }
-            else
-            {
-                return chuoiSo;
-            }
         }
 
         private void HienThongTin()
@@ -68,7 +53,7 @@ namespace WF_QLCHDT.Print
                     lbSoDienThoaiKH.Text = dataTable.Rows[0]["SoDienThoaiKH"].ToString();
                     lbTenNV.Text = dataTable.Rows[0]["TenNV"].ToString();
 
-                    lbTongTien.Text = ChuoiTien(dataTable.Rows[0]["TongTien"].ToString()) + " VND ";
+                    lbTongTien.Text = Convert.ToDecimal(dataTable.Rows[0]["TongTien"]).ToString("N0") + " VND";
                     lbBangChu.Text = NumberToText(double.Parse(dataTable.Rows[0]["TongTien"].ToString()));
                 }
                 else
@@ -118,7 +103,7 @@ namespace WF_QLCHDT.Print
         {
             PrintDocument printDocument = new PrintDocument();
             printDocument.PrintPage += PrintPage;
-            printDocument.DefaultPageSettings.Landscape = false; // Đặt ngang hay dọc tùy thuộc vào yêu cầu
+            printDocument.DefaultPageSettings.Landscape = false; 
 
             PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
             printPreviewDialog.Document = printDocument;
@@ -138,10 +123,12 @@ namespace WF_QLCHDT.Print
 
 
         // chuyển tổng tiền thành chữ 
-        public static string NumberToText(double inputNumber, bool suffix = false)
+        public static string NumberToText(double inputNumber)
         {
             string[] unitNumbers = new string[] { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
             string[] placeValues = new string[] { "", "nghìn", "triệu", "tỷ" };
+         
+            // Số âm
             bool isNegative = false;
 
             if (inputNumber == 0)
@@ -152,20 +139,21 @@ namespace WF_QLCHDT.Print
             // -12345678.3445435 => "-12345678"
             string sNumber = inputNumber.ToString("#");
             double number = Convert.ToDouble(sNumber);
+
             if (number < 0)
             {
                 number = -number;
                 sNumber = number.ToString();
+                // Xét âm bằng true
                 isNegative = true;
             }
 
-
             int ones, tens, hundreds;
 
-            int positionDigit = sNumber.Length;   // last -> first
+            // độ dài của chữ số
+            int positionDigit = sNumber.Length;   
 
             string result = " ";
-
 
             if (positionDigit == 0)
                 result = unitNumbers[0] + result;
@@ -179,7 +167,7 @@ namespace WF_QLCHDT.Print
 
                 while (positionDigit > 0)
                 {
-                    // Check last 3 digits remain ### (hundreds tens ones)
+                    // kiểm tra 3 chữ số cuối ( hàng trăm, chục , đơn vị)
                     tens = hundreds = -1;
                     ones = Convert.ToInt32(sNumber.Substring(positionDigit - 1, 1));
                     positionDigit--;
@@ -230,7 +218,6 @@ namespace WF_QLCHDT.Print
             if (isNegative) result = "Âm " + result;
 
             result = result.Length > 0 ? char.ToUpper(result[0]) + result.Substring(1) : result;
-            //  return result + (suffix ? " đồng chẵn" : "");
             return result + " đồng ";
         }
     }

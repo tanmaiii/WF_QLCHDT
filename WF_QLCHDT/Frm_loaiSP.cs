@@ -26,6 +26,9 @@ namespace WF_QLCHDT
             string mysql = "select* from loai";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
             dgvLoai.DataSource = bangDuLieu;
+
+            dgvLoai.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvLoai.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 

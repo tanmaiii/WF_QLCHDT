@@ -152,9 +152,9 @@ namespace WF_QLCHDT
 
 
             dgvChonSP.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvChonSP.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvChonSP.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvChonSP.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChonSP.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChonSP.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvChonSP.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         //Chọn loại sản phẩm

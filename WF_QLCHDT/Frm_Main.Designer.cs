@@ -286,7 +286,7 @@
             this.pn_body.Location = new System.Drawing.Point(325, 66);
             this.pn_body.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_body.Name = "pn_body";
-            this.pn_body.Size = new System.Drawing.Size(1404, 900);
+            this.pn_body.Size = new System.Drawing.Size(1400, 900);
             this.pn_body.TabIndex = 1;
             // 
             // panel9

@@ -42,6 +42,7 @@ namespace WF_QLCHDT
             dgvSanPham.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSanPham.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvSanPham.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 
@@ -94,6 +95,8 @@ namespace WF_QLCHDT
             tbTenSP.Clear();
             tbGiaSP.Clear();
             tbMoTaSP.Clear();
+            tbTimKiem.Clear();
+
             cbHangSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
             cbXuatXuSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
             if(cbMaLoai.Items.Count > 0)
@@ -289,6 +292,9 @@ namespace WF_QLCHDT
         {
             ExportFile(dgvSanPham, "bang", "Danh sách sản phẩm");
         }
+
+        //Xuat file excel
+        // Chuyển dữ liệu từ dataGridView -> Datatable
         public void ExportFile(DataGridView dataGridView, string sheetName, string title)
         {
             // Tạo DataTable từ dữ liệu DataGridView
@@ -317,6 +323,7 @@ namespace WF_QLCHDT
             ExportFile(dataTable, sheetName, title);
         }
 
+        // Chuyển dữ liệu từ Datatable -> Excel
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
             // Tạo các đối tượng Excel
@@ -426,7 +433,5 @@ namespace WF_QLCHDT
 
             return columnName;
         }
-
-
     }
 }

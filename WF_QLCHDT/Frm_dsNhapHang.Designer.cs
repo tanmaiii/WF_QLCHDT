@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_dsNhapHang));
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDDH = new System.Windows.Forms.DataGridView();
             this.MaDDH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,35 +47,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkboxLoc = new System.Windows.Forms.CheckBox();
             this.dtNgayLap = new System.Windows.Forms.DateTimePicker();
-            this.panel2.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDDH)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 38);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Lịch sử nhập hàng";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.dgvDDH);
-            this.panel2.Location = new System.Drawing.Point(2, 129);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1374, 666);
-            this.panel2.TabIndex = 27;
             // 
             // label2
             // 
@@ -87,7 +60,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(253, 10);
+            this.label2.Location = new System.Drawing.Point(6, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(301, 32);
             this.label2.TabIndex = 26;
@@ -102,14 +75,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDDH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDDH.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDDH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDDH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDDH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaDDH,
@@ -118,22 +83,14 @@
             this.TenNV,
             this.NgayLapDDH,
             this.TongTien});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDDH.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDDH.Location = new System.Drawing.Point(10, 66);
+            this.dgvDDH.Location = new System.Drawing.Point(10, 73);
             this.dgvDDH.Name = "dgvDDH";
             this.dgvDDH.ReadOnly = true;
             this.dgvDDH.RowHeadersVisible = false;
             this.dgvDDH.RowHeadersWidth = 62;
             this.dgvDDH.RowTemplate.Height = 28;
             this.dgvDDH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDDH.Size = new System.Drawing.Size(1354, 600);
+            this.dgvDDH.Size = new System.Drawing.Size(1362, 587);
             this.dgvDDH.TabIndex = 0;
             this.dgvDDH.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDDH_CellDoubleClick);
             // 
@@ -194,7 +151,7 @@
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(732, 45);
+            this.btnTimKiem.Location = new System.Drawing.Point(723, 47);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnTimKiem.Size = new System.Drawing.Size(210, 52);
@@ -215,10 +172,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 7);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 14);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 38);
+            this.label9.Size = new System.Drawing.Size(100, 32);
             this.label9.TabIndex = 17;
             this.label9.Text = "Từ khóa";
             // 
@@ -226,13 +183,13 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Controls.Add(this.btnNhapHang);
             this.flowLayoutPanel1.Controls.Add(this.btnReset);
             this.flowLayoutPanel1.Controls.Add(this.btnXuat);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 798);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 790);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1374, 66);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1394, 66);
             this.flowLayoutPanel1.TabIndex = 28;
             // 
             // btnNhapHang
@@ -291,14 +248,15 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.checkboxLoc);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.tbTimKiem);
             this.panel1.Controls.Add(this.dtNgayLap);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(2, 13);
+            this.panel1.Location = new System.Drawing.Point(5, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1374, 110);
+            this.panel1.Size = new System.Drawing.Size(1375, 110);
             this.panel1.TabIndex = 26;
             // 
             // checkboxLoc
@@ -326,32 +284,45 @@
             this.dtNgayLap.TabIndex = 45;
             this.dtNgayLap.ValueChanged += new System.EventHandler(this.dtNgayLap_ValueChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dgvDDH);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(2, 118);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1378, 666);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lịch sử nhập hàng";
+            // 
             // Frm_dsNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 889);
-            this.Controls.Add(this.panel2);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1408, 889);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_dsNhapHang";
             this.Text = "Danh sách đơn nhập hàng";
             this.Load += new System.EventHandler(this.Frm_dsNhapHang_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDDH)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvDDH;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.TextBox tbTimKiem;
@@ -370,5 +341,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayLapDDH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

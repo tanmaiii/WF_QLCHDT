@@ -13,7 +13,6 @@ namespace WF_QLCHDT
     public partial class Frm_dangNhap : Form
     {
         KetNoiMySql ketNoi = new KetNoiMySql();
-        DataTable bangDuLieu = new DataTable();
 
         public Frm_dangNhap()
         {
@@ -38,23 +37,27 @@ namespace WF_QLCHDT
 
                 DataTable kiemtraTaiKhoan = ketNoi.ThucHienTruyVan(query);
 
+                // Nếu tồn tại tài khoản
                 if (kiemtraTaiKhoan.Rows.Count > 0)
                 {
                     string query2 = $"SELECT * FROM nhanvien where TaiKhoanNV = '{taikhoan}' and MatKhauNV = '{matkhau}' ";
 
                     DataTable kiemTraMatKhau = ketNoi.ThucHienTruyVan(query2);
 
+                    // Kiểm tra mật khẩu
                     if (kiemTraMatKhau.Rows.Count > 0)
                     {
+
                         TaiKhoan tk = new TaiKhoan();
                         tk.TaiKhoanNV = kiemTraMatKhau.Rows[0]["TaiKhoanNV"].ToString();
                         tk.MatKhauNV = kiemTraMatKhau.Rows[0]["MatKhauNV"].ToString();
                         tk.TenNV = kiemTraMatKhau.Rows[0]["TenNV"].ToString();
                         tk.MaNV = kiemTraMatKhau.Rows[0]["MaNV"].ToString();
 
-                        // Nếu loại tk = 1 thì là admin 
+                        // Nếu loại tk = 1 thì là quản lý , 0 là nhân viên
                         tk.LoaiNV = kiemTraMatKhau.Rows[0]["LoaiNV"].ToString() == "1" ? true : false;
                       
+                        // Lưu vào biến chung
                         Const.TaiKhoan = tk;
 
                         return true;
@@ -79,18 +82,25 @@ namespace WF_QLCHDT
             if (KiemTraDangNhap(tbTaiKhoanNV.Text.ToString(), tbMatKhauNV.Text.ToString()))
             {
                 Frm_Main frmMain  = new Frm_Main();
+               // Hiện form chính
                 frmMain.Show();
+               // Ẩn form đăng nhập
                 this.Hide();
+               //Tạo hàm đăng xuất 
                 frmMain.Logout += Frm_dangXuat;
             }
         }
 
+        // Khi hàm Logout từ form chính được chạy
         private void Frm_dangXuat(object sender, EventArgs e)
         {
+            // xét isExit = false (Sẽ không đóng hoàn toàn chương trình)
             (sender as Frm_Main).isExit = false;
+            // Đóng form chính
             (sender as Frm_Main).Close();
             tbMatKhauNV.Clear();
             tbTaiKhoanNV.Clear();
+            //Hiện form đăng nhập
             this.Show();
         }
 

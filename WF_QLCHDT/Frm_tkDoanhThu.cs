@@ -17,7 +17,9 @@ namespace WF_QLCHDT
         KetNoiMySql ketnoi = new KetNoiMySql();
         DataTable bangdulieu = new DataTable();
         int donghh;
-        string query = "SELECT  COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam, month(NgayLapHD)as thang , day(NgayLapHD) as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD), month(NgayLapHD), day(NgayLapHD) ORDER BY Nam, Thang, Ngay;";
+
+        string query = "SELECT  COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam, month(NgayLapHD)as thang , day(NgayLapHD) as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD), month(NgayLapHD), day(NgayLapHD) ORDER BY Nam DESC, Thang DESC, Ngay DESC;";
+        
         public Frm_tkDoanhThu()
         {
             InitializeComponent();
@@ -34,10 +36,10 @@ namespace WF_QLCHDT
         {
             string query = "SELECT sum(TongTien) as TongTien, count(MaHD) as SoLuongHD FROM hoadon";
             DataTable dt = ketnoi.ThucHienTruyVan(query);
-            
-            lbTongTien.Text = dt.Rows[0]["TongTien"].ToString();
 
-            lbSoHD.Text = dt.Rows[0]["SoLuongHD"].ToString();
+            lbTongTien.Text = Convert.ToDecimal(dt.Rows[0]["TongTien"]).ToString("N0") + " VND";
+
+            lbSoHD.Text = dt.Rows[0]["SoLuongHD"].ToString() + " hóa đơn";
 
         }
 
@@ -46,6 +48,9 @@ namespace WF_QLCHDT
             chartDoanhThu.Series.Clear();
             Series series = new Series("TongTien");
             chartDoanhThu.Series.Add(series);
+            chartDoanhThu.ChartAreas[0].AxisX.Interval = 1;
+            chartDoanhThu.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+
             foreach (DataGridViewRow row in dgvDoanhThu.Rows)
             {
                 string ngayThang = "";
@@ -53,10 +58,10 @@ namespace WF_QLCHDT
                 switch (cbNgayLoc.SelectedIndex.ToString())
                 {
                     case "0":
-                        ngayThang = row.Cells["Ngay"].Value.ToString() + "/" + row.Cells["Thang"].Value.ToString() + "/" + row.Cells["Nam"].Value.ToString();
+                        ngayThang = row.Cells["Ngay"].Value.ToString() + "-" + row.Cells["Thang"].Value.ToString() + "-" + row.Cells["Nam"].Value.ToString();
                         break;
                     case "1":
-                        ngayThang = row.Cells["Thang"].Value.ToString() + "/" + row.Cells["Nam"].Value.ToString();
+                        ngayThang = row.Cells["Thang"].Value.ToString() + "-" + row.Cells["Nam"].Value.ToString();
                         break;
                     case "2":
                         ngayThang = row.Cells["Nam"].Value.ToString();
@@ -91,17 +96,17 @@ namespace WF_QLCHDT
             {
                 case "0":
                     //lọc theo ngày
-                    query = "SELECT COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam,  month(NgayLapHD)as thang , day(NgayLapHD) as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD), month(NgayLapHD), day(NgayLapHD) ORDER BY Nam, Thang, Ngay;";
+                    query = "SELECT COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam,  month(NgayLapHD)as thang , day(NgayLapHD) as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD), month(NgayLapHD), day(NgayLapHD) ORDER BY Nam DESC, Thang DESC, Ngay DESC";
                     // UpdateSqlStatement("Ngày");
                     break;
                 case "1":
                     //lọc theo tháng
-                    query = "SELECT  COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam,  month(NgayLapHD)as thang,  0 as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD), month(NgayLapHD) ORDER BY Nam, Thang;";
+                    query = "SELECT  COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam,  month(NgayLapHD)as thang,  0 as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD), month(NgayLapHD) ORDER BY Nam DESC, Thang DESC";
                     DataGridViewTextBoxColumn tenCot = new DataGridViewTextBoxColumn();
                     break;
                 case "2":
                     //lọc theo năm
-                    query = "SELECT  COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam , 0 as Thang , 0 as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD) ORDER BY Nam;";
+                    query = "SELECT  COUNT(*) AS SoLuongHD, SUM(TongTien) AS TongTien, YEAR(NgayLapHD) as nam , 0 as Thang , 0 as Ngay FROM hoadon GROUP BY YEAR(NgayLapHD) ORDER BY Nam DESC";
                     break;
                 default:
                     // Xử lý một trường hợp mặc định nếu cần
@@ -123,6 +128,7 @@ namespace WF_QLCHDT
         }
 
         // XUẤT FILE EXCEL
+        // Chuyển dữ liệu từ dataGridView -> Datatable
         public void ExportFile(DataGridView dataGridView, string sheetName, string title)
         {
             // Tạo DataTable từ dữ liệu DataGridView
@@ -150,7 +156,8 @@ namespace WF_QLCHDT
             // Gọi hàm ExportFile với DataTable đã được tạo
             ExportFile(dataTable, sheetName, title);
         }
-        
+
+        // Chuyển dữ liệu từ Datatable -> Excel
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
             // Tạo các đối tượng Excel
@@ -243,7 +250,6 @@ namespace WF_QLCHDT
             Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
             dataRange.WrapText = true;
         }
-
 
         // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel
         private string GetExcelColumnName(int columnNumber)

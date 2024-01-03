@@ -21,6 +21,12 @@ namespace WF_QLCHDT
 
         private Form currentFormChill;
 
+        private void btn_logo_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Frm_trangChu());
+            lb_tieuDe.Text = "Trang chủ";
+        }
+
         private void OpenChildForm(Form childForm)
         {
             if(currentFormChill != null)
@@ -105,15 +111,17 @@ namespace WF_QLCHDT
             lb_tieuDe.Text = "Danh sách đơn nhập hàng";
         }
 
-
+        //khi nhấn đăng xuất sẽ chạy hàm Logout từ form đăng nhập
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắn chắc muốn đăng xuất không ?", "Cảnh báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                 Logout(this, new EventArgs());
+                // chạy hàm Frm_dangXuat của form đăng nhập
+                Logout(this, new EventArgs());
             }
         }
 
+        //Khi form đóng nếu isExit là true sẽ đóng hoàn toàn chương trình
         private void Frm_Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (isExit)
@@ -122,8 +130,10 @@ namespace WF_QLCHDT
             }
         }
 
+        //khi dóng form nếu isExit = true sẽ thoát đóng form
         private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Khi nhấn thoát ở form chính sẽ hiện cảnh báo 
             if (isExit)
             {
                 if (MessageBox.Show("Bạn có chắn chắc muốn thoát phần mềm không ?", "Cảnh báo ", MessageBoxButtons.YesNo ,MessageBoxIcon.Warning) != DialogResult.Yes)
@@ -133,10 +143,6 @@ namespace WF_QLCHDT
             }
         }
 
-        private void btn_logo_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Frm_trangChu());
-            lb_tieuDe.Text = "Trang chủ";
-        }
+
     }
 }

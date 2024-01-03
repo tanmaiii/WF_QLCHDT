@@ -36,19 +36,28 @@ namespace WF_QLCHDT
             string query = "SELECT sum(chitiethoadon.ThanhTien) as TongTien, sum(chitiethoadon.SoLuongMua) as SoLuongSP from chitiethoadon;";
             DataTable dt = ketnoi.ThucHienTruyVan(query);
 
-            lbTongTien.Text = dt.Rows[0]["TongTien"].ToString();
-
-            lbSoSP.Text = dt.Rows[0]["SoLuongSP"].ToString();
+            lbTongTien.Text = Convert.ToDecimal(dt.Rows[0]["TongTien"]).ToString("N0") + " VND";
+            lbSoSP.Text = dt.Rows[0]["SoLuongSP"].ToString() + " hóa đơn ";
         }
 
         public void HienThiBieuDo()
         {
             chartDoanhThu.Series.Clear();
             Series series = new Series("TongTien");
+            series.ChartType = SeriesChartType.Column;
             chartDoanhThu.Series.Add(series);
-            foreach (DataGridViewRow row in dgvDoanhThu.Rows)
+            chartDoanhThu.ChartAreas[0].AxisX.Interval = 1;
+            chartDoanhThu.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+
+            // Giới hạn số lượng dòng được hiển thị
+            int rowCountToShow = 10;
+            int rowCount = dgvDoanhThu.Rows.Count;
+
+            for (int i = 0; i < Math.Min(rowCount, rowCountToShow); i++)
             {
-                chartDoanhThu.Series["TongTien"].Points.AddXY(row.Cells["TenSP"].Value, row.Cells["TongTien"].Value);
+                DataGridViewRow row = dgvDoanhThu.Rows[i];
+                string tenSP = row.Cells["TenSP"].Value.ToString();
+                chartDoanhThu.Series["TongTien"].Points.AddXY(tenSP, row.Cells["TongTien"].Value);
             }
         }
 
@@ -80,6 +89,7 @@ namespace WF_QLCHDT
         }
 
         // XUẤT FILE EXCEL
+        // Chuyển dữ liệu từ dataGridView -> Datatable
         public void ExportFile(DataGridView dataGridView, string sheetName, string title)
         {
             // Tạo DataTable từ dữ liệu DataGridView
@@ -108,6 +118,7 @@ namespace WF_QLCHDT
             ExportFile(dataTable, sheetName, title);
         }
 
+        // Chuyển dữ liệu từ dataGridView -> Excel
         public void ExportFile(DataTable dataTable, string sheetName, string title)
         {
             // Tạo các đối tượng Excel
@@ -200,7 +211,6 @@ namespace WF_QLCHDT
             Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
             dataRange.WrapText = true;
         }
-
 
         // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel
         private string GetExcelColumnName(int columnNumber)

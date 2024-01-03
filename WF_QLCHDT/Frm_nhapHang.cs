@@ -30,8 +30,8 @@ namespace WF_QLCHDT
             tbTongTien.Clear();
             nuSoLuong.Value = 1;
 
-            pnTTSP.Enabled = true;
-            pnDSSP.Enabled = true;
+            gbTTSP.Enabled = true;
+            gbDSSP.Enabled = true;
             btnTaoDonHang.Enabled = true;
 
             HienThiLoaiSanPham();
@@ -266,8 +266,8 @@ namespace WF_QLCHDT
                 if (result == DialogResult.Yes)
                 {
                         ThemDonNhapHang();
-                        pnTTSP.Enabled = false;
-                        pnDSSP.Enabled = false;
+                        gbTTSP.Enabled = false;
+                        gbDSSP.Enabled = false;
                         btnTaoDonHang.Enabled = false;
                 }
                
