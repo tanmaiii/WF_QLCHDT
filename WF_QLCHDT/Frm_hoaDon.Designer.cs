@@ -321,6 +321,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_hoaDon";
             this.Text = "Hóa đơn";
             this.Load += new System.EventHandler(this.Frm_hoaDon_Load);

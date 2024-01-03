@@ -37,8 +37,8 @@
             this.btn_nhanvien = new System.Windows.Forms.Button();
             this.btn_nhacungcap = new System.Windows.Forms.Button();
             this.btn_hoadon = new System.Windows.Forms.Button();
-            this.btn_thongke = new System.Windows.Forms.Button();
             this.btn_khohang = new System.Windows.Forms.Button();
+            this.btn_thongke = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.pn_body = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -62,8 +62,8 @@
             this.fpn_menu.Controls.Add(this.btn_nhanvien);
             this.fpn_menu.Controls.Add(this.btn_nhacungcap);
             this.fpn_menu.Controls.Add(this.btn_hoadon);
-            this.fpn_menu.Controls.Add(this.btn_thongke);
             this.fpn_menu.Controls.Add(this.btn_khohang);
+            this.fpn_menu.Controls.Add(this.btn_thongke);
             this.fpn_menu.Controls.Add(this.btnDangXuat);
             this.fpn_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.fpn_menu.ForeColor = System.Drawing.Color.White;
@@ -85,6 +85,7 @@
             this.btn_logo.TabIndex = 2;
             this.btn_logo.Text = "SHOPDUNK";
             this.btn_logo.UseVisualStyleBackColor = true;
+            this.btn_logo.Click += new System.EventHandler(this.btn_logo_Click);
             // 
             // btn_trangchu
             // 
@@ -213,27 +214,6 @@
             this.btn_hoadon.UseVisualStyleBackColor = false;
             this.btn_hoadon.Click += new System.EventHandler(this.btn_hoadon_Click);
             // 
-            // btn_thongke
-            // 
-            this.btn_thongke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_thongke.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_thongke.FlatAppearance.BorderSize = 0;
-            this.btn_thongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_thongke.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thongke.ForeColor = System.Drawing.Color.White;
-            this.btn_thongke.Image = ((System.Drawing.Image)(resources.GetObject("btn_thongke.Image")));
-            this.btn_thongke.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_thongke.Location = new System.Drawing.Point(3, 598);
-            this.btn_thongke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_thongke.Name = "btn_thongke";
-            this.btn_thongke.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_thongke.Size = new System.Drawing.Size(310, 80);
-            this.btn_thongke.TabIndex = 1;
-            this.btn_thongke.Text = "       Thống kê";
-            this.btn_thongke.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_thongke.UseVisualStyleBackColor = false;
-            this.btn_thongke.Click += new System.EventHandler(this.btn_thongke_Click);
-            // 
             // btn_khohang
             // 
             this.btn_khohang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
@@ -244,7 +224,7 @@
             this.btn_khohang.ForeColor = System.Drawing.Color.White;
             this.btn_khohang.Image = ((System.Drawing.Image)(resources.GetObject("btn_khohang.Image")));
             this.btn_khohang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_khohang.Location = new System.Drawing.Point(3, 682);
+            this.btn_khohang.Location = new System.Drawing.Point(3, 598);
             this.btn_khohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_khohang.Name = "btn_khohang";
             this.btn_khohang.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -254,6 +234,27 @@
             this.btn_khohang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_khohang.UseVisualStyleBackColor = false;
             this.btn_khohang.Click += new System.EventHandler(this.btn_khohang_Click);
+            // 
+            // btn_thongke
+            // 
+            this.btn_thongke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_thongke.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_thongke.FlatAppearance.BorderSize = 0;
+            this.btn_thongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_thongke.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thongke.ForeColor = System.Drawing.Color.White;
+            this.btn_thongke.Image = ((System.Drawing.Image)(resources.GetObject("btn_thongke.Image")));
+            this.btn_thongke.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_thongke.Location = new System.Drawing.Point(3, 682);
+            this.btn_thongke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_thongke.Name = "btn_thongke";
+            this.btn_thongke.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_thongke.Size = new System.Drawing.Size(310, 80);
+            this.btn_thongke.TabIndex = 1;
+            this.btn_thongke.Text = "       Thống kê";
+            this.btn_thongke.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_thongke.UseVisualStyleBackColor = false;
+            this.btn_thongke.Click += new System.EventHandler(this.btn_thongke_Click);
             // 
             // btnDangXuat
             // 
@@ -310,7 +311,7 @@
             this.lbChucVu.AutoSize = true;
             this.lbChucVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChucVu.ForeColor = System.Drawing.Color.White;
-            this.lbChucVu.Location = new System.Drawing.Point(1254, 14);
+            this.lbChucVu.Location = new System.Drawing.Point(1235, 14);
             this.lbChucVu.Name = "lbChucVu";
             this.lbChucVu.Size = new System.Drawing.Size(25, 32);
             this.lbChucVu.TabIndex = 4;
@@ -322,7 +323,7 @@
             this.lbTenNV.AutoSize = true;
             this.lbTenNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTenNV.ForeColor = System.Drawing.Color.White;
-            this.lbTenNV.Location = new System.Drawing.Point(932, 14);
+            this.lbTenNV.Location = new System.Drawing.Point(916, 14);
             this.lbTenNV.Name = "lbTenNV";
             this.lbTenNV.Size = new System.Drawing.Size(25, 32);
             this.lbTenNV.TabIndex = 3;
@@ -372,6 +373,7 @@
             this.Controls.Add(this.pn_body);
             this.Controls.Add(this.fpn_menu);
             this.Controls.Add(this.panel9);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

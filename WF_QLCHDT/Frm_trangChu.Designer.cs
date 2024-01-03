@@ -67,6 +67,7 @@
             this.ClientSize = new System.Drawing.Size(1384, 890);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_trangChu";
             this.Text = "  ";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -33,6 +33,13 @@ namespace WF_QLCHDT
         private void Frm_hoaDon_Load(object sender, EventArgs e)
         {
             HienThiDuLieu();
+
+            dgvHoaDon.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvHoaDon.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvHoaDon.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvHoaDon.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvHoaDon.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvHoaDon.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         //Chuyển chuỗi thành chữ số
@@ -266,6 +273,13 @@ namespace WF_QLCHDT
 
             // Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Áp dụng AutoFit cho tất cả các cột
+            oSheet.Columns.AutoFit();
+
+            // Tự động xuống hàng nếu nội dung quá dài 
+            Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
+            dataRange.WrapText = true;
         }
 
         // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel

@@ -60,7 +60,7 @@ namespace WF_QLCHDT
             else
             {
                 // dgvChonSP.DataSource = null;
-                 dgvChonSP.DataSource = loaiDuLieu;
+                dgvChonSP.DataSource = loaiDuLieu;
                 dgvChonSP.Enabled = false;
             }
         }
@@ -132,7 +132,6 @@ namespace WF_QLCHDT
         }
         private void Frm_thanhToan_Load(object sender, EventArgs e)
         {
-
             nuSoLuong.Value = 1;
             HienThiLoaiSanPham();
 
@@ -141,7 +140,21 @@ namespace WF_QLCHDT
                 //HienThiSanPhamTheoLoai(cbTenLoai.SelectedValue.ToString());
                 //MOI
                 HienThiBangChonSanPham(cbTenLoai.SelectedValue.ToString());
-            } 
+            }
+            
+            //Chỉnh lại các cột
+            dgvSanPham.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvSanPham.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
+            dgvChonSP.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChonSP.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvChonSP.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvChonSP.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         //Chọn loại sản phẩm
@@ -333,10 +346,11 @@ namespace WF_QLCHDT
                     // Lấy thông tin từ các cột trong DataGridView
                     string maSanPham = row.Cells["maSP"].Value.ToString();
                     string thanhTien = row.Cells["thanhTien"].Value.ToString().Replace(",", "");
+                    string giaSP = row.Cells["giaSP"].Value.ToString().Replace(",", "");
                     int soLuongMua = Convert.ToInt32(row.Cells["soLuongMua"].Value);
 
                     // Thực hiện câu lệnh SQL INSERT vào bảng hoadonchitiet
-                    string mysqlChiTiet = $"INSERT INTO chitiethoadon (MaSP, MaHD, SoLuongMua,ThanhTien) VALUES ('{maSanPham}', '{maHoaDon}', '{soLuongMua}', '{thanhTien}')";
+                    string mysqlChiTiet = $"INSERT INTO chitiethoadon (MaSP, MaHD, SoLuongMua,ThanhTien, GiaSP) VALUES ('{maSanPham}', '{maHoaDon}', '{soLuongMua}', '{thanhTien}', '{giaSP}')";
 
                     ketNoi.ThucHienLenh(mysqlChiTiet);
 

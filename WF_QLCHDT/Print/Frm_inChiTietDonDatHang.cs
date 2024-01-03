@@ -175,7 +175,7 @@ namespace WF_QLCHDT.Print
         private void HienChiTietSanPham()
         {
             // Thực hiện truy vấn SELECT để lấy dữ liệu từ cơ sở dữ liệu
-            string truyVan = $"SELECT ROW_NUMBER() OVER (ORDER BY sanpham.MaSP) as STT,sanpham.MaSP, sanpham.TenSP, sanpham.GiaSP,ctddh.SoLuong, ctddh.ThanhTien FROM dondathang as ddh, chitietdondathang as ctddh, sanpham " +
+            string truyVan = $"SELECT ROW_NUMBER() OVER (ORDER BY sanpham.MaSP) as STT,sanpham.MaSP, sanpham.TenSP, ctddh.GiaSP,ctddh.SoLuong, ctddh.ThanhTien FROM dondathang as ddh, chitietdondathang as ctddh, sanpham " +
                              $" where ddh.MaDDH = '{MaDDH}' and ddh.MaDDH = ctddh.MaDDH and ctddh.MaSP = sanpham.MaSP";
 
             // Gọi hàm ThucHienTruyVan để lấy dữ liệu từ cơ sở dữ liệu và hiển thị trong DataGridView

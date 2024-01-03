@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_nhapHang));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTaoDonHang = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnInHoaDon = new System.Windows.Forms.Button();
@@ -258,6 +259,8 @@
             // dgvSanPham
             // 
             this.dgvSanPham.AllowUserToAddRows = false;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSanPham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -285,7 +288,7 @@
             // MaSP
             // 
             this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "MaSP";
+            this.MaSP.HeaderText = "Mã SP";
             this.MaSP.MinimumWidth = 6;
             this.MaSP.Name = "MaSP";
             this.MaSP.ReadOnly = true;
@@ -326,7 +329,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 48);
+            this.label3.Location = new System.Drawing.Point(14, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 38);
             this.label3.TabIndex = 3;
@@ -394,14 +397,14 @@
             // 
             // cbLoaiSP
             // 
-            this.cbLoaiSP.Enabled = false;
             this.cbLoaiSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLoaiSP.FormattingEnabled = true;
-            this.cbLoaiSP.Location = new System.Drawing.Point(890, 87);
+            this.cbLoaiSP.Location = new System.Drawing.Point(21, 86);
             this.cbLoaiSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLoaiSP.Name = "cbLoaiSP";
             this.cbLoaiSP.Size = new System.Drawing.Size(380, 46);
             this.cbLoaiSP.TabIndex = 46;
+            this.cbLoaiSP.SelectedIndexChanged += new System.EventHandler(this.cbLoaiSP_SelectedIndexChanged);
             // 
             // nuSoLuong
             // 
@@ -441,7 +444,7 @@
             this.tbSoLuongTon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSoLuongTon.Enabled = false;
             this.tbSoLuongTon.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSoLuongTon.Location = new System.Drawing.Point(21, 174);
+            this.tbSoLuongTon.Location = new System.Drawing.Point(877, 86);
             this.tbSoLuongTon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSoLuongTon.Name = "tbSoLuongTon";
             this.tbSoLuongTon.Size = new System.Drawing.Size(380, 45);
@@ -449,10 +452,9 @@
             // 
             // cbTenSP
             // 
-            this.cbTenSP.Enabled = false;
             this.cbTenSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTenSP.FormattingEnabled = true;
-            this.cbTenSP.Location = new System.Drawing.Point(21, 86);
+            this.cbTenSP.Location = new System.Drawing.Point(21, 174);
             this.cbTenSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTenSP.Name = "cbTenSP";
             this.cbTenSP.Size = new System.Drawing.Size(380, 46);
@@ -463,7 +465,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(886, 46);
+            this.label8.Location = new System.Drawing.Point(17, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 38);
             this.label8.TabIndex = 44;
@@ -473,7 +475,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 134);
+            this.label5.Location = new System.Drawing.Point(875, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(231, 38);
             this.label5.TabIndex = 40;
@@ -487,6 +489,7 @@
             this.Controls.Add(flowLayoutPanel1);
             this.Controls.Add(this.pnDSSP);
             this.Controls.Add(this.pnTTSP);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_nhapHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập hàng";

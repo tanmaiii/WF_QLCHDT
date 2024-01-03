@@ -43,10 +43,9 @@ namespace WF_QLCHDT
 
         public void HienThiBieuDo()
         {
-    //        chartDoanhThu.Series.Clear();
-/*            Series series = new Series("TongTien");
-            Series series2 = new Series("SoLuongBan");*/
-  
+            chartDoanhThu.Series.Clear();
+            Series series = new Series("TongTien");
+            chartDoanhThu.Series.Add(series);
             foreach (DataGridViewRow row in dgvDoanhThu.Rows)
             {
                 chartDoanhThu.Series["TongTien"].Points.AddXY(row.Cells["TenSP"].Value, row.Cells["TongTien"].Value);
@@ -64,6 +63,10 @@ namespace WF_QLCHDT
         private void Frm_tkSanPham_Load(object sender, EventArgs e)
         {
             LamMoi();
+
+            dgvDoanhThu.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvDoanhThu.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvDoanhThu.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -189,6 +192,13 @@ namespace WF_QLCHDT
 
             // Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Áp dụng AutoFit cho tất cả các cột
+            oSheet.Columns.AutoFit();
+
+            // Tự động xuống hàng nếu nội dung quá dài 
+            Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
+            dataRange.WrapText = true;
         }
 
 

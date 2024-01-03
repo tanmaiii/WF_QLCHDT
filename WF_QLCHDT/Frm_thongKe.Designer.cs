@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_thongKe));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ttDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             this.ttSanPham = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +87,7 @@
             this.ClientSize = new System.Drawing.Size(1378, 889);
             this.Controls.Add(this.pnNoiDung);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Frm_thongKe";
             this.Text = "Thống kê";

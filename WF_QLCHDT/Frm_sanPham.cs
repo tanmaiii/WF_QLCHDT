@@ -25,15 +25,23 @@ namespace WF_QLCHDT
 
         void HienThiDuLieu()
         {
-            string mysql = "select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho from sanpham, loai where sanpham.MaLoai = loai.MaLoai";
+            string mysql = "select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho, MoTaSP from sanpham, loai where sanpham.MaLoai = loai.MaLoai";
             bangDuLieu = ketNoi.ThucHienTruyVan(mysql);//goi ham trong lớp
             dgvSanPham.DataSource = bangDuLieu;
             dgvSanPham.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
-            dgvSanPham.Columns[0].Width = 100;
-            dgvSanPham.Columns[1].Width = 100;
-            dgvSanPham.Columns[2].Width = 100;
-            dgvSanPham.Columns[3].Width = 100;
-            dgvSanPham.Columns[4].Width = 100;
+            /*   dgvSanPham.Columns[0].Width = 100;
+               dgvSanPham.Columns[1].Width = 100;
+               dgvSanPham.Columns[2].Width = 100;
+               dgvSanPham.Columns[3].Width = 100;
+               dgvSanPham.Columns[4].Width = 100;*/
+
+            dgvSanPham.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvSanPham.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
 
@@ -69,7 +77,8 @@ namespace WF_QLCHDT
                 cbXuatXuSP.Text = dgvSanPham.Rows[donghh].Cells["XuatXuSP"].Value.ToString();
                 cbMaLoai.Text = dgvSanPham.Rows[donghh].Cells["TenLoai"].Value.ToString();
                 tbSoLuongTonKho.Text = dgvSanPham.Rows[donghh].Cells["SoLuongTonKho"].Value.ToString();
-                
+                tbMoTaSP.Text = dgvSanPham.Rows[donghh].Cells["MoTaSP"].Value.ToString();
+
                 tbGiaSP.Text = Convert.ToInt32(dgvSanPham.Rows[donghh].Cells["GiaSP"].Value).ToString();
                
                 tbMaSP.Enabled = false;
@@ -84,6 +93,7 @@ namespace WF_QLCHDT
             tbMaSP.Clear();
             tbTenSP.Clear();
             tbGiaSP.Clear();
+            tbMoTaSP.Clear();
             cbHangSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
             cbXuatXuSP.SelectedIndex = 0; // Chọn mặc định hoặc có thể là một giá trị khác tùy thuộc vào yêu cầu
             if(cbMaLoai.Items.Count > 0)
@@ -177,7 +187,7 @@ namespace WF_QLCHDT
                 // Cập nhật vào CSDL
                 string lenhUpdate = $"UPDATE sanpham SET TenSP = '{tbTenSP.Text}' ," +
                                     $"GiaSP = '{tbGiaSP.Text}', HangSP = '{cbHangSP.Text}', XuatXuSP = '{cbXuatXuSP.Text}', " +
-                                    $"MaLoai = '{cbMaLoai.SelectedValue}', SoLuongTonKho = '{tbSoLuongTonKho.Text}' " +
+                                    $"MaLoai = '{cbMaLoai.SelectedValue}', SoLuongTonKho = '{tbSoLuongTonKho.Text}', MoTaSP = '{tbMoTaSP.Text}' " +
                                     $"WHERE MaSP = '{tbMaSP.Text}'";
 
                 ketNoi.ThucHienLenh(lenhUpdate);
@@ -221,7 +231,7 @@ namespace WF_QLCHDT
             else
             {
                 string lenhInsert = $"INSERT INTO sanpham (MaSP, TenSP, GiaSP, HangSP, XuatXuSP, MaLoai, SoLuongTonKho) VALUES " +
-                                    $"('{tbMaSP.Text}', '{tbTenSP.Text}', '{tbGiaSP.Text}', " +
+                                    $"('{tbMaSP.Text}', '{tbTenSP.Text}', '{tbGiaSP.Text}', MoTaSP = '{tbMoTaSP.Text}' " +
                                     $"'{cbHangSP.Text}', '{cbXuatXuSP.Text}', '{cbMaLoai.SelectedValue}', '{tbSoLuongTonKho.Text}')";
 
                 ketNoi.ThucHienLenh(lenhInsert);
@@ -240,8 +250,8 @@ namespace WF_QLCHDT
                 return;
             }
 
-            string lenhTimKiem = $"Select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho  from sanpham, loai where sanpham.MaLoai = loai.MaLoai " +
-                                 $" and (MaSP LIKE '%{tuKhoa}%' OR TenSP LIKE '%{tuKhoa}%' OR GiaSP LIKE '%{tuKhoa}%' OR HangSP LIKE '%{tuKhoa}%' OR  XuatXuSP LIKE '%{tuKhoa}%' OR TenLoai LIKE '%{tuKhoa}%' OR SoLuongTonKho LIKE '%{tuKhoa}%')";
+            string lenhTimKiem = $"Select  MaSP, TenSP, GiaSP, HangSP, TenLoai, XuatXuSP, SoLuongTonKho, MoTaSP  from sanpham, loai where sanpham.MaLoai = loai.MaLoai " +
+                                 $" and (MaSP LIKE '%{tuKhoa}%' OR TenSP LIKE '%{tuKhoa}%' OR GiaSP LIKE '%{tuKhoa}%' OR HangSP LIKE '%{tuKhoa}%' OR  XuatXuSP LIKE '%{tuKhoa}%' OR TenLoai LIKE '%{tuKhoa}%' OR SoLuongTonKho LIKE '%{tuKhoa}%' OR MoTaSP LIKE '%{tuKhoa}%')";
             DataTable ketQuaTimKiem = ketNoi.ThucHienTruyVan(lenhTimKiem);
 
             if (ketQuaTimKiem.Rows.Count > 0)
@@ -391,6 +401,13 @@ namespace WF_QLCHDT
 
             // Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            
+            // Áp dụng AutoFit cho tất cả các cột
+            oSheet.Columns.AutoFit();
+
+            // Tự động xuống hàng nếu nội dung quá dài 
+            Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
+            dataRange.WrapText = true;
         }
 
         // Hàm chuyển đổi số thành chữ cái tương ứng trong Excel

@@ -132,5 +132,11 @@ namespace WF_QLCHDT
                 }
             }
         }
+
+        private void btn_logo_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Frm_trangChu());
+            lb_tieuDe.Text = "Trang chủ";
+        }
     }
 }

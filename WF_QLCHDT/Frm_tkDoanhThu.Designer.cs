@@ -397,6 +397,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_tkDoanhThu";
             this.Text = "tk doanh thu";
             this.Load += new System.EventHandler(this.Frm_tkDoanhThu_Load);

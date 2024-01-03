@@ -57,6 +57,7 @@
             this.DiaChiNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaiKhoanNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatKhauNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -316,7 +317,8 @@
             this.SoDienThoaiNV,
             this.DiaChiNV,
             this.TaiKhoanNV,
-            this.MatKhauNV});
+            this.MatKhauNV,
+            this.LoaiNV});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,6 +338,7 @@
             this.dgvNhanvien.Size = new System.Drawing.Size(1351, 310);
             this.dgvNhanvien.TabIndex = 0;
             this.dgvNhanvien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanvien_CellClick);
+            this.dgvNhanvien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNhanvien_CellFormatting);
             // 
             // MaNV
             // 
@@ -384,6 +387,14 @@
             this.MatKhauNV.MinimumWidth = 8;
             this.MatKhauNV.Name = "MatKhauNV";
             this.MatKhauNV.ReadOnly = true;
+            // 
+            // LoaiNV
+            // 
+            this.LoaiNV.DataPropertyName = "LoaiNV";
+            this.LoaiNV.HeaderText = "Loại NV";
+            this.LoaiNV.MinimumWidth = 8;
+            this.LoaiNV.Name = "LoaiNV";
+            this.LoaiNV.ReadOnly = true;
             // 
             // tbTimKiem
             // 
@@ -520,6 +531,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_nhanVien";
             this.Text = "Nhân viên";
             this.Load += new System.EventHandler(this.Frm_nhanVien_Load);
@@ -560,14 +572,15 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbLoaiNV;
+        private System.Windows.Forms.Button btnXuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoaiNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChiNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaiKhoanNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatKhauNV;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbLoaiNV;
-        private System.Windows.Forms.Button btnXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiNV;
     }
 }

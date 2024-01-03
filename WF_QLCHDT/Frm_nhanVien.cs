@@ -32,6 +32,25 @@ namespace WF_QLCHDT
             dgvNhanvien.DataSource = bangdulieu;
             cbLoaiNV.SelectedIndex = 0;
         }
+        private void dgvNhanvien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra nếu đang ở cột "loaiNV" và không phải là hàng đầu tiên (header)
+            if (e.ColumnIndex == dgvNhanvien.Columns["LoaiNV"].Index && e.RowIndex >= 0)
+            {
+                // Lấy giá trị từ cell
+                object cellValue = e.Value;
+
+                // Kiểm tra giá trị và hiển thị tương ứng
+                if (cellValue != null && cellValue.ToString() == "1")
+                {
+                    e.Value = "Quản lý";
+                }
+                else if (cellValue != null && cellValue.ToString() == "0")
+                {
+                    e.Value = "Nhân viên";
+                }
+            }
+        }
 
         private void Frm_nhanVien_Load(object sender, EventArgs e)
         {
@@ -116,7 +135,7 @@ namespace WF_QLCHDT
 
             // Cập nhật vào CSDL
             string lenhUpdate = $"UPDATE nhanvien SET TenNV = '{tbHoTen.Text}', SoDienThoaiNV = '{TbSDT.Text}'," +
-                                $" DiaChiNV = '{TBDiaChi.Text}', TaiKhoanNV = '{tbTaiKhoan.Text}', MatKhauNV = '{tbMatKhau.Text}' " +
+                                $" DiaChiNV = '{TBDiaChi.Text}', TaiKhoanNV = '{tbTaiKhoan.Text}', MatKhauNV = '{tbMatKhau.Text}' , LoaiNV = '{cbLoaiNV.SelectedIndex}'" +
                                 $" WHERE MaNV = '{tbMaNv.Text}' ";
 
             ketnoi.ThucHienLenh(lenhUpdate);
@@ -315,6 +334,13 @@ namespace WF_QLCHDT
 
             // Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Áp dụng AutoFit cho tất cả các cột
+            oSheet.Columns.AutoFit();
+
+            // Tự động xuống hàng nếu nội dung quá dài 
+            Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
+            dataRange.WrapText = true;
         }
 
 
@@ -334,5 +360,7 @@ namespace WF_QLCHDT
 
             return columnName;
         }
+
+      
     }
 }

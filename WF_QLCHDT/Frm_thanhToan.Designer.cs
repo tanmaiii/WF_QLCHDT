@@ -68,14 +68,14 @@
             this.ChonGiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChonSoLuongTonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbChonSP = new System.Windows.Forms.GroupBox();
-            this.gbThongTin = new System.Windows.Forms.GroupBox();
-            this.gbDSSP = new System.Windows.Forms.GroupBox();
-            this.tbTimKiem = new System.Windows.Forms.TextBox();
-            this.btTimKiem = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbTenSP = new System.Windows.Forms.TextBox();
             this.tbMaSP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tbTenSP = new System.Windows.Forms.TextBox();
+            this.btTimKiem = new System.Windows.Forms.Button();
+            this.tbTimKiem = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gbThongTin = new System.Windows.Forms.GroupBox();
+            this.gbDSSP = new System.Windows.Forms.GroupBox();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -305,7 +305,7 @@
             this.TenLoai,
             this.soLuongMua,
             this.thanhTien});
-            this.dgvSanPham.Location = new System.Drawing.Point(10, 64);
+            this.dgvSanPham.Location = new System.Drawing.Point(6, 64);
             this.dgvSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSanPham.Name = "dgvSanPham";
             this.dgvSanPham.ReadOnly = true;
@@ -467,11 +467,11 @@
             this.btnThemSP.ForeColor = System.Drawing.Color.White;
             this.btnThemSP.Image = ((System.Drawing.Image)(resources.GetObject("btnThemSP.Image")));
             this.btnThemSP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThemSP.Location = new System.Drawing.Point(440, 147);
+            this.btnThemSP.Location = new System.Drawing.Point(557, 147);
             this.btnThemSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemSP.Name = "btnThemSP";
             this.btnThemSP.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnThemSP.Size = new System.Drawing.Size(417, 48);
+            this.btnThemSP.Size = new System.Drawing.Size(300, 48);
             this.btnThemSP.TabIndex = 6;
             this.btnThemSP.Text = "      Thêm sản phẩm vào giỏ";
             this.btnThemSP.UseVisualStyleBackColor = false;
@@ -575,6 +575,80 @@
             this.gbChonSP.TabStop = false;
             this.gbChonSP.Text = "Chọn sản phẩm";
             // 
+            // tbMaSP
+            // 
+            this.tbMaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbMaSP.Enabled = false;
+            this.tbMaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaSP.Location = new System.Drawing.Point(123, 38);
+            this.tbMaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbMaSP.Name = "tbMaSP";
+            this.tbMaSP.Size = new System.Drawing.Size(304, 45);
+            this.tbMaSP.TabIndex = 36;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 32);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Mã SP";
+            // 
+            // tbTenSP
+            // 
+            this.tbTenSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTenSP.Enabled = false;
+            this.tbTenSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenSP.Location = new System.Drawing.Point(557, 38);
+            this.tbTenSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTenSP.Name = "tbTenSP";
+            this.tbTenSP.Size = new System.Drawing.Size(300, 45);
+            this.tbTenSP.TabIndex = 32;
+            // 
+            // btTimKiem
+            // 
+            this.btTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btTimKiem.FlatAppearance.BorderSize = 0;
+            this.btTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btTimKiem.Image")));
+            this.btTimKiem.Location = new System.Drawing.Point(780, 202);
+            this.btTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btTimKiem.Name = "btTimKiem";
+            this.btTimKiem.Size = new System.Drawing.Size(80, 47);
+            this.btTimKiem.TabIndex = 34;
+            this.btTimKiem.UseVisualStyleBackColor = false;
+            this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
+            // 
+            // tbTimKiem
+            // 
+            this.tbTimKiem.AccessibleDescription = "";
+            this.tbTimKiem.AccessibleName = "";
+            this.tbTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTimKiem.Location = new System.Drawing.Point(440, 203);
+            this.tbTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTimKiem.Name = "tbTimKiem";
+            this.tbTimKiem.Size = new System.Drawing.Size(334, 45);
+            this.tbTimKiem.TabIndex = 33;
+            this.tbTimKiem.Tag = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(12, 247);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(244, 32);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Nhấn vào để chọn SP";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // gbThongTin
             // 
             this.gbThongTin.Controls.Add(this.label13);
@@ -611,80 +685,6 @@
             this.gbDSSP.TabStop = false;
             this.gbDSSP.Text = "Sản phẩm đã chọn";
             // 
-            // tbTimKiem
-            // 
-            this.tbTimKiem.AccessibleDescription = "";
-            this.tbTimKiem.AccessibleName = "";
-            this.tbTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTimKiem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimKiem.Location = new System.Drawing.Point(440, 203);
-            this.tbTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbTimKiem.Name = "tbTimKiem";
-            this.tbTimKiem.Size = new System.Drawing.Size(334, 45);
-            this.tbTimKiem.TabIndex = 33;
-            this.tbTimKiem.Tag = "";
-            // 
-            // btTimKiem
-            // 
-            this.btTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btTimKiem.FlatAppearance.BorderSize = 0;
-            this.btTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btTimKiem.Image")));
-            this.btTimKiem.Location = new System.Drawing.Point(780, 202);
-            this.btTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btTimKiem.Name = "btTimKiem";
-            this.btTimKiem.Size = new System.Drawing.Size(80, 47);
-            this.btTimKiem.TabIndex = 34;
-            this.btTimKiem.UseVisualStyleBackColor = false;
-            this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(12, 244);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(244, 32);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Nhấn vào để chọn SP";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbTenSP
-            // 
-            this.tbTenSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTenSP.Enabled = false;
-            this.tbTenSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenSP.Location = new System.Drawing.Point(557, 38);
-            this.tbTenSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbTenSP.Name = "tbTenSP";
-            this.tbTenSP.Size = new System.Drawing.Size(300, 45);
-            this.tbTenSP.TabIndex = 32;
-            // 
-            // tbMaSP
-            // 
-            this.tbMaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbMaSP.Enabled = false;
-            this.tbMaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaSP.Location = new System.Drawing.Point(123, 38);
-            this.tbMaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbMaSP.Name = "tbMaSP";
-            this.tbMaSP.Size = new System.Drawing.Size(304, 45);
-            this.tbMaSP.TabIndex = 36;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 32);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Mã SP";
-            // 
             // Frm_thanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -695,6 +695,7 @@
             this.Controls.Add(this.gbThongTin);
             this.Controls.Add(this.gbChonSP);
             this.Controls.Add(flowLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_thanhToan";
             this.Text = "Thanh toán";

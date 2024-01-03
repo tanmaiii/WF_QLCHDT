@@ -289,6 +289,13 @@ namespace WF_QLCHDT
 
             // Căn giữa cả bảng 
             oSheet.get_Range(c1, c2).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Áp dụng AutoFit cho tất cả các cột
+            oSheet.Columns.AutoFit();
+
+            // Tự động xuống hàng nếu nội dung quá dài 
+            Microsoft.Office.Interop.Excel.Range dataRange = oSheet.get_Range("A1", GetExcelColumnName(columnCount) + (dataTable.Rows.Count + 3));
+            dataRange.WrapText = true;
         }
 
 

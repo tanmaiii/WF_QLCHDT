@@ -86,7 +86,7 @@ namespace WF_QLCHDT.Print
         private void HienChiTietSanPham()
         {
             // Thực hiện truy vấn SELECT để lấy dữ liệu từ cơ sở dữ liệu
-            string truyVan = $"SELECT ROW_NUMBER() OVER (ORDER BY MaSP) AS STT, sanpham.MaSP, sanpham.TenSP, sanpham.GiaSP,chitiethoadon.SoLuongMua, chitiethoadon.ThanhTien FROM hoadon, chitiethoadon, sanpham,nhanvien where hoadon.MaHD = chitiethoadon.MaHD and chitiethoadon.MaSP = sanpham.MaSP and hoadon.MaHD = '{MaHD}' and hoadon.MaNV = nhanvien.MaNV";
+            string truyVan = $"SELECT ROW_NUMBER() OVER (ORDER BY MaSP) AS STT, sanpham.MaSP, sanpham.TenSP, chitiethoadon.GiaSP,chitiethoadon.SoLuongMua, chitiethoadon.ThanhTien FROM hoadon, chitiethoadon, sanpham,nhanvien where hoadon.MaHD = chitiethoadon.MaHD and chitiethoadon.MaSP = sanpham.MaSP and hoadon.MaHD = '{MaHD}' and hoadon.MaNV = nhanvien.MaNV";
 
             // Gọi hàm ThucHienTruyVan để lấy dữ liệu từ cơ sở dữ liệu và hiển thị trong DataGridView
             DataTable dataTable = ketnoi.ThucHienTruyVan(truyVan);

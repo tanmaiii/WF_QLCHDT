@@ -34,8 +34,14 @@ namespace WF_QLCHDT
             pnDSSP.Enabled = true;
             btnTaoDonHang.Enabled = true;
 
-            HienThiSanPham();
+            HienThiLoaiSanPham();
             HienThiNhaCungCap();
+            if (cbLoaiSP.Items.Count > 0)
+            {
+                cbLoaiSP.SelectedIndex = 0;
+                HienThiSanPham(cbLoaiSP.SelectedValue.ToString());
+                HienThongTinTheoSanPham();
+            }
 
 
             dgvSanPham.Columns["GiaSP"].DefaultCellStyle.Format = "N0";
@@ -57,25 +63,43 @@ namespace WF_QLCHDT
             cbNhaCC.ValueMember = "MaNCC";
         }
 
-        void HienThiSanPham()
+        void HienThiLoaiSanPham()
         {
-            string mysql = $"SELECT * FROM sanpham";
-            DataTable sanPhamDuLieu = ketnoi.ThucHienTruyVan(mysql);
-            // Kiểm tra xem DataTable có hàng nào hay không
-            if (sanPhamDuLieu.Rows.Count > 0)
+            string mysql = "select * from loai";
+            DataTable duieu = ketnoi.ThucHienTruyVan(mysql);
+            cbLoaiSP.DataSource = duieu;
+            cbLoaiSP.DisplayMember = "TenLoai";
+            cbLoaiSP.ValueMember = "MaLoai";
+        }
+
+        void HienThiSanPham(String maLoai)
+        {
+            string mysql = $"SELECT MaSP, TenSP FROM sanpham WHERE MaLoai = '{maLoai}'";
+
+            DataTable dulieu = ketnoi.ThucHienTruyVan(mysql);
+            if (dulieu.Rows.Count > 0)
             {
-                cbTenSP.DataSource = sanPhamDuLieu;
+                cbTenSP.Enabled = true;
+                cbTenSP.DataSource = dulieu;
                 cbTenSP.DisplayMember = "TenSP";
                 cbTenSP.ValueMember = "MaSP";
-                cbTenSP.Enabled = true;  // Bật tình trạng sẵn sàng để chọn
-                HienThongTinTheoSanPham();
+
             }
             else
             {
-                // Nếu không có sản phẩm nào thuộc loại đã chọn, làm rỗng ComboBox "Sản phẩm"
                 cbTenSP.DataSource = null;
-                cbTenSP.Enabled = false;  // Tắt tình trạng sẵn sàng để chọn
+                cbTenSP.Enabled = false;
             }
+        }
+
+        private void cbLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Lấy loại đã chọn (MaLoai)
+            string selectedMaLoai = cbLoaiSP.SelectedValue.ToString();
+
+            // Điền ComboBox "Sản phẩm" dựa trên loại đã chọn
+            HienThiSanPham(selectedMaLoai);
+
         }
 
         void HienThongTinTheoSanPham()
@@ -103,7 +127,6 @@ namespace WF_QLCHDT
                 tbSoLuongTon.Text = string.Empty;
             }
         }
-
 
 
         private void cbTenSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,8 +253,6 @@ namespace WF_QLCHDT
             }
         }
 
-
-
         private void btnTaoDonHang_Click(object sender, EventArgs e)
         {
             if (dgvSanPham.Rows.Count == 0)
@@ -297,10 +318,11 @@ namespace WF_QLCHDT
                     // Lấy thông tin từ các cột trong DataGridView
                     string MaSP = row.Cells["maSP"].Value.ToString();
                     int SoLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    int GiaSP = Convert.ToInt32(row.Cells["GiaSP"].Value);
                     int ThanhTien = int.Parse(row.Cells["ThanhTien"].Value.ToString().Replace(",",""));
 
                     // Thực hiện câu lệnh SQL INSERT vào bảng hoadonchitiet
-                    string mysqlChiTiet = $"INSERT INTO chitietdondathang (MaSP, MaDDH, SoLuong, ThanhTien) VALUES ('{MaSP}', '{MaDDH}', '{SoLuong}', '{ThanhTien}')";
+                    string mysqlChiTiet = $"INSERT INTO chitietdondathang (MaSP, MaDDH, SoLuong, ThanhTien, GiaSP) VALUES ('{MaSP}', '{MaDDH}', '{SoLuong}', '{ThanhTien}', '{GiaSP}')";
 
                     ketnoi.ThucHienLenh(mysqlChiTiet);
 
@@ -323,5 +345,7 @@ namespace WF_QLCHDT
             FrmChiTietDonHang.MaDDH = MaDDH;
             FrmChiTietDonHang.ShowDialog();
         }
+
+
     }
 }
