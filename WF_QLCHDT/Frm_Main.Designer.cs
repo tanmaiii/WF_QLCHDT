@@ -286,7 +286,7 @@
             this.pn_body.Location = new System.Drawing.Point(325, 66);
             this.pn_body.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_body.Name = "pn_body";
-            this.pn_body.Size = new System.Drawing.Size(1338, 894);
+            this.pn_body.Size = new System.Drawing.Size(1202, 748);
             this.pn_body.TabIndex = 1;
             // 
             // panel9
@@ -302,7 +302,7 @@
             this.panel9.Location = new System.Drawing.Point(325, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1338, 60);
+            this.panel9.Size = new System.Drawing.Size(1202, 60);
             this.panel9.TabIndex = 0;
             // 
             // lbChucVu
@@ -311,7 +311,7 @@
             this.lbChucVu.AutoSize = true;
             this.lbChucVu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChucVu.ForeColor = System.Drawing.Color.White;
-            this.lbChucVu.Location = new System.Drawing.Point(1169, 14);
+            this.lbChucVu.Location = new System.Drawing.Point(1033, 14);
             this.lbChucVu.Name = "lbChucVu";
             this.lbChucVu.Size = new System.Drawing.Size(25, 32);
             this.lbChucVu.TabIndex = 4;
@@ -323,7 +323,7 @@
             this.lbTenNV.AutoSize = true;
             this.lbTenNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTenNV.ForeColor = System.Drawing.Color.White;
-            this.lbTenNV.Location = new System.Drawing.Point(850, 14);
+            this.lbTenNV.Location = new System.Drawing.Point(714, 14);
             this.lbTenNV.Name = "lbTenNV";
             this.lbTenNV.Size = new System.Drawing.Size(25, 32);
             this.lbTenNV.TabIndex = 3;
@@ -335,7 +335,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1062, 14);
+            this.label2.Location = new System.Drawing.Point(926, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 32);
             this.label2.TabIndex = 2;
@@ -347,7 +347,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(785, 14);
+            this.label1.Location = new System.Drawing.Point(649, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 32);
             this.label1.TabIndex = 1;
@@ -366,8 +366,8 @@
             // 
             // Frm_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1736, 971);
             this.Controls.Add(this.pn_body);

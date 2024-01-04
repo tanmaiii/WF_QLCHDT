@@ -69,7 +69,7 @@
             this.panel5.Controls.Add(this.chartDoanhThu);
             this.panel5.Location = new System.Drawing.Point(742, 181);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(624, 685);
+            this.panel5.Size = new System.Drawing.Size(624, 655);
             this.panel5.TabIndex = 4;
             // 
             // label6
@@ -95,7 +95,7 @@
             this.chartDoanhThu.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartDoanhThu.Legends.Add(legend1);
-            this.chartDoanhThu.Location = new System.Drawing.Point(3, 44);
+            this.chartDoanhThu.Location = new System.Drawing.Point(3, 143);
             this.chartDoanhThu.Name = "chartDoanhThu";
             series1.ChartArea = "ChartArea1";
             series1.IsXValueIndexed = true;
@@ -103,7 +103,7 @@
             series1.Legend = "Legend1";
             series1.Name = "TongTien";
             this.chartDoanhThu.Series.Add(series1);
-            this.chartDoanhThu.Size = new System.Drawing.Size(615, 627);
+            this.chartDoanhThu.Size = new System.Drawing.Size(615, 443);
             this.chartDoanhThu.TabIndex = 0;
             this.chartDoanhThu.Text = "Doanh thu theo móc thời gian";
             // 
@@ -184,7 +184,7 @@
             this.panel4.Controls.Add(this.dgvDoanhThu);
             this.panel4.Location = new System.Drawing.Point(12, 178);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(724, 688);
+            this.panel4.Size = new System.Drawing.Size(724, 658);
             this.panel4.TabIndex = 2;
             // 
             // dgvDoanhThu
@@ -227,7 +227,7 @@
             this.dgvDoanhThu.RowHeadersWidth = 62;
             this.dgvDoanhThu.RowTemplate.Height = 28;
             this.dgvDoanhThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDoanhThu.Size = new System.Drawing.Size(711, 671);
+            this.dgvDoanhThu.Size = new System.Drawing.Size(711, 641);
             this.dgvDoanhThu.TabIndex = 2;
             // 
             // TenSP

@@ -233,9 +233,9 @@ namespace WF_QLCHDT
             }
             else
             {
-                string lenhInsert = $"INSERT INTO sanpham (MaSP, TenSP, GiaSP, HangSP, XuatXuSP, MaLoai, SoLuongTonKho) VALUES " +
-                                    $"('{tbMaSP.Text}', '{tbTenSP.Text}', '{tbGiaSP.Text}', MoTaSP = '{tbMoTaSP.Text}' " +
-                                    $"'{cbHangSP.Text}', '{cbXuatXuSP.Text}', '{cbMaLoai.SelectedValue}', '{tbSoLuongTonKho.Text}')";
+                string lenhInsert = $"INSERT INTO sanpham (MaSP, TenSP, GiaSP, MoTaSP , HangSP, XuatXuSP, MaLoai, SoLuongTonKho) VALUES " +
+                                    $"('{tbMaSP.Text}', '{tbTenSP.Text}', '{tbGiaSP.Text}', '{tbMoTaSP.Text}', " +
+                                    $" '{cbHangSP.Text}', '{cbXuatXuSP.Text}', '{cbMaLoai.SelectedValue}', '{tbSoLuongTonKho.Text}')";
 
                 ketNoi.ThucHienLenh(lenhInsert);
                 MessageBox.Show("Thêm sản phẩm thành công!");

@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1388, 102);
+            this.panel1.Size = new System.Drawing.Size(1393, 102);
             this.panel1.TabIndex = 0;
             // 
             // checkboxLoc
@@ -112,7 +112,7 @@
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(705, 41);
+            this.btnTimKiem.Location = new System.Drawing.Point(709, 26);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnTimKiem.Size = new System.Drawing.Size(194, 50);
@@ -204,7 +204,7 @@
             this.dgvHoaDon.RowHeadersWidth = 62;
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1372, 616);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1377, 561);
             this.dgvHoaDon.TabIndex = 0;
             this.dgvHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellDoubleClick);
             // 
@@ -263,9 +263,9 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Controls.Add(this.btnReset);
             this.flowLayoutPanel1.Controls.Add(this.btnXuat);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 804);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 770);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1394, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1397, 63);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // groupBox1
@@ -278,7 +278,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 110);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1388, 692);
+            this.groupBox1.Size = new System.Drawing.Size(1393, 654);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách hóa đơn";
@@ -288,7 +288,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1408, 889);
+            this.ClientSize = new System.Drawing.Size(1877, 1185);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
