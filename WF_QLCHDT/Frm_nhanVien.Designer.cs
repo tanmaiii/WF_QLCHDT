@@ -425,9 +425,9 @@
             this.btnXuat.Location = new System.Drawing.Point(879, 3);
             this.btnXuat.Name = "btnXuat";
             this.btnXuat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnXuat.Size = new System.Drawing.Size(213, 60);
+            this.btnXuat.Size = new System.Drawing.Size(236, 60);
             this.btnXuat.TabIndex = 32;
-            this.btnXuat.Text = "Xuất Exel";
+            this.btnXuat.Text = "Xuất Excel";
             this.btnXuat.UseVisualStyleBackColor = false;
             this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
             // 

@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_sanPham));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbMoTaSP = new System.Windows.Forms.RichTextBox();
             this.btnThemLoaiSP = new System.Windows.Forms.Button();
-            this.cbHangSP = new System.Windows.Forms.ComboBox();
-            this.tbGiaSP = new System.Windows.Forms.TextBox();
-            this.cbXuatXuSP = new System.Windows.Forms.ComboBox();
-            this.cbMaLoai = new System.Windows.Forms.ComboBox();
-            this.tbSoLuongTonKho = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbTenSP = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tbMaSP = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbHangSP = new System.Windows.Forms.ComboBox();
+            this.cbMaLoai = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbGiaSP = new System.Windows.Forms.TextBox();
+            this.tbTenSP = new System.Windows.Forms.TextBox();
+            this.cbXuatXuSP = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbSoLuongTonKho = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
@@ -102,15 +102,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(802, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 38);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Mô tả SP";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 38);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Mã SP";
             // 
             // tbMoTaSP
             // 
@@ -137,6 +137,16 @@
             this.btnThemLoaiSP.Text = "...";
             this.btnThemLoaiSP.UseVisualStyleBackColor = false;
             this.btnThemLoaiSP.Click += new System.EventHandler(this.btnThemLoaiSP_Click);
+            // 
+            // tbMaSP
+            // 
+            this.tbMaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbMaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaSP.Location = new System.Drawing.Point(16, 75);
+            this.tbMaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbMaSP.Name = "tbMaSP";
+            this.tbMaSP.Size = new System.Drawing.Size(380, 45);
+            this.tbMaSP.TabIndex = 2;
             // 
             // cbHangSP
             // 
@@ -166,6 +176,26 @@
             this.cbHangSP.TabIndex = 35;
             this.cbHangSP.Text = "Xiaomi";
             // 
+            // cbMaLoai
+            // 
+            this.cbMaLoai.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaLoai.FormattingEnabled = true;
+            this.cbMaLoai.Location = new System.Drawing.Point(809, 73);
+            this.cbMaLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMaLoai.Name = "cbMaLoai";
+            this.cbMaLoai.Size = new System.Drawing.Size(380, 46);
+            this.cbMaLoai.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(802, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 38);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Loại SP";
+            // 
             // tbGiaSP
             // 
             this.tbGiaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -176,6 +206,16 @@
             this.tbGiaSP.Size = new System.Drawing.Size(380, 45);
             this.tbGiaSP.TabIndex = 27;
             this.tbGiaSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbGiaSP_KeyPress);
+            // 
+            // tbTenSP
+            // 
+            this.tbTenSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbTenSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenSP.Location = new System.Drawing.Point(16, 162);
+            this.tbTenSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTenSP.Name = "tbTenSP";
+            this.tbTenSP.Size = new System.Drawing.Size(380, 45);
+            this.tbTenSP.TabIndex = 4;
             // 
             // cbXuatXuSP
             // 
@@ -201,15 +241,15 @@
             this.cbXuatXuSP.TabIndex = 21;
             this.cbXuatXuSP.Text = "Việt Nam";
             // 
-            // cbMaLoai
+            // label7
             // 
-            this.cbMaLoai.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaLoai.FormattingEnabled = true;
-            this.cbMaLoai.Location = new System.Drawing.Point(809, 73);
-            this.cbMaLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbMaLoai.Name = "cbMaLoai";
-            this.cbMaLoai.Size = new System.Drawing.Size(380, 46);
-            this.cbMaLoai.TabIndex = 20;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(409, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 38);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Hãng";
             // 
             // tbSoLuongTonKho
             // 
@@ -222,45 +262,15 @@
             this.tbSoLuongTonKho.TabIndex = 14;
             this.tbSoLuongTonKho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSoLuongTonKho_KeyPress);
             // 
-            // label7
+            // label8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(409, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 38);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Hãng";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(408, 122);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 38);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Xuất xứ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(802, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 38);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Loại SP";
-            // 
-            // tbTenSP
-            // 
-            this.tbTenSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbTenSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTenSP.Location = new System.Drawing.Point(16, 162);
-            this.tbTenSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbTenSP.Name = "tbTenSP";
-            this.tbTenSP.Size = new System.Drawing.Size(380, 45);
-            this.tbTenSP.TabIndex = 4;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 209);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 38);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Số lượng";
             // 
             // label3
             // 
@@ -272,25 +282,15 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên SP";
             // 
-            // tbMaSP
+            // label6
             // 
-            this.tbMaSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbMaSP.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaSP.Location = new System.Drawing.Point(16, 75);
-            this.tbMaSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbMaSP.Name = "tbMaSP";
-            this.tbMaSP.Size = new System.Drawing.Size(380, 45);
-            this.tbMaSP.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 38);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mã SP";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(408, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 38);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Xuất xứ";
             // 
             // label1
             // 
@@ -302,15 +302,15 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Giá sản phẩm";
             // 
-            // label8
+            // label4
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 209);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 38);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Số lượng";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(802, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 38);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Mô tả SP";
             // 
             // tbTimKiem
             // 
@@ -548,9 +548,9 @@
             this.btnXuat.Location = new System.Drawing.Point(879, 3);
             this.btnXuat.Name = "btnXuat";
             this.btnXuat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnXuat.Size = new System.Drawing.Size(213, 60);
+            this.btnXuat.Size = new System.Drawing.Size(222, 60);
             this.btnXuat.TabIndex = 29;
-            this.btnXuat.Text = "Xuất Exel";
+            this.btnXuat.Text = "Xuất Excel";
             this.btnXuat.UseVisualStyleBackColor = false;
             this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
             // 

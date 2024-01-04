@@ -122,7 +122,6 @@
             this.tbMatKhauNV.Name = "tbMatKhauNV";
             this.tbMatKhauNV.Size = new System.Drawing.Size(519, 45);
             this.tbMatKhauNV.TabIndex = 3;
-            this.tbMatKhauNV.Text = "admin";
             this.tbMatKhauNV.UseSystemPasswordChar = true;
             // 
             // btDangNhap
@@ -166,7 +165,6 @@
             this.tbTaiKhoanNV.Name = "tbTaiKhoanNV";
             this.tbTaiKhoanNV.Size = new System.Drawing.Size(519, 45);
             this.tbTaiKhoanNV.TabIndex = 0;
-            this.tbTaiKhoanNV.Text = "admin";
             // 
             // panel2
             // 
