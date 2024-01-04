@@ -427,6 +427,7 @@ namespace WF_QLCHDT
             if(donghh >= 0)
             {
                 dgvSanPham.Rows.RemoveAt(donghh);
+                CapNhatTongTien();
             }
         }
 
