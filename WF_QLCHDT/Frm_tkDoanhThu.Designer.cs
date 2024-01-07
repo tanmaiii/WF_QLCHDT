@@ -70,9 +70,9 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Controls.Add(this.btnReset);
             this.flowLayoutPanel1.Controls.Add(this.btnXuat);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1152, 20);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1139, 20);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(209, 96);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(209, 137);
             this.flowLayoutPanel1.TabIndex = 29;
             // 
             // btnReset
@@ -191,13 +191,13 @@
             this.chartDoanhThu.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartDoanhThu.Legends.Add(legend1);
-            this.chartDoanhThu.Location = new System.Drawing.Point(10, 127);
+            this.chartDoanhThu.Location = new System.Drawing.Point(10, 71);
             this.chartDoanhThu.Name = "chartDoanhThu";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "TongTien";
             this.chartDoanhThu.Series.Add(series1);
-            this.chartDoanhThu.Size = new System.Drawing.Size(799, 465);
+            this.chartDoanhThu.Size = new System.Drawing.Size(611, 601);
             this.chartDoanhThu.TabIndex = 0;
             this.chartDoanhThu.Text = "Doanh thu theo móc thời gian";
             // 
@@ -241,7 +241,7 @@
             this.dgvDoanhThu.RowHeadersWidth = 62;
             this.dgvDoanhThu.RowTemplate.Height = 28;
             this.dgvDoanhThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDoanhThu.Size = new System.Drawing.Size(530, 687);
+            this.dgvDoanhThu.Size = new System.Drawing.Size(711, 669);
             this.dgvDoanhThu.TabIndex = 2;
             // 
             // SoLuongHD
@@ -303,7 +303,7 @@
             this.panel4.Controls.Add(this.dgvDoanhThu);
             this.panel4.Location = new System.Drawing.Point(12, 176);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(543, 704);
+            this.panel4.Size = new System.Drawing.Size(724, 686);
             this.panel4.TabIndex = 0;
             // 
             // panel5
@@ -315,7 +315,7 @@
             this.panel5.Controls.Add(this.chartDoanhThu);
             this.panel5.Location = new System.Drawing.Point(742, 176);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(812, 704);
+            this.panel5.Size = new System.Drawing.Size(624, 686);
             this.panel5.TabIndex = 1;
             // 
             // groupBox1
@@ -332,7 +332,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1367, 125);
+            this.groupBox1.Size = new System.Drawing.Size(1354, 166);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doanh thu";
@@ -342,7 +342,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1837, 1186);
+            this.ClientSize = new System.Drawing.Size(1378, 874);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);

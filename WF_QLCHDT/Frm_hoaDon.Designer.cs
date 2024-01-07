@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1393, 102);
+            this.panel1.Size = new System.Drawing.Size(1364, 102);
             this.panel1.TabIndex = 0;
             // 
             // checkboxLoc
@@ -204,7 +204,7 @@
             this.dgvHoaDon.RowHeadersWidth = 62;
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1377, 561);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1348, 572);
             this.dgvHoaDon.TabIndex = 0;
             this.dgvHoaDon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellDoubleClick);
             // 
@@ -263,9 +263,9 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Controls.Add(this.btnReset);
             this.flowLayoutPanel1.Controls.Add(this.btnXuat);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 770);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 781);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1397, 63);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1358, 63);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // groupBox1
@@ -278,7 +278,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 110);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1393, 654);
+            this.groupBox1.Size = new System.Drawing.Size(1364, 665);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách hóa đơn";
@@ -288,7 +288,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1877, 1185);
+            this.ClientSize = new System.Drawing.Size(1378, 874);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);

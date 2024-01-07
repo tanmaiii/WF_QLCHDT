@@ -93,9 +93,9 @@
             flowLayoutPanel1.Controls.Add(this.btnTaoDonHang);
             flowLayoutPanel1.Controls.Add(this.btnReset);
             flowLayoutPanel1.Controls.Add(this.btnInHoaDon);
-            flowLayoutPanel1.Location = new System.Drawing.Point(12, 775);
+            flowLayoutPanel1.Location = new System.Drawing.Point(12, 804);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(1441, 69);
+            flowLayoutPanel1.Size = new System.Drawing.Size(1354, 69);
             flowLayoutPanel1.TabIndex = 32;
             // 
             // btnTaoDonHang
@@ -313,7 +313,7 @@
             this.dgvSanPham.RowHeadersWidth = 62;
             this.dgvSanPham.RowTemplate.Height = 28;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(1422, 216);
+            this.dgvSanPham.Size = new System.Drawing.Size(1338, 245);
             this.dgvSanPham.TabIndex = 0;
             this.dgvSanPham.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellDoubleClick);
             // 
@@ -503,7 +503,7 @@
             this.ChonTenSP,
             this.ChonGiaSP,
             this.ChonSoLuongTonKho});
-            this.dgvChonSP.Location = new System.Drawing.Point(12, 277);
+            this.dgvChonSP.Location = new System.Drawing.Point(19, 277);
             this.dgvChonSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChonSP.Name = "dgvChonSP";
             this.dgvChonSP.ReadOnly = true;
@@ -511,7 +511,7 @@
             this.dgvChonSP.RowHeadersWidth = 62;
             this.dgvChonSP.RowTemplate.Height = 28;
             this.dgvChonSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChonSP.Size = new System.Drawing.Size(966, 188);
+            this.dgvChonSP.Size = new System.Drawing.Size(857, 173);
             this.dgvChonSP.TabIndex = 32;
             this.dgvChonSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChonSP_CellClick);
             // 
@@ -572,7 +572,7 @@
             this.gbChonSP.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbChonSP.Location = new System.Drawing.Point(475, 2);
             this.gbChonSP.Name = "gbChonSP";
-            this.gbChonSP.Size = new System.Drawing.Size(984, 476);
+            this.gbChonSP.Size = new System.Drawing.Size(891, 461);
             this.gbChonSP.TabIndex = 31;
             this.gbChonSP.TabStop = false;
             this.gbChonSP.Text = "Chọn sản phẩm";
@@ -680,9 +680,9 @@
             this.gbDSSP.Controls.Add(this.label15);
             this.gbDSSP.Controls.Add(this.dgvSanPham);
             this.gbDSSP.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDSSP.Location = new System.Drawing.Point(15, 484);
+            this.gbDSSP.Location = new System.Drawing.Point(12, 484);
             this.gbDSSP.Name = "gbDSSP";
-            this.gbDSSP.Size = new System.Drawing.Size(1438, 285);
+            this.gbDSSP.Size = new System.Drawing.Size(1354, 314);
             this.gbDSSP.TabIndex = 34;
             this.gbDSSP.TabStop = false;
             this.gbDSSP.Text = "Sản phẩm đã chọn";
@@ -692,7 +692,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1877, 1185);
+            this.ClientSize = new System.Drawing.Size(1378, 885);
             this.Controls.Add(this.gbDSSP);
             this.Controls.Add(this.gbThongTin);
             this.Controls.Add(this.gbChonSP);
